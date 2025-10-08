@@ -90,7 +90,7 @@ def add_table_to_fields(data):
     return stats
 
 def main():
-    yaml_file = Path('/Users/aarelaponin/PycharmProjects/dev/gam/joget_services/form_structure.yaml')
+    yaml_file = Path('/Users/aarelaponin/PycharmProjects/dev/gam_utilities/joget_services/form_structure.yaml')
 
     if not yaml_file.exists():
         print(f"Error: File not found: {yaml_file}")

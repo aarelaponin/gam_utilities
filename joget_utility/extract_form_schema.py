@@ -327,7 +327,7 @@ def main():
     print(report)
 
     # Save outputs
-    output_dir = Path("/Users/aarelaponin/PycharmProjects/dev/gam/joget_utility/schema_output")
+    output_dir = Path("/Users/aarelaponin/PycharmProjects/dev/gam_utilities/joget_utility/schema_output")
     output_dir.mkdir(exist_ok=True)
 
     # Save markdown report
