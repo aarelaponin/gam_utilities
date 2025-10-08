@@ -1,0 +1,541 @@
+service:
+  id: farmers_registry
+  name: "Farmers Registry Service"
+  version: "1.0"
+  govstackVersion: "1.0"
+
+entities:
+  primary:
+    type: "Person"
+    identifierTypes:
+      - NationalId
+      - FarmerRegistrationNumber
+      - BeneficiaryCode
+
+formMappings:
+  # Tab 1: Basic Information
+  farmerBasicInfo:
+    formId: "farmerBasicInfo"
+    tableName: "app_fd_farmer_basic_data"
+    primaryKey: "id"
+    fields:
+      - joget: "national_id"
+        govstack: "identifiers[0].value"
+        govstackType: "identifiers[0].type"
+        typeValue: "NationalId"
+        required: true
+
+      - joget: "first_name"
+        govstack: "name.given[0]"
+        required: true
+
+      - joget: "last_name"
+        govstack: "name.family"
+        required: true
+
+      - joget: "gender"
+        govstack: "gender"
+        valueMapping:
+          male: "male"
+          female: "female"
+        required: true
+
+      - joget: "date_of_birth"
+        govstack: "birthDate"
+        transform: "date_ISO8601"
+
+      - joget: "marital_status"
+        govstack: "maritalStatus"
+
+      - joget: "preferred_language"
+        govstack: "communication[0].language"
+        valueMapping:
+          sesotho: "st"
+          english: "en"
+
+      - joget: "mobile_number"
+        govstack: "telecom[0].value"
+        govstackType: "telecom[0].system"
+        typeValue: "phone"
+
+      - joget: "email_address"
+        govstack: "telecom[1].value"
+        govstackType: "telecom[1].system"
+        typeValue: "email"
+
+      - joget: "extension_officer_name"
+        govstack: "extension.extensionOfficer"
+
+      - joget: "member_of_cooperative"
+        govstack: "extension.cooperativeMember"
+        transform: "yesNoBoolean"
+
+      - joget: "cooperative_name"
+        govstack: "extension.cooperativeName"
+
+  # Tab 2: Location & Farm
+  farmerLocation:
+    formId: "farmerLocation"
+    tableName: "app_fd_farm_location"
+    primaryKey: "id"
+    fields:
+      - joget: "district"
+        govstack: "address[0].district"
+        required: true
+
+      - joget: "village"
+        govstack: "address[0].city"
+        required: true
+
+      - joget: "communityCouncil"
+        govstack: "address[0].line[0]"
+
+      - joget: "agroEcologicalZone"
+        govstack: "extension.farmLocation.agroEcologicalZone"
+
+      - joget: "residency_type"  # Fixed: actual form field ID
+        govstack: "extension.residencyType"
+        valueMapping:
+          "1": "rural"
+          "2": "urban"
+
+      - joget: "yearsInArea"
+        govstack: "extension.yearsInArea"
+        transform: "numeric"
+
+      - joget: "gpsLatitude"
+        govstack: "extension.farmLocation.latitude"
+
+      - joget: "gpsLongitude"
+        govstack: "extension.farmLocation.longitude"
+
+      - joget: "ownedRentedLand"
+        govstack: "extension.farmDetails.ownedRentedLandHectares"
+        transform: "numeric"
+
+      - joget: "totalAvailableLand"
+        govstack: "extension.farmDetails.totalLandHectares"
+        transform: "numeric"
+
+      - joget: "cultivatedLand"
+        govstack: "extension.farmDetails.cultivatedLandHectares"
+        transform: "numeric"
+
+      - joget: "conservationAgricultureLand"
+        govstack: "extension.farmDetails.conservationAgricultureHectares"
+        transform: "numeric"
+
+      # Access to Services
+      - joget: "access_to_services"
+        govstack: "extension.accessToServices.closestService"
+
+      - joget: "distanceWaterSource"
+        govstack: "extension.accessToServices.waterSourceMinutes"
+        transform: "numeric"
+
+      - joget: "distancePrimarySchool"
+        govstack: "extension.accessToServices.primarySchoolMinutes"
+        transform: "numeric"
+
+      - joget: "distancePublicHospital"
+        govstack: "extension.accessToServices.publicHospitalMinutes"
+        transform: "numeric"
+
+      - joget: "distanceLivestockMarket"
+        govstack: "extension.accessToServices.livestockMarketMinutes"
+        transform: "numeric"
+
+      - joget: "distanceAgriculturalMarket"
+        govstack: "extension.accessToServices.agriculturalMarketMinutes"
+        transform: "numeric"
+
+      - joget: "distancePublicTransport"
+        govstack: "extension.accessToServices.publicTransportMinutes"
+        transform: "numeric"
+
+  # Tab 3: Agricultural Activities
+  farmerAgriculture:
+    formId: "farmerAgriculture"
+    tableName: "app_fd_farming_experience"
+    primaryKey: "id"
+    fields:
+      - joget: "cropProduction"
+        govstack: "extension.agriculturalActivities.engagedInCropProduction"
+        transform: "yesNoBoolean"
+        required: true
+
+      - joget: "livestockProduction"
+        govstack: "extension.agriculturalActivities.engagedInLivestockProduction"
+        valueMapping:
+          "1": true
+          "2": false
+        required: true
+
+      - joget: "mainSourceLivelihood"
+        govstack: "extension.agriculturalActivities.mainSourceLivelihood"
+        required: true
+
+      - joget: "mainSourceFarmLabour"
+        govstack: "extension.agriculturalActivities.mainSourceFarmLabour"
+        valueMapping:
+          "1": "Family"
+          "2": "Seasonally Hired"
+          "3": "Permanently Hired"
+        required: true
+
+      - joget: "canReadWrite"
+        govstack: "extension.agriculturalActivities.canReadWrite"
+        transform: "yesNoBoolean"
+        required: true
+
+      - joget: "agriculturalManagementSkills"
+        jsonPath: "extension.agriculturalActivities.agriculturalManagementSkills"  # What test data actually sends
+        govstack: "extension.agriculturalActivities.managementSkillLevel"          # GovStack spec requirement
+        column: "c_agricultural_mgmt_skills"
+        required: true
+
+      - joget: "mainSourceAgriculturalInfo"
+        jsonPath: "extension.agriculturalActivities.mainSourceAgriculturalInfo"  # What test data sends
+        govstack: "extension.agriculturalActivities.mainInfoSource"              # GovStack spec
+        column: "c_main_source_agric_info"
+        required: true
+
+      - joget: "conservationPractices"
+        govstack: "extension.conservationAgriculture.practices"
+        transform: "multiCheckbox"
+
+      - joget: "conservationPracticesOther"
+        govstack: "extension.conservationAgriculture.otherPractices"
+
+      - joget: "shocks_hazards"  # Fixed: actual form field ID
+        govstack: "extension.hazardsAndShocks.experienced"
+        transform: "multiCheckbox"
+
+      - joget: "otherHazards"
+        govstack: "extension.hazardsAndShocks.other"
+
+      - joget: "copingMechanisms"
+        govstack: "extension.hazardsAndShocks.copingMechanisms"
+
+  # Tab 4: Crops and Livestock Form
+  farmerCropsLivestock:
+    formId: "farmerCropsLivestock"
+    tableName: "app_fd_farmer_crop_livestck"
+    primaryKey: "id"
+    fields:
+      - joget: "hasLivestock"  # Added missing mapping
+        govstack: "extension.agriculturalActivities.hasLivestock"
+        transform: "yesNoBoolean"
+
+      - joget: "cropManagement"  # Grid container for crops
+        govstack: "extension.agriculturalData.cropsContainer"
+        transform: "grid"
+
+      - joget: "livestockDetails"  # Grid container for livestock
+        govstack: "extension.agriculturalData.livestockContainer"
+        transform: "grid"
+
+  # Tab 4.5: Household Form
+  farmerHousehold:
+    formId: "farmerHousehold"
+    tableName: "app_fd_household_reg"
+    primaryKey: "id"
+    fields:
+      - joget: "householdMembers"  # Grid container for household members
+        govstack: "extension.householdMembersContainer"
+        transform: "grid"
+
+  # Tab 5: Household Members (Grid/Subform)
+  householdMembers:
+    type: "array"
+    formId: "householdMemberForm"
+    tableName: "app_fd_household_members"
+    primaryKey: "id"
+    parentKey: "id"
+    parentField: "farmer_id"  # The actual field name that links to parent
+    govstack: "relatedPerson"
+    jogetGrid: "householdMembers"
+    fields:
+      - joget: "farmer_id"  # Reference to parent farmer
+        govstack: "extension.parentFarmerId"
+
+      - joget: "memberName"
+        govstack: "name.text"
+
+      - joget: "sex"
+        govstack: "gender"
+
+      - joget: "date_of_birth"
+        govstack: "birthDate"
+        transform: "date_ISO8601"
+
+      - joget: "relationship"
+        govstack: "relationship[0].coding[0].code"
+        valueMapping:
+          head: "SELF"
+          spouse: "SPOUSE"
+          child: "CHILD"
+          parent: "PARENT"
+          sibling: "SIBLING"
+          other: "OTHER"
+          "7": "UNRELATED"
+
+      - joget: "orphanhoodStatus"
+        govstack: "extension.orphanhoodStatus"
+        valueMapping:
+          "1": "BOTH_PARENTS_ALIVE"
+          "2": "ONLY_MOTHER_ALIVE"
+          "3": "ONLY_FATHER_ALIVE"
+          "4": "BOTH_DECEASED"
+
+      - joget: "participatesInAgriculture"
+        govstack: "extension.participatesInAgriculture"
+        valueMapping:
+          "1": true
+          "2": false
+
+      - joget: "disability"
+        govstack: "extension.disabilityStatus"
+        valueMapping:
+          "0": "NONE"
+          "1": "YES_NO_CERTIFICATE"
+          "2": "YES_WITH_CERTIFICATE"
+
+      - joget: "chronicallyIll"
+        govstack: "extension.chronicallyIll"
+        valueMapping:
+          "1": true
+          "2": false
+
+  # Tab 5: Crops (Grid/Subform)
+  cropManagement:
+    type: "array"
+    formId: "cropManagementForm"
+    tableName: "app_fd_crop_management"
+    primaryKey: "id"
+    parentKey: "id"
+    parentField: "farmer_id"  # The actual field name that links to parent
+    govstack: "extension.agriculturalData.crops"
+    jogetGrid: "cropManagement"
+    fields:
+      - joget: "farmer_id"  # Reference to parent farmer
+        govstack: "extension.parentFarmerId"
+
+      - joget: "cropType"
+        govstack: "type"
+        valueMapping:
+          "1": "MAIZE"
+          "2": "SORGHUM"
+          "3": "RICE"
+          "4": "MILLET"
+          "5": "WHEAT"
+          "6": "GROUNDNUTS"
+          "7": "SOYBEANS"
+          "8": "POTATOES"
+          "9": "MIXED_BEANS"
+          "10": "SWEET_POTATOES"
+          "11": "CABBAGE"
+          "12": "PIGEON_PEAS"
+          "14": "RAPE"
+          "15": "SPINACH"
+          "16": "TOMATO"
+          "17": "ONION"
+          "28": "OTHER"
+        required: true
+
+      - joget: "areaCultivated"
+        govstack: "areaSize"
+        transform: "numeric"
+        required: true
+
+      - joget: "areaUnit"
+        govstack: "areaUnit"
+        required: true
+
+      - joget: "bagsHarvested"
+        govstack: "harvest.quantity"
+        transform: "numeric"
+        required: true
+
+      - joget: "fertilizerApplied"
+        govstack: "fertilizerApplied"
+        transform: "yesNoBoolean"
+        required: true
+
+      - joget: "pesticidesApplied"
+        govstack: "pesticidesApplied"
+        transform: "yesNoBoolean"
+        required: true
+
+  # Tab 5: Livestock (Grid/Subform)
+  livestockDetails:
+    type: "array"
+    formId: "livestockDetailsForm"
+    tableName: "app_fd_livestock_details"
+    primaryKey: "id"
+    parentKey: "id"
+    parentField: "farmer_id"  # The actual field name that links to parent
+    govstack: "extension.agriculturalData.livestock"
+    jogetGrid: "livestockDetails"
+    controlField: "hasLivestock"
+    controlValue: "yes"
+    fields:
+      - joget: "farmer_id"  # Reference to parent farmer
+        govstack: "extension.parentFarmerId"
+
+      - joget: "livestockType"
+        govstack: "type"
+        required: true
+
+      - joget: "numberOfMale"
+        govstack: "maleCount"
+        transform: "numeric"
+
+      - joget: "numberOfFemale"
+        govstack: "femaleCount"
+        transform: "numeric"
+
+  # Tab 6: Income and Programs
+  farmerIncomePrograms:
+    formId: "farmerIncomePrograms"
+    tableName: "app_fd_farmer_income"
+    primaryKey: "id"
+    fields:
+      - joget: "mainSourceIncome"
+        govstack: "extension.income.mainSource"
+        required: true
+
+      - joget: "income_sources"  # Fixed: actual form field ID
+        govstack: "extension.income.sources12Months"
+        transform: "multiCheckbox"
+
+      - joget: "gainfulEmployment"
+        govstack: "extension.income.hasGainfulEmployment"
+        transform: "yesNoBoolean"
+
+      - joget: "governmentEmployed"
+        govstack: "extension.income.isGovernmentEmployed"
+        transform: "yesNoBoolean"
+
+      - joget: "averageAnnualIncome"
+        govstack: "extension.income.averageAnnualIncomeLSL"
+        transform: "numeric"
+        required: true
+
+      - joget: "monthlyExpenditure"
+        govstack: "extension.income.monthlyExpenditureLSL"
+        transform: "numeric"
+        required: true
+
+      - joget: "relativeSupport"
+        govstack: "extension.income.receivesRelativeSupport"
+        transform: "yesNoBoolean"
+
+      - joget: "supportFrequency"
+        govstack: "extension.income.supportFrequency"
+
+      - joget: "supportType"
+        govstack: "extension.income.supportType"
+        transform: "multiCheckbox"
+
+      - joget: "supportProgram"  # Fixed: actual form field ID
+        govstack: "extension.programs.benefitPrograms"
+        transform: "multiCheckbox"
+
+      - joget: "everOnISP"
+        govstack: "extension.programs.everOnISP"
+        transform: "yesNoBoolean"
+
+      - joget: "creditDefault"
+        govstack: "extension.programs.inCreditDefault"
+        transform: "yesNoBoolean"
+
+      - joget: "otherInputSupport"
+        govstack: "extension.programs.everOnOtherInputSupport"
+        transform: "yesNoBoolean"
+
+      - joget: "totalLoans12Months"
+        govstack: "extension.socialSafety.totalLoans12MonthsLSL"
+        transform: "numeric"
+
+      - joget: "informalTransfers"
+        govstack: "extension.socialSafety.informalTransfersLSL"
+        transform: "numeric"
+
+      - joget: "formalTransfers"
+        govstack: "extension.socialSafety.formalTransfersLSL"
+        transform: "numeric"
+
+      - joget: "networkAssociations"
+        govstack: "extension.socialSafety.networkAssociationsCount"
+        transform: "numeric"
+
+      - joget: "networkRelatives"
+        govstack: "extension.socialSafety.networkRelativesCount"
+        transform: "numeric"
+
+      - joget: "networksSupport"  # Added missing mapping
+        govstack: "extension.socialSafety.networksAndSupport"
+        transform: "multiCheckbox"
+
+  # Tab 7: Declaration
+  farmerDeclaration:
+    formId: "farmerDeclaration"
+    tableName: "app_fd_farmer_declaration"
+    primaryKey: "id"
+    fields:
+      - joget: "declarationConsent"
+        govstack: "extension.declaration.consent"
+        transform: "multiCheckbox"
+        required: true
+
+      - joget: "declarationFullName"
+        govstack: "extension.declaration.fullName"
+        required: true
+
+      - joget: "field13"  # Declaration date
+        govstack: "extension.declaration.date"
+        transform: "date_ISO8601"
+        required: true
+
+      - joget: "field12"  # Signature
+        govstack: "extension.declaration.signatureBase64"
+        transform: "base64"
+
+      - joget: "registrationStation"
+        govstack: "extension.registration.station"
+
+      - joget: "beneficiaryCode"
+        govstack: "identifiers[1].value"
+        govstackType: "identifiers[1].type"
+        typeValue: "BeneficiaryCode"
+
+      - joget: "registrationChannel"
+        govstack: "extension.registration.channel"
+
+      - joget: "registrationStatus"
+        govstack: "extension.registration.status"
+
+transformations:
+  date_ISO8601:
+    type: "date"
+    inputFormat: "yyyy-MM-dd"
+    outputFormat: "ISO8601"
+
+  numeric:
+    type: "number"
+    decimal: true
+
+  yesNoBoolean:
+    type: "boolean"
+    valueMapping:
+      "yes": true
+      "no": false
+
+  multiCheckbox:
+    type: "array"
+    delimiter: ","
+
+  base64:
+    type: "base64"
+    encoding: "UTF-8"

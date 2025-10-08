@@ -1,0 +1,166 @@
+{
+  "valued_assets": [
+    {
+      "date": "2024-06-06",
+      "ticker": "FLNC",
+      "description": "Securities buy (FLNC)",
+      "count": 150.0,
+      "purchase_price": 22.86,
+      "purchase_value": 3429.0,
+      "current_price": 4.099999904632568,
+      "price_source": "market",
+      "current_value": 614.9999856948853,
+      "absolute_change": -2814.0000143051147,
+      "percent_change": -82.06474232444195
+    },
+    {
+      "date": "2024-06-07",
+      "ticker": "LHV1T",
+      "description": "Securities buy (LHV1T)",
+      "count": 2300.0,
+      "purchase_price": 3.5,
+      "purchase_value": 8050.0,
+      "current_price": 3.5,
+      "price_source": "estimated (using purchase price)",
+      "current_value": 8050.0,
+      "absolute_change": 0.0,
+      "percent_change": 0.0
+    },
+    {
+      "date": "2024-06-07",
+      "ticker": "HLMBK095034FA",
+      "description": "Securities buy (HLMBK095034FA)",
+      "count": 2.0,
+      "purchase_price": 1061.85,
+      "purchase_value": 2123.7,
+      "current_price": 1061.85,
+      "price_source": "estimated (using purchase price)",
+      "current_value": 2123.7,
+      "absolute_change": 0.0,
+      "percent_change": 0.0
+    },
+    {
+      "date": "2024-06-18",
+      "ticker": "ADBE",
+      "description": "Securities buy (ADBE)",
+      "count": 20.0,
+      "purchase_price": 508.39,
+      "purchase_value": 10167.8,
+      "current_price": 368.6199951171875,
+      "price_source": "market",
+      "current_value": 7372.39990234375,
+      "absolute_change": -2795.4000976562493,
+      "percent_change": -27.492673908379878
+    },
+    {
+      "date": "2024-06-20",
+      "ticker": "NEM",
+      "description": "Securities buy (NEM)",
+      "count": 175.0,
+      "purchase_price": 41.47,
+      "purchase_value": 7257.25,
+      "current_price": 54.06999969482422,
+      "price_source": "market",
+      "current_value": 9462.249946594238,
+      "absolute_change": 2204.9999465942383,
+      "percent_change": 30.38340895785922
+    },
+    {
+      "date": "2024-06-27",
+      "ticker": "MU",
+      "description": "Securities buy (MU)",
+      "count": 100.0,
+      "purchase_price": 142.0,
+      "purchase_value": 14200.0,
+      "current_price": 78.55999755859375,
+      "price_source": "market",
+      "current_value": 7855.999755859375,
+      "absolute_change": -6344.000244140625,
+      "percent_change": -44.67605805732834
+    },
+    {
+      "date": "2024-07-11",
+      "ticker": "ILMN",
+      "description": "Securities buy (ILMN)",
+      "count": 100.0,
+      "purchase_price": 113.18,
+      "purchase_value": 11318.0,
+      "current_price": 77.22000122070312,
+      "price_source": "market",
+      "current_value": 7722.0001220703125,
+      "absolute_change": -3595.9998779296875,
+      "percent_change": -31.772396871617666
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "BIGB080033A",
+      "description": "Securities buy (BIGB080033A)",
+      "count": 20.0,
+      "purchase_price": 1031.778,
+      "purchase_value": 20635.56,
+      "current_price": 1031.778,
+      "price_source": "estimated (using purchase price)",
+      "current_value": 20635.56,
+      "absolute_change": 0.0,
+      "percent_change": 0.0
+    },
+    {
+      "date": "2024-07-19",
+      "ticker": "INBB055031A",
+      "description": "Securities buy (INBB055031A)",
+      "count": 2.0,
+      "purchase_price": 936.21,
+      "purchase_value": 1872.42,
+      "current_price": 936.21,
+      "price_source": "estimated (using purchase price)",
+      "current_value": 1872.42,
+      "absolute_change": 0.0,
+      "percent_change": 0.0
+    },
+    {
+      "date": "2024-07-29",
+      "ticker": "FLNC",
+      "description": "Securities buy (FLNC)",
+      "count": 250.0,
+      "purchase_price": 16.49,
+      "purchase_value": 4122.5,
+      "current_price": 4.099999904632568,
+      "price_source": "market",
+      "current_value": 1024.999976158142,
+      "absolute_change": -3097.500023841858,
+      "percent_change": -75.1364469094447
+    },
+    {
+      "date": "2024-07-30",
+      "ticker": "CRWD",
+      "description": "Securities buy (CRWD)",
+      "count": 35.0,
+      "purchase_price": 261.99,
+      "purchase_value": 9169.65,
+      "current_price": 423.0799865722656,
+      "price_source": "market",
+      "current_value": 14807.799530029297,
+      "absolute_change": 5638.149530029297,
+      "percent_change": 61.487074534243916
+    }
+  ],
+  "summary": {
+    "total_assets": 11,
+    "total_purchase_value": 92345.88,
+    "total_current_value": 81542.12921875,
+    "total_absolute_change": -10803.750781250012,
+    "total_percent_change": -11.699223377642848
+  },
+  "metadata": {
+    "processed_date": "2025-04-29T12:40:00.249620",
+    "original_metadata": {
+      "processed_date": "2025-04-28T03:33:21.861610",
+      "total_transactions": 46,
+      "unique_tickers": 15,
+      "total_operations": 85,
+      "matched_transactions": 17,
+      "unmatched_transactions": 1
+    },
+    "unique_tickers": 10
+  }
+}

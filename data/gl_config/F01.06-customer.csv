@@ -1,0 +1,51 @@
+customerId,customerType,customerFirstName,customerLastName,personalId,customerName,registrationNumber,vatNumber,incorporationCountry,kycStatus,kycExpiryDate,riskCategory,relationshipManager,dateCreated,createdBy
+CUST-000001,Corporate,,,,"Hüpoteeklaen AS",11663703,EE101663703,EE,completed,2025-12-31,low,rm001,2024-01-15,admin
+CUST-000002,Corporate,,,,"OÜ GENESIS INTELLIGENT GROWTH",14455804,EE114455804,EE,completed,2025-11-30,medium,rm002,2024-01-16,admin
+CUST-000003,Corporate,,,,"PTV Haldus OÜ",14002051,EE114002051,EE,completed,2025-10-31,low,rm001,2024-01-17,admin
+CUST-000004,Corporate,,,,"Osaühing QY Holding",10452393,EE110452393,EE,completed,2026-01-31,low,rm003,2024-01-18,admin
+CUST-000005,Individual,Johannes,Palmik,39902140821,,,,,completed,2025-09-30,low,rm002,2024-01-19,admin
+CUST-000006,Corporate,,,,"ADVERTA GRUPP OÜ",11910225,EE111910225,EE,completed,2025-08-31,medium,rm004,2024-01-20,admin
+CUST-000007,Individual,Risto,Sepp,37612110236,,,,,completed,2025-07-31,low,rm001,2024-01-21,admin
+CUST-000008,Corporate,,,,"Balti turu teeninduse OÜ",12011397,EE112011397,EE,inprogress,2025-06-30,medium,rm003,2024-01-22,admin
+CUST-000009,Individual,Christopher,Alango,38605080281,,,,,completed,2025-05-31,low,rm002,2024-01-23,admin
+CUST-000010,Corporate,,,,"EEKBKTE LIIDU KEHRA KOGUDUS",80205779,,EE,completed,2025-04-30,low,rm004,2024-01-24,admin
+CUST-000011,Corporate,,,,"OÜ GENESIS FIXED INCOME",14455805,EE114455805,EE,completed,2025-12-31,medium,rm002,2024-01-25,admin
+CUST-000012,Corporate,,,,"ASKEMBLA ASSET MANAGEMENT OÜ",12345678,EE112345678,EE,completed,2026-01-31,high,rm001,2024-01-26,admin
+CUST-000013,Corporate,,,,"OÜ Optimum Projekt",13456789,EE113456789,EE,pending,2025-03-31,medium,rm003,2024-01-27,admin
+CUST-000014,Corporate,,,,"DE Kodu OÜ",11929756,EE111929756,EE,completed,2025-11-30,low,rm004,2024-01-28,admin
+CUST-000015,Corporate,,,,"Monrax Ekspert UÜ",12066010,EE112066010,EE,completed,2025-10-31,medium,rm001,2024-01-29,admin
+CUST-000016,Individual,Aare,Lapõnin,37106150341,,,,,completed,2025-09-30,low,rm002,2024-01-30,admin
+CUST-000017,Corporate,,,,"INCLUSION OÜ",14204858,EE114204858,EE,completed,2025-08-31,low,rm003,2024-02-01,admin
+CUST-000018,Corporate,,,,"PR & M INVESTMENTS OÜ",16765288,EE116765288,EE,inprogress,2025-07-31,high,rm004,2024-02-02,admin
+CUST-000019,Corporate,,,,"EEKBL - VALDUSTE OÜ",10242081,EE110242081,EE,completed,2025-06-30,low,rm001,2024-02-03,admin
+CUST-000020,Corporate,,,,"ANTSLA EKB KOGUDUS",80207034,,EE,completed,2025-05-31,low,rm002,2024-02-04,admin
+CUST-000021,Corporate,,,,"EEKBKTE LIIDU PALADE PRIIKOGUDUS",80212743,,EE,completed,2025-04-30,low,rm003,2024-02-05,admin
+CUST-000022,Corporate,,,,"RAKVERE KARMELI KOGUDUS",80212957,,EE,completed,2025-03-31,low,rm004,2024-02-06,admin
+CUST-000023,Corporate,,,,"Aktsiaselts IMG Konsultant",14567890,EE114567890,EE,completed,2025-12-31,medium,rm001,2024-02-07,admin
+CUST-000024,Corporate,,,,"FiscalAdmin OÜ",15678901,EE115678901,EE,pending,2025-11-30,medium,rm002,2024-02-08,admin
+CUST-000025,Corporate,,,,"IMG Numeri OÜ",16789012,EE116789012,EE,completed,2025-10-31,low,rm003,2024-02-09,admin
+CUST-000026,Individual,John,Doherty,US123456789,,,,,completed,2025-09-30,medium,rm004,2024-02-10,admin
+CUST-000027,Corporate,,,,"Kaljo Investeeringud OÜ",17890123,EE117890123,EE,completed,2025-08-31,medium,rm001,2024-02-11,admin
+CUST-000028,Corporate,,,,"Mango Invest OÜ",18901234,EE118901234,EE,inprogress,2025-07-31,high,rm002,2024-02-12,admin
+CUST-000029,Corporate,,,,"OÜ HJR Investeeringud",19012345,EE119012345,EE,completed,2025-06-30,medium,rm003,2024-02-13,admin
+CUST-000030,Corporate,,,,"OÜ Kuusikaru",20123456,EE120123456,EE,completed,2025-05-31,low,rm004,2024-02-14,admin
+CUST-000031,Corporate,,,,"Tuuletar OÜ",21234567,EE121234567,EE,completed,2025-04-30,low,rm001,2024-02-15,admin
+CUST-000032,Corporate,,,,"UGR VARAD OÜ",22345678,EE122345678,EE,pending,2025-03-31,medium,rm002,2024-02-16,admin
+CUST-000033,Corporate,,,,"Vastglobe OÜ",23456789,EE123456789,EE,completed,2025-12-31,low,rm003,2024-02-17,admin
+CUST-000034,Corporate,,,,"European Baptist Federation",BE987654321,BE0987654321,OTHER,completed,2025-11-30,low,rm004,2024-02-18,admin
+CUST-000035,Corporate,,,,"Baptistische Theologische Hochschule Verein",CH123456789,,CH,completed,2025-10-31,low,rm001,2024-02-19,admin
+CUST-000036,Corporate,,,,"EESTI EKB KOGUDUSTE LIIT",80214567,,EE,completed,2025-09-30,low,rm002,2024-02-20,admin
+CUST-000037,Corporate,,,,"EESTI EVANGEELIUMI KRISTLASTE JA BAPTISTIDE KOGUDUSTE LIIT",80215678,,EE,completed,2025-08-31,low,rm003,2024-02-21,admin
+CUST-000038,Individual,Kohtutäitur Risto,Sepp,37612110237,,,,,completed,2025-07-31,low,rm004,2024-02-22,admin
+CUST-000039,Individual,Maria,Kask,48907125678,,,,,completed,2025-06-30,low,rm001,2024-02-23,admin
+CUST-000040,Individual,Peeter,Tamm,35201089012,,,,,pending,2025-05-31,medium,rm002,2024-02-24,admin
+CUST-000041,Corporate,,,,"Baltic Investment Group AS",24567890,EE124567890,EE,completed,2026-01-31,high,rm003,2024-02-25,admin
+CUST-000042,Corporate,,,,"Nordic Finance Holdings OÜ",25678901,EE125678901,EE,completed,2025-12-31,high,rm004,2024-02-26,admin
+CUST-000043,Individual,Anna,Saar,49012234567,,,,,completed,2025-11-30,low,rm001,2024-02-27,admin
+CUST-000044,Individual,Mart,Kukk,36805127890,,,,,completed,2025-10-31,medium,rm002,2024-02-28,admin
+CUST-000045,Corporate,,,,"Tech Innovations Estonia OÜ",26789012,EE126789012,EE,inprogress,2025-09-30,medium,rm003,2024-03-01,admin
+CUST-000046,Corporate,,,,"Green Energy Solutions AS",27890123,EE127890123,EE,completed,2025-08-31,low,rm004,2024-03-02,admin
+CUST-000047,Individual,Kadri,Rebane,48503156789,,,,,completed,2025-07-31,low,rm001,2024-03-03,admin
+CUST-000048,Corporate,,,,"International Trade Partners LTD",GB123456789,GB123456789,UK,completed,2025-06-30,medium,rm002,2024-03-04,admin
+CUST-000049,Corporate,,,,"Singapore Holdings PTE",SG198765432,,SG,completed,2025-05-31,high,rm003,2024-03-05,admin
+CUST-000050,Corporate,,,,"Hong Kong Investments Limited",HK87654321,,HK,completed,2025-04-30,high,rm004,2024-03-06,admin

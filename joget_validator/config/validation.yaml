@@ -1,0 +1,53 @@
+# Joget Registry Validation Configuration
+# Configuration file for the farmers registry database validation utility
+
+# Database connection
+# Note: Password should be set in .env file as DB_PASSWORD
+database:
+  # host: loaded from .env file
+  # port: loaded from .env file
+  # database: loaded from .env file
+  # user: loaded from .env file
+  # password is loaded from .env file
+
+# Data sources
+data_sources:
+  services_yml: ../../shared_data/services.yml
+  test_data: ../../shared_data/test-data.json
+  metadata_dir: ../../shared_data/metadata
+
+# Validation settings
+validation:
+  # Check only these forms (leave empty for all)
+  forms_to_validate: []
+
+  # Check only these grids (leave empty for all)
+  grids_to_validate: []
+
+  # Skip validation for these fields
+  ignore_fields:
+    - dateCreated
+    - dateModified
+    - createdBy
+    - modifiedBy
+    - id
+    - c_id
+
+  # Comparison settings
+  case_sensitive: false
+  trim_strings: true
+  null_equals_empty: true
+
+# Reporting
+reporting:
+  formats: [console, json, html]  # Options: console, json, html
+  output_directory: ./validation_reports
+  include_passed_fields: false  # Only show failures in report
+  max_errors_per_form: 10  # Limit errors shown per form
+  pretty_print: true  # Format JSON reports nicely
+
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  file: ./logs/validation.log
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,14 @@
+# Joget Field Mapper Dependencies
+# Install with: pip install -r requirements.txt
+
+# Database connectivity
+PyMySQL==1.1.0
+
+# Configuration management
+python-dotenv==1.0.0
+
+# YAML parsing
+PyYAML==6.0.1
+
+# Optional: For enhanced table output
+tabulate==0.9.0

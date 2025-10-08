@@ -1,0 +1,1911 @@
+{
+  "_comment": "Template for database mapper utility",
+  "_entry_point": "farmerRegistrationForm",
+  "forms": {
+    "farmerRegistrationForm": {
+      "form_id": "farmerRegistrationForm",
+      "form_name": "01 - Farmer Registration Form",
+      "table_name": "farms_registry",
+      "primary_key": "c_farmerRegistration_id",
+      "is_multi_tab": true,
+      "fields": [
+        {
+          "field_id": "national_id",
+          "expected_column": "c_national_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "first_name",
+          "expected_column": "c_first_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "last_name",
+          "expected_column": "c_last_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "gender",
+          "expected_column": "c_gender",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "date_of_birth",
+          "expected_column": "c_date_of_birth",
+          "actual_column": null,
+          "exists": null,
+          "type": "date",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "marital_status",
+          "expected_column": "c_marital_status",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "preferred_language",
+          "expected_column": "c_preferred_language",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mobile_number",
+          "expected_column": "c_mobile_number",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "email_address",
+          "expected_column": "c_email_address",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "extension_officer_name",
+          "expected_column": "c_extension_officer_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "member_of_cooperative",
+          "expected_column": "c_member_of_cooperative",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cooperative_name",
+          "expected_column": "c_cooperative_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "district",
+          "expected_column": "c_district",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "village",
+          "expected_column": "c_village",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "communityCouncil",
+          "expected_column": "c_communityCouncil",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "agroEcologicalZone",
+          "expected_column": "c_agroEcologicalZone",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "residency_type",
+          "expected_column": "c_residency_type",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "yearsInArea",
+          "expected_column": "c_yearsInArea",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gpsLatitude",
+          "expected_column": "c_gpsLatitude",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gpsLongitude",
+          "expected_column": "c_gpsLongitude",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "ownedRentedLand",
+          "expected_column": "c_ownedRentedLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "totalAvailableLand",
+          "expected_column": "c_totalAvailableLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cultivatedLand",
+          "expected_column": "c_cultivatedLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationAgricultureLand",
+          "expected_column": "c_conservationAgricultureLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "access_to_services",
+          "expected_column": "c_access_to_services",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceWaterSource",
+          "expected_column": "c_distanceWaterSource",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePrimarySchool",
+          "expected_column": "c_distancePrimarySchool",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePublicHospital",
+          "expected_column": "c_distancePublicHospital",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceLivestockMarket",
+          "expected_column": "c_distanceLivestockMarket",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceAgriculturalMarket",
+          "expected_column": "c_distanceAgriculturalMarket",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePublicTransport",
+          "expected_column": "c_distancePublicTransport",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "agriculture_key",
+          "expected_column": "c_agriculture_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cropProduction",
+          "expected_column": "c_cropProduction",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "livestockProduction",
+          "expected_column": "c_livestockProduction",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "canReadWrite",
+          "expected_column": "c_canReadWrite",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceFarmLabour",
+          "expected_column": "c_mainSourceFarmLabour",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceLivelihood",
+          "expected_column": "c_mainSourceLivelihood",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "agriculturalManagementSkills",
+          "expected_column": "c_agriculturalManagementSkills",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceAgriculturalInfo",
+          "expected_column": "c_mainSourceAgriculturalInfo",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationPractices",
+          "expected_column": "c_conservationPractices",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationPracticesOther",
+          "expected_column": "c_conservationPracticesOther",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "shocks_hazards",
+          "expected_column": "c_shocks_hazards",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "otherHazards",
+          "expected_column": "c_otherHazards",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "copingMechanisms",
+          "expected_column": "c_copingMechanisms",
+          "actual_column": null,
+          "exists": null,
+          "type": "textarea",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "household_key",
+          "expected_column": "c_household_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "householdInstruction",
+          "expected_column": "c_householdInstruction",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "crops_livestock_key",
+          "expected_column": "c_crops_livestock_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cropInstruction",
+          "expected_column": "c_cropInstruction",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "hasLivestock",
+          "expected_column": "c_hasLivestock",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "income_programs_key",
+          "expected_column": "c_income_programs_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceIncome",
+          "expected_column": "c_mainSourceIncome",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "income_sources",
+          "expected_column": "c_income_sources",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gainfulEmployment",
+          "expected_column": "c_gainfulEmployment",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "governmentEmployed",
+          "expected_column": "c_governmentEmployed",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "averageAnnualIncome",
+          "expected_column": "c_averageAnnualIncome",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "monthlyExpenditure",
+          "expected_column": "c_monthlyExpenditure",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "relativeSupport",
+          "expected_column": "c_relativeSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportFrequency",
+          "expected_column": "c_supportFrequency",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportType",
+          "expected_column": "c_supportType",
+          "actual_column": null,
+          "exists": null,
+          "type": "checkbox",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportProgram",
+          "expected_column": "c_supportProgram",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "creditDefault",
+          "expected_column": "c_creditDefault",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "everOnISP",
+          "expected_column": "c_everOnISP",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "otherInputSupport",
+          "expected_column": "c_otherInputSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "totalLoans12Months",
+          "expected_column": "c_totalLoans12Months",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "informalTransfers",
+          "expected_column": "c_informalTransfers",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networksSupport",
+          "expected_column": "c_networksSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "formalTransfers",
+          "expected_column": "c_formalTransfers",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networkAssociations",
+          "expected_column": "c_networkAssociations",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networkRelatives",
+          "expected_column": "c_networkRelatives",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declaration_key",
+          "expected_column": "c_declaration_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationHeader",
+          "expected_column": "c_declarationHeader",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationText",
+          "expected_column": "c_declarationText",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationConsent",
+          "expected_column": "c_declarationConsent",
+          "actual_column": null,
+          "exists": null,
+          "type": "checkbox",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationFullName",
+          "expected_column": "c_declarationFullName",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "field13",
+          "expected_column": "c_field13",
+          "actual_column": null,
+          "exists": null,
+          "type": "date",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "field12",
+          "expected_column": "c_field12",
+          "actual_column": null,
+          "exists": null,
+          "type": "signature",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationInfo",
+          "expected_column": "c_registrationInfo",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationStation",
+          "expected_column": "c_registrationStation",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "beneficiaryCode",
+          "expected_column": "c_beneficiaryCode",
+          "actual_column": null,
+          "exists": null,
+          "type": "id_generator",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationChannel",
+          "expected_column": "c_registrationChannel",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationStatus",
+          "expected_column": "c_registrationStatus",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "householdMembers",
+          "field_type": "grid",
+          "sub_form_id": "householdMemberForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        },
+        {
+          "field_id": "cropManagement",
+          "field_type": "grid",
+          "sub_form_id": "cropManagementForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        },
+        {
+          "field_id": "livestockDetails",
+          "field_type": "grid",
+          "sub_form_id": "livestockDetailsForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        }
+      ]
+    },
+    "householdMemberForm": {
+      "form_id": "householdMemberForm",
+      "form_name": "01.04-1 - Household Member Form",
+      "table_name": "household_members",
+      "primary_key": "c_householdMember_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "expected_column": "c_farmer_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "memberName",
+          "expected_column": "c_memberName",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "sex",
+          "expected_column": "c_sex",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "date_of_birth",
+          "expected_column": "c_date_of_birth",
+          "actual_column": null,
+          "exists": null,
+          "type": "date",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "relationship",
+          "expected_column": "c_relationship",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "orphanhoodStatus",
+          "expected_column": "c_orphanhoodStatus",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "participatesInAgriculture",
+          "expected_column": "c_participatesInAgriculture",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "disability",
+          "expected_column": "c_disability",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "chronicallyIll",
+          "expected_column": "c_chronicallyIll",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "farmerIncomePrograms": {
+      "form_id": "farmerIncomePrograms",
+      "form_name": "01.06 - Farmer Income and Programs",
+      "table_name": "farmer_income",
+      "primary_key": "c_farmerIncomePrograms_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "income_programs_key",
+          "expected_column": "c_income_programs_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceIncome",
+          "expected_column": "c_mainSourceIncome",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "income_sources",
+          "expected_column": "c_income_sources",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gainfulEmployment",
+          "expected_column": "c_gainfulEmployment",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "governmentEmployed",
+          "expected_column": "c_governmentEmployed",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "averageAnnualIncome",
+          "expected_column": "c_averageAnnualIncome",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "monthlyExpenditure",
+          "expected_column": "c_monthlyExpenditure",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "relativeSupport",
+          "expected_column": "c_relativeSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportFrequency",
+          "expected_column": "c_supportFrequency",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportType",
+          "expected_column": "c_supportType",
+          "actual_column": null,
+          "exists": null,
+          "type": "checkbox",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "supportProgram",
+          "expected_column": "c_supportProgram",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "creditDefault",
+          "expected_column": "c_creditDefault",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "everOnISP",
+          "expected_column": "c_everOnISP",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "otherInputSupport",
+          "expected_column": "c_otherInputSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "totalLoans12Months",
+          "expected_column": "c_totalLoans12Months",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "informalTransfers",
+          "expected_column": "c_informalTransfers",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networksSupport",
+          "expected_column": "c_networksSupport",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "formalTransfers",
+          "expected_column": "c_formalTransfers",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networkAssociations",
+          "expected_column": "c_networkAssociations",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "networkRelatives",
+          "expected_column": "c_networkRelatives",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "livestockDetailsForm": {
+      "form_id": "livestockDetailsForm",
+      "form_name": "01.05-2 - Livestock Details Form",
+      "table_name": "livestock_details",
+      "primary_key": "c_livestockDetails_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "expected_column": "c_farmer_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "livestockType",
+          "expected_column": "c_livestockType",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "numberOfMale",
+          "expected_column": "c_numberOfMale",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "numberOfFemale",
+          "expected_column": "c_numberOfFemale",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "farmerHousehold": {
+      "form_id": "farmerHousehold",
+      "form_name": "01.04 - Farmer Household Members",
+      "table_name": "farmer_registry",
+      "primary_key": "c_farmerHousehold_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "household_key",
+          "expected_column": "c_household_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "householdInstruction",
+          "expected_column": "c_householdInstruction",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "householdMembers",
+          "field_type": "grid",
+          "sub_form_id": "householdMemberForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        }
+      ]
+    },
+    "farmerBasicInfo": {
+      "form_id": "farmerBasicInfo",
+      "form_name": "01.01 - Farmer Basic Information",
+      "table_name": "farmer_basic_data",
+      "primary_key": "c_farmerBasicInfo_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "national_id",
+          "expected_column": "c_national_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "first_name",
+          "expected_column": "c_first_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "last_name",
+          "expected_column": "c_last_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "gender",
+          "expected_column": "c_gender",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "date_of_birth",
+          "expected_column": "c_date_of_birth",
+          "actual_column": null,
+          "exists": null,
+          "type": "date",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "marital_status",
+          "expected_column": "c_marital_status",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "preferred_language",
+          "expected_column": "c_preferred_language",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mobile_number",
+          "expected_column": "c_mobile_number",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "email_address",
+          "expected_column": "c_email_address",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "extension_officer_name",
+          "expected_column": "c_extension_officer_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "member_of_cooperative",
+          "expected_column": "c_member_of_cooperative",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cooperative_name",
+          "expected_column": "c_cooperative_name",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "cropManagementForm": {
+      "form_id": "cropManagementForm",
+      "form_name": "01.05-1 - Crop Management Form",
+      "table_name": "crop_management",
+      "primary_key": "c_cropManagement_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "expected_column": "c_farmer_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cropType",
+          "expected_column": "c_cropType",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "areaCultivated",
+          "expected_column": "c_areaCultivated",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "areaUnit",
+          "expected_column": "c_areaUnit",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "bagsHarvested",
+          "expected_column": "c_bagsHarvested",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "fertilizerApplied",
+          "expected_column": "c_fertilizerApplied",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "pesticidesApplied",
+          "expected_column": "c_pesticidesApplied",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        }
+      ]
+    },
+    "farmerCropsLivestock": {
+      "form_id": "farmerCropsLivestock",
+      "form_name": "01.05 - Farmer Crops and Livestock",
+      "table_name": "farmer_crop_livestck",
+      "primary_key": "c_farmerCropsLivestock_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "crops_livestock_key",
+          "expected_column": "c_crops_livestock_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cropInstruction",
+          "expected_column": "c_cropInstruction",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "hasLivestock",
+          "expected_column": "c_hasLivestock",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "cropManagement",
+          "field_type": "grid",
+          "sub_form_id": "cropManagementForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        },
+        {
+          "field_id": "livestockDetails",
+          "field_type": "grid",
+          "sub_form_id": "livestockDetailsForm",
+          "foreign_key": "farmer_id",
+          "note": "Grid container - no direct column"
+        }
+      ]
+    },
+    "farmerLocation": {
+      "form_id": "farmerLocation",
+      "form_name": "01.02 - Farmer Location and Farm",
+      "table_name": "farm_location",
+      "primary_key": "c_farmerLocation_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "district",
+          "expected_column": "c_district",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "village",
+          "expected_column": "c_village",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "communityCouncil",
+          "expected_column": "c_communityCouncil",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "agroEcologicalZone",
+          "expected_column": "c_agroEcologicalZone",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "residency_type",
+          "expected_column": "c_residency_type",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "yearsInArea",
+          "expected_column": "c_yearsInArea",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gpsLatitude",
+          "expected_column": "c_gpsLatitude",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "gpsLongitude",
+          "expected_column": "c_gpsLongitude",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "ownedRentedLand",
+          "expected_column": "c_ownedRentedLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "totalAvailableLand",
+          "expected_column": "c_totalAvailableLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cultivatedLand",
+          "expected_column": "c_cultivatedLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationAgricultureLand",
+          "expected_column": "c_conservationAgricultureLand",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "access_to_services",
+          "expected_column": "c_access_to_services",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceWaterSource",
+          "expected_column": "c_distanceWaterSource",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePrimarySchool",
+          "expected_column": "c_distancePrimarySchool",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePublicHospital",
+          "expected_column": "c_distancePublicHospital",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceLivestockMarket",
+          "expected_column": "c_distanceLivestockMarket",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distanceAgriculturalMarket",
+          "expected_column": "c_distanceAgriculturalMarket",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "distancePublicTransport",
+          "expected_column": "c_distancePublicTransport",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "farmerDeclaration": {
+      "form_id": "farmerDeclaration",
+      "form_name": "01.07 - Farmer Declaration",
+      "table_name": "farmer_declaration",
+      "primary_key": "c_farmerDeclaration_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declaration_key",
+          "expected_column": "c_declaration_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationHeader",
+          "expected_column": "c_declarationHeader",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationText",
+          "expected_column": "c_declarationText",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationConsent",
+          "expected_column": "c_declarationConsent",
+          "actual_column": null,
+          "exists": null,
+          "type": "checkbox",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "declarationFullName",
+          "expected_column": "c_declarationFullName",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "field13",
+          "expected_column": "c_field13",
+          "actual_column": null,
+          "exists": null,
+          "type": "date",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "field12",
+          "expected_column": "c_field12",
+          "actual_column": null,
+          "exists": null,
+          "type": "signature",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationInfo",
+          "expected_column": "c_registrationInfo",
+          "actual_column": null,
+          "exists": null,
+          "type": "html",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationStation",
+          "expected_column": "c_registrationStation",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "beneficiaryCode",
+          "expected_column": "c_beneficiaryCode",
+          "actual_column": null,
+          "exists": null,
+          "type": "id_generator",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationChannel",
+          "expected_column": "c_registrationChannel",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "registrationStatus",
+          "expected_column": "c_registrationStatus",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    },
+    "farmerAgriculture": {
+      "form_id": "farmerAgriculture",
+      "form_name": "01.03 - Farmer Agricultural Activities",
+      "table_name": "farmer_registry",
+      "primary_key": "c_farmerAgriculture_id",
+      "is_multi_tab": false,
+      "fields": [
+        {
+          "field_id": "agriculture_key",
+          "expected_column": "c_agriculture_key",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "cropProduction",
+          "expected_column": "c_cropProduction",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "livestockProduction",
+          "expected_column": "c_livestockProduction",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "canReadWrite",
+          "expected_column": "c_canReadWrite",
+          "actual_column": null,
+          "exists": null,
+          "type": "radio",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "parent_id",
+          "expected_column": "c_parent_id",
+          "actual_column": null,
+          "exists": null,
+          "type": "hidden",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceFarmLabour",
+          "expected_column": "c_mainSourceFarmLabour",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceLivelihood",
+          "expected_column": "c_mainSourceLivelihood",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "agriculturalManagementSkills",
+          "expected_column": "c_agriculturalManagementSkills",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "mainSourceAgriculturalInfo",
+          "expected_column": "c_mainSourceAgriculturalInfo",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": true,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationPractices",
+          "expected_column": "c_conservationPractices",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "conservationPracticesOther",
+          "expected_column": "c_conservationPracticesOther",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "shocks_hazards",
+          "expected_column": "c_shocks_hazards",
+          "actual_column": null,
+          "exists": null,
+          "type": "select",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "otherHazards",
+          "expected_column": "c_otherHazards",
+          "actual_column": null,
+          "exists": null,
+          "type": "text",
+          "required": false,
+          "depth": 2
+        },
+        {
+          "field_id": "copingMechanisms",
+          "expected_column": "c_copingMechanisms",
+          "actual_column": null,
+          "exists": null,
+          "type": "textarea",
+          "required": false,
+          "depth": 2
+        }
+      ]
+    }
+  }
+}

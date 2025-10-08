@@ -1,0 +1,31 @@
+counterpartyId,counterpartyType,shortCode,bankId,brokerId,custodianId,isActive,relationshipStartDate,settlementCycle,reconciliationFrequency,ourAccountPrefix,relationshipManager,operationsContact,notes,dateCreated,createdBy
+CPT0001,Bank,LHV,LHVBEE22,,,true,2023-01-01,T+0,Daily,EE1177,John Smith,ops.lhv@company.com,Primary banking partner in Estonia,2024-01-01,admin
+CPT0002,Bank,SWED,HABAEE2X,,,true,2023-01-01,T+0,Daily,EE9022,Sarah Johnson,ops.swed@company.com,Major Estonian bank relationship,2024-01-01,admin
+CPT0003,Bank,SEB,EEUHEE2X,,,true,2023-01-01,T+0,Daily,EE8877,Michael Chen,ops.seb@company.com,Corporate banking services,2024-01-01,admin
+CPT0004,Bank,COOP,EKRDEE22,,,true,2023-06-01,T+0,Daily,EE9911,Emily Davis,ops.coop@company.com,Local banking partner,2024-01-01,admin
+CPT0005,Bank,LUMIN,NDEAEE2X,,,true,2023-03-01,T+0,Daily,EE4455,John Smith,ops.luminor@company.com,Baltic regional bank,2024-01-01,admin
+CPT0006,Broker,IBKR,,IBKRUS33,,true,2023-01-01,T+2,Daily,IBKR,Sarah Johnson,ops.ibkr@company.com,Primary US broker for equities,2024-01-01,admin
+CPT0007,Broker,IBKREU,,IBKRIE2D,,true,2023-01-01,T+2,Daily,IBKREU,Sarah Johnson,ops.ibkreu@company.com,EU operations via Ireland entity,2024-01-01,admin
+CPT0008,Broker,SAXO,,SAXODKKK,,true,2023-02-01,T+2,Daily,SAXO,Michael Chen,ops.saxo@company.com,Alternative broker for derivatives,2024-01-01,admin
+CPT0009,Broker,GSI,,GSCGGB2L,,true,2023-04-01,T+2,Daily,GSI,Emily Davis,ops.gs@company.com,Prime brokerage services,2024-01-01,admin
+CPT0010,Broker,MSI,,MSLNGB2X,,true,2023-04-01,T+2,Daily,MSI,John Smith,ops.ms@company.com,Prime brokerage and execution,2024-01-01,admin
+CPT0011,Custodian,EURCLR,,,MGTCBEBEECL,true,2023-01-01,T+2,Daily,EURCLR,Michael Chen,ops.euroclear@company.com,European securities custody,2024-01-01,admin
+CPT0012,Custodian,CLRSTR,,,CEDELULL,true,2023-01-01,T+2,Daily,CLRSTR,Sarah Johnson,ops.clearstream@company.com,International securities custody,2024-01-01,admin
+CPT0013,Bank,HSBC,HBUKGB4B,,,true,2023-05-01,T+0,Daily,HSBC,Emily Davis,ops.hsbc@company.com,International banking,2024-01-01,admin
+CPT0014,Bank,CITI,CITIUS33,,,true,2023-06-01,T+0,Daily,CITI,John Smith,ops.citi@company.com,US dollar clearing,2024-01-01,admin
+CPT0015,Bank,UBS,UBSWCHZH,,,true,2023-07-01,T+0,Daily,UBS,Michael Chen,ops.ubs@company.com,Swiss franc operations,2024-01-01,admin
+CPT0016,Bank,DBS,DBSSSGSG,,,true,2023-08-01,T+0,Daily,DBS,Sarah Johnson,ops.dbs@company.com,Asian markets access,2024-01-01,admin
+CPT0017,Bank,ING,INGBNL2A,,,true,2023-09-01,T+0,Daily,ING,Emily Davis,ops.ing@company.com,EUR clearing and custody,2024-01-01,admin
+CPT0018,Bank,JPM,CHASUS33,,,true,2023-10-01,T+0,Daily,JPM,John Smith,ops.jpm@company.com,US custody and clearing,2024-01-01,admin
+CPT0019,Bank,BOFA,BOFAUS3N,,,true,2023-11-01,T+0,Daily,BOFA,Michael Chen,ops.bofa@company.com,US banking services,2024-01-01,admin
+CPT0020,Bank,DBG,DEUTDEFF,,,true,2023-12-01,T+0,Daily,DBG,Sarah Johnson,ops.db@company.com,German market access,2024-01-01,admin
+CPT0021,Bank,BNP,BNPAFRPP,,,true,2024-01-01,T+0,Daily,BNP,Emily Davis,ops.bnp@company.com,French market operations,2024-01-01,admin
+CPT0022,Bank,CSGN,CRESCHZZ,,,true,2024-02-01,T+0,Daily,CSGN,John Smith,ops.cs@company.com,Swiss private banking,2024-01-01,admin
+CPT0023,Bank,BARC,BARCGB22,,,true,2024-03-01,T+0,Daily,BARC,Michael Chen,ops.barc@company.com,UK banking services,2024-01-01,admin
+CPT0024,Bank,SCBL,SCBLSGSG,,,true,2024-04-01,T+0,Daily,SCBL,Sarah Johnson,ops.scb@company.com,Asian emerging markets,2024-01-01,admin
+CPT0025,Broker,SAXOCH,,SAXOCHZZ,,true,2024-05-01,T+2,Daily,SAXOCH,Emily Davis,ops.saxoch@company.com,Swiss trading operations,2024-01-01,admin
+CPT0026,Custodian,DTC,,,DTCYUS33,true,2024-01-01,T+2,Daily,DTC,John Smith,ops.dtc@company.com,US securities settlement,2024-01-01,admin
+CPT0027,Custodian,CREST,,,CRSTGB22,true,2024-01-01,T+2,Daily,CREST,Michael Chen,ops.crest@company.com,UK securities settlement,2024-01-01,admin
+CPT0028,Custodian,SIX,,,INSECHZZ,true,2024-01-01,T+2,Daily,SIX,Sarah Johnson,ops.six@company.com,Swiss securities settlement,2024-01-01,admin
+CPT0029,Custodian,CDP,,,CDPLSGSG,true,2024-01-01,T+2,Daily,CDP,Emily Davis,ops.cdp@company.com,Singapore securities custody,2024-01-01,admin
+CPT0030,Custodian,CCASS,,,XHKGHKHH,true,2024-01-01,T+2,Daily,CCASS,John Smith,ops.ccass@company.com,Hong Kong securities clearing,2024-01-01,admin

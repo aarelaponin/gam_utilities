@@ -1,0 +1,35 @@
+# Environment variables
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Test and debug scripts (contain hardcoded credentials)
+test_*.py
+*_test.py
+investigate_*.py
+check_*.py
+
+# Reports
+validation_reports/
+
+# OS
+.DS_Store
+Thumbs.db

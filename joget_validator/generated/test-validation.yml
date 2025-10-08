@@ -1,0 +1,201 @@
+metadata:
+  generated_at: '2025-09-25T01:48:15.751311'
+  generator_version: '1.0'
+  inputs:
+    forms_dir: /Users/aarelaponin/IdeaProjects/gs-plugins/processing-server/doc-forms
+    services_yml: /Users/aarelaponin/IdeaProjects/gs-plugins/processing-server/src/main/resources/docs-metadata/services.yml
+    test_data: /Users/aarelaponin/IdeaProjects/gs-plugins/processing-server/src/main/resources/docs-metadata/test-data.json
+test_case:
+  id: farmer-002
+  source_data: /Users/aarelaponin/IdeaProjects/gs-plugins/processing-server/src/main/resources/docs-metadata/test-data.json
+  farmer_name: Mamosa Elizabeth Motlomelo
+expected_state:
+  tables:
+    app_fd_farmer_basic_data:
+      record_count: 1
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_national_id: '8712248901234'
+        c_first_name: Mamosa
+        c_last_name: Motlomelo
+        c_gender: female
+        c_date_of_birth: '1987-12-24'
+        c_marital_status: single
+        c_preferred_language: st
+        c_mobile_number: '+26659876543'
+        c_email_address: mamosa.motlomelo@gmail.com
+        c_extension_officer_name: Sarah Mofokeng
+        c_member_of_cooperative: 'no'
+        c_cooperative_name: ''
+    app_fd_farm_location:
+      record_count: 1
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_district: berea
+        c_village: Ha Nkau
+        c_communityCouncil: Machache Community Council
+        c_agroEcologicalZone: ''
+        c_residency_type: ''
+        c_yearsInArea: ''
+        c_gpsLatitude: ''
+        c_gpsLongitude: ''
+        c_ownedRentedLand: ''
+        c_totalAvailableLand: ''
+        c_cultivatedLand: ''
+        c_conservationAgricultureLand: ''
+        c_access_to_services: ''
+        c_distanceWaterSource: ''
+        c_distancePrimarySchool: ''
+        c_distancePublicHospital: ''
+        c_distanceLivestockMarket: ''
+        c_distanceAgriculturalMarket: ''
+        c_distancePublicTransport: ''
+    app_fd_farmer_registry:
+      record_count: 2
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_cropProduction: 'yes'
+        c_livestockProduction: true
+        c_mainSourceLivelihood: mixed
+        c_mainSourceFarmLabour: family
+        c_canReadWrite: 'yes'
+        c_agriculturalManagementSkills: ''
+        c_mainSourceAgriculturalInfo: ''
+        c_conservationPractices: ''
+        c_conservationPracticesOther: ''
+        c_shocks_hazards: ''
+        c_otherHazards: ''
+        c_copingMechanisms: Used drought-resistant varieties, reduced area planted,
+          sold some livestock to buy food
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_householdMembers: ''
+    app_fd_farmer_crop_livestck:
+      record_count: 1
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_hasLivestock: 'yes'
+        c_cropManagement: ''
+        c_livestockDetails: ''
+    app_fd_household_members:
+      record_count: 3
+      primary_key: id
+      parent_link: c_farmer_id
+      records:
+      - c_farmer_id: farmer-002
+        c_memberName: Motlomelo, Mamosa Elizabeth
+        c_sex: female
+        c_date_of_birth: '1987-12-24'
+        c_relationship: ''
+        c_orphanhoodStatus: both_alive
+        c_participatesInAgriculture: true
+        c_disability: none
+        c_chronicallyIll: false
+      - c_farmer_id: farmer-002
+        c_memberName: Motlomelo, Teboho
+        c_sex: male
+        c_date_of_birth: '2010-06-15'
+        c_relationship: ''
+        c_orphanhoodStatus: both_alive
+        c_participatesInAgriculture: false
+        c_disability: none
+        c_chronicallyIll: false
+      - c_farmer_id: farmer-002
+        c_memberName: Motlomelo, Naleli
+        c_sex: female
+        c_date_of_birth: '2014-09-08'
+        c_relationship: ''
+        c_orphanhoodStatus: both_alive
+        c_participatesInAgriculture: false
+        c_disability: none
+        c_chronicallyIll: false
+    app_fd_crop_management:
+      record_count: 3
+      primary_key: id
+      parent_link: c_farmer_id
+      records:
+      - c_farmer_id: farmer-002
+        c_cropType: MAIZE
+        c_areaCultivated: '2.5'
+        c_areaUnit: hectare
+        c_bagsHarvested: '45'
+        c_fertilizerApplied: 'yes'
+        c_pesticidesApplied: 'no'
+      - c_farmer_id: farmer-002
+        c_cropType: POTATOES
+        c_areaCultivated: '0.5'
+        c_areaUnit: hectare
+        c_bagsHarvested: '20'
+        c_fertilizerApplied: 'yes'
+        c_pesticidesApplied: 'yes'
+      - c_farmer_id: farmer-002
+        c_cropType: SPINACH
+        c_areaCultivated: '0.25'
+        c_areaUnit: hectare
+        c_bagsHarvested: '10'
+        c_fertilizerApplied: 'no'
+        c_pesticidesApplied: 'no'
+    app_fd_livestock_details:
+      record_count: 3
+      primary_key: id
+      parent_link: c_farmer_id
+      records:
+      - c_farmer_id: farmer-002
+        c_livestockType: cattle-beef
+        c_numberOfMale: '1'
+        c_numberOfFemale: '3'
+      - c_farmer_id: farmer-002
+        c_livestockType: goats
+        c_numberOfMale: '2'
+        c_numberOfFemale: '8'
+      - c_farmer_id: farmer-002
+        c_livestockType: chicken-village
+        c_numberOfMale: '3'
+        c_numberOfFemale: '12'
+    app_fd_farmer_income:
+      record_count: 1
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_mainSourceIncome: farming
+        c_income_sources: informal_employment
+        c_gainfulEmployment: 'yes'
+        c_governmentEmployed: 'no'
+        c_averageAnnualIncome: '42000'
+        c_monthlyExpenditure: '3200'
+        c_relativeSupport: 'yes'
+        c_supportFrequency: seasonal
+        c_supportType: money,food
+        c_supportProgram: input_subsidy
+        c_everOnISP: 'no'
+        c_creditDefault: 'no'
+        c_otherInputSupport: 'yes'
+        c_totalLoans12Months: '8000'
+        c_informalTransfers: '5000'
+        c_formalTransfers: '18000'
+        c_networkAssociations: '1'
+        c_networkRelatives: '8'
+        c_networksSupport: Community labor exchange during planting
+    app_fd_farmer_declaration:
+      record_count: 1
+      primary_key: id
+      records:
+      - id: farmer-002
+        c_parent_id: farmer-002
+        c_declarationConsent: agree_declaration,agree_terms,consent_verification,consent_data_use
+        c_declarationFullName: Mamosa Elizabeth Motlomelo
+        c_field13: '2025-01-22'
+        c_field12: data:text/plain;base64,aVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUFFQUFBQUJDQVlBQUFBZkZjU0pBQUFBRFVsRVFWUjQybVA4LzUraEhnQUhnZ0ovUGNoSTd3QUFBQUJKUlU1RXJrSmdnZz09
+        c_registrationStation: Berea District Agricultural Office
+        c_beneficiaryCode: BEN-2025-000002
+        c_registrationChannel: office
+        c_registrationStatus: pending_verification

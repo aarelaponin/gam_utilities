@@ -1,0 +1,76 @@
+# Joget DX8 Configuration
+# Main configuration file for Joget utility
+
+# Base configuration
+base_url: http://localhost:8080/jw/api/form
+default_api_key: 3e56045fe2394b5ba8fb148e74edc029
+# base_url: http://localhost:9999/jw/api/form
+# default_api_key: 8c04d5332aa34484a62fe1fb1e6e5900
+
+# Data paths configuration
+data_paths:
+  default: ./data
+  metadata: ./data/metadata
+  csv: ./data/csv
+  json: ./data/json
+
+# Connection settings
+connection:
+  timeout: 30  # seconds
+  retry_count: 3
+  retry_delay: 2  # seconds
+
+# Standard metadata endpoints
+# These endpoints all use the standard code/name field structure
+metadata_endpoints:
+  employmentType:
+    api_id: API-bb8dc2d3-892f-5245-b38f-94375249f855
+    description: "Employment types"
+
+  department:
+    api_id: API-cc9ed3e4-9a3g-6356-c49g-a5486360g966
+    description: "Department list"
+
+# Custom endpoints with specific field mappings
+endpoints:
+  customer:
+    api_id: API-dd1fe4f5-ab4h-7467-d51h-b6597471h077
+    required_fields:
+      - customerId
+      - customerName
+    field_mapping:
+      id: customerId
+      name: customerName
+      email: customerEmail
+      phone: customerPhone
+
+  account:
+    api_id: API-ee2gf5g6-bc5i-8578-e62i-c7618582i188
+    required_fields:
+      - accountNumber
+      - accountType
+    field_mapping:
+      number: accountNumber
+      type: accountType
+      balance: accountBalance
+      currency: accountCurrency
+
+  farmers_registry:
+    api_id: API-6dbc76a7-e38f-47c6-af25-ad0783c13859
+    # This endpoint uses a different URL structure
+    full_path: govstack/processing/services/farmers_registry/applications
+    required_fields: []
+    field_mapping: {}
+
+  farmerForm:
+    api_id: API-bd029636-b858-4d66-8726-a9bf6feeea12
+    description: "Farmer registration form"
+    full_path: govstack/processing/services/farmers_registry/applications
+    required_fields: []
+    field_mapping: {}
+
+# Logging configuration
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  file: ./logs/joget_utility.log
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

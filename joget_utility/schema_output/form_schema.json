@@ -1,0 +1,2378 @@
+{
+  "forms": {
+    "farmerBasicInfo": {
+      "form_id": "farmerBasicInfo",
+      "form_name": "01.01 - Farmer Basic Information",
+      "table_name": "farmer_basic_data",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "national_id",
+          "label": "National ID",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_national_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DuplicateValueValidator",
+              "properties": {
+                "formDefId": "farmerBasicInfo",
+                "fieldId": "national_id",
+                "errorDuplicateMsg": "",
+                "mandatory": "true",
+                "regex": "",
+                "errorFormatMsg": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "first_name",
+          "label": "First Name",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_first_name",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "last_name",
+          "label": "Last Name",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_last_name",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "gender",
+          "label": "Gender",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_gender",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "male",
+                "label": "Male",
+                "grouping": ""
+              },
+              {
+                "value": "female",
+                "label": "Female",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "date_of_birth",
+          "label": "Date of Birth",
+          "element_class": "org.joget.apps.form.lib.DatePicker",
+          "column_name": "c_date_of_birth",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "date_format": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "marital_status",
+          "label": "Marital Status",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_marital_status",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "preferred_language",
+          "label": "Preferred Language",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_preferred_language",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "mobile_number",
+          "label": "Mobile Number",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_mobile_number",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "email_address",
+          "label": "Email Address",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_email_address",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "",
+                "type": "email",
+                "message": "Provide correct email address"
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "extension_officer_name",
+          "label": "Extension Officer Name",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_extension_officer_name",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "member_of_cooperative",
+          "label": "Cooperative member?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_member_of_cooperative",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cooperative_name",
+          "label": "Cooperative Name",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_cooperative_name",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerLocation": {
+      "form_id": "farmerLocation",
+      "form_name": "01.02 - Farmer Location and Farm",
+      "table_name": "farm_location",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "district",
+          "label": "District",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_district",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "village",
+          "label": "Village Name",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_village",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "communityCouncil",
+          "label": "Community Council",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_communityCouncil",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "agroEcologicalZone",
+          "label": "Agro-Ecological Zone",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_agroEcologicalZone",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "residency_type",
+          "label": "Residency Type",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_residency_type",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "yearsInArea",
+          "label": "Years lived in this area",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_yearsInArea",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "gpsLatitude",
+          "label": "GPS Latitude",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_gpsLatitude",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "gpsLongitude",
+          "label": "GPS Longitude",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_gpsLongitude",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "ownedRentedLand",
+          "label": "Owned/Rented Land (Hectares)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_ownedRentedLand",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "totalAvailableLand",
+          "label": "Total Available Land (Hectares)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_totalAvailableLand",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cultivatedLand",
+          "label": "Cultivated Land (Hectares)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_cultivatedLand",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "conservationAgricultureLand",
+          "label": "Land under Conservation Agriculture (Hectares)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_conservationAgricultureLand",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "access_to_services",
+          "label": "Closest Service",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_access_to_services",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distanceWaterSource",
+          "label": "Water Source",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distanceWaterSource",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distancePrimarySchool",
+          "label": "Primary School",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distancePrimarySchool",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distancePublicHospital",
+          "label": "Public Hospital",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distancePublicHospital",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distanceLivestockMarket",
+          "label": "Livestock Market",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distanceLivestockMarket",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distanceAgriculturalMarket",
+          "label": "Agricultural/Crops Market",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distanceAgriculturalMarket",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "distancePublicTransport",
+          "label": "Public Means of Transport",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_distancePublicTransport",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerAgriculture": {
+      "form_id": "farmerAgriculture",
+      "form_name": "01.03 - Farmer Agricultural Activities",
+      "table_name": "farmer_registry",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "agriculture_key",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_agriculture_key",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "#form.farmerRegistrationForm.id#"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cropProduction",
+          "label": "Was the household engaged in crop production last agricultural season?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_cropProduction",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "livestockProduction",
+          "label": "Was the household engaged in livestock production last agricultural season?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_livestockProduction",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "1",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "2",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "canReadWrite",
+          "label": "Can the head read and write?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_canReadWrite",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "mainSourceFarmLabour",
+          "label": "What is your main source of farm labour?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_mainSourceFarmLabour",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "mainSourceLivelihood",
+          "label": "What is your main source of livelihood?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_mainSourceLivelihood",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "agriculturalManagementSkills",
+          "label": "What is the level of agricultural management skills?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_agriculturalManagementSkills",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "mainSourceAgriculturalInfo",
+          "label": "What is your main source of agricultural information?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_mainSourceAgriculturalInfo",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "conservationPractices",
+          "label": "Agriculture Conservation Practices",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_conservationPractices",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "conservationPracticesOther",
+          "label": "Other Conservation Practices (Specify)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_conservationPracticesOther",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "shocks_hazards",
+          "label": "Shocks/hazards",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_shocks_hazards",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "otherHazards",
+          "label": "Other Hazards (Specify)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_otherHazards",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "copingMechanisms",
+          "label": "What did the household do to cope with any of these shocks/hazards?",
+          "element_class": "org.joget.apps.form.lib.TextArea",
+          "column_name": "c_copingMechanisms",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "householdMemberForm": {
+      "form_id": "householdMemberForm",
+      "form_name": "01.04-1 - Household Member Form",
+      "table_name": "household_members",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_farmer_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "memberName",
+          "label": "Name (Surname First)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_memberName",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "sex",
+          "label": "Sex",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_sex",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "male",
+                "label": "Male",
+                "grouping": ""
+              },
+              {
+                "value": "female",
+                "label": "Female",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "date_of_birth",
+          "label": "Date of Birth",
+          "element_class": "org.joget.apps.form.lib.DatePicker",
+          "column_name": "c_date_of_birth",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "date_format": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "relationship",
+          "label": "Relationship to Head",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_relationship",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "orphanhoodStatus",
+          "label": "Orphanhood Status",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_orphanhoodStatus",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "participatesInAgriculture",
+          "label": "Participates in Agricultural Activities",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_participatesInAgriculture",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "1",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "2",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "disability",
+          "label": "Disability Status",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_disability",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "chronicallyIll",
+          "label": "Chronically Ill on Palliative Care",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_chronicallyIll",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "1",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "2",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerHousehold": {
+      "form_id": "farmerHousehold",
+      "form_name": "01.04 - Farmer Household Members",
+      "table_name": "farmer_registry",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "household_key",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_household_key",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "#form.farmerRegistrationForm.id#"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "householdInstruction",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CustomHTML",
+          "column_name": "c_householdInstruction",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": "<div class='alert alert-info'><strong>Instructions:</strong> List all household members starting with the head of household. Enter surname first for each member.</div>"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "householdMembers",
+          "label": "Household Members",
+          "element_class": "org.joget.plugin.enterprise.FormGrid",
+          "column_name": "c_householdMembers",
+          "properties": {},
+          "is_grid": true,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "cropManagementForm": {
+      "form_id": "cropManagementForm",
+      "form_name": "01.05-1 - Crop Management Form",
+      "table_name": "crop_management",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_farmer_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cropType",
+          "label": "Crop Type",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_cropType",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "areaCultivated",
+          "label": "Area Cultivated",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_areaCultivated",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "areaUnit",
+          "label": "Area Unit",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_areaUnit",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "bagsHarvested",
+          "label": "50kg Bags Harvested",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_bagsHarvested",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "fertilizerApplied",
+          "label": "Did you apply fertilizer?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_fertilizerApplied",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "pesticidesApplied",
+          "label": "Did you apply pesticides/herbicides?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_pesticidesApplied",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "livestockDetailsForm": {
+      "form_id": "livestockDetailsForm",
+      "form_name": "01.05-2 - Livestock Details Form",
+      "table_name": "livestock_details",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "farmer_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_farmer_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "livestockType",
+          "label": "Livestock Type",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_livestockType",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "numberOfMale",
+          "label": "Number (Male)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_numberOfMale",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "numberOfFemale",
+          "label": "Number (Female)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_numberOfFemale",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerCropsLivestock": {
+      "form_id": "farmerCropsLivestock",
+      "form_name": "01.05 - Farmer Crops and Livestock",
+      "table_name": "farmer_crop_livestck",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "crops_livestock_key",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_crops_livestock_key",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "#form.farmerRegistrationForm.id#"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cropInstruction",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CustomHTML",
+          "column_name": "c_cropInstruction",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": "<div class='alert alert-info'><strong>Instructions:</strong> List up to 5 major crops you grew last farming season</div>"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "cropManagement",
+          "label": "Crop Management",
+          "element_class": "org.joget.plugin.enterprise.FormGrid",
+          "column_name": "c_cropManagement",
+          "properties": {},
+          "is_grid": true,
+          "grid_fields": []
+        },
+        {
+          "field_id": "hasLivestock",
+          "label": "Do you have livestock?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_hasLivestock",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "livestockDetails",
+          "label": "Livestock Details",
+          "element_class": "org.joget.plugin.enterprise.FormGrid",
+          "column_name": "c_livestockDetails",
+          "properties": {},
+          "is_grid": true,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerIncomePrograms": {
+      "form_id": "farmerIncomePrograms",
+      "form_name": "01.06 - Farmer Income and Programs",
+      "table_name": "farmer_income",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "income_programs_key",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_income_programs_key",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "#form.farmerRegistrationForm.id#"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "mainSourceIncome",
+          "label": "Main source of income for the household?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_mainSourceIncome",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "income_sources",
+          "label": "Income sources (last 12 months)",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_income_sources",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "gainfulEmployment",
+          "label": "Are you in gainful employment where a monthly salary is earned?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_gainfulEmployment",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "governmentEmployed",
+          "label": "If yes, are you employed by the Government of Lesotho?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_governmentEmployed",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "averageAnnualIncome",
+          "label": "Average annual household income?",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_averageAnnualIncome",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "monthlyExpenditure",
+          "label": "Monthly household expenditure?",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_monthlyExpenditure",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "numeric",
+                "message": ""
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "relativeSupport",
+          "label": "Receive any support from relative(s) that you rely on entirely for your survival?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_relativeSupport",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "supportFrequency",
+          "label": "Frequency of Support",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_supportFrequency",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "monthly",
+                "label": "Monthly",
+                "grouping": ""
+              },
+              {
+                "value": "seasonal",
+                "label": "Seasonal",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "supportType",
+          "label": "Type of support",
+          "element_class": "org.joget.apps.form.lib.CheckBox",
+          "column_name": "c_supportType",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "money",
+                "label": "Money",
+                "grouping": ""
+              },
+              {
+                "value": "inputs",
+                "label": "Inputs",
+                "grouping": ""
+              },
+              {
+                "value": "food",
+                "label": "Food",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "supportProgram",
+          "label": "Household benefits from support program (last 12 months)?",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_supportProgram",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "creditDefault",
+          "label": "Is any member of the household in default of any agriculture credit scheme?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_creditDefault",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "everOnISP",
+          "label": "Has any member of the household ever been on ISP?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_everOnISP",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "otherInputSupport",
+          "label": "Has any member of the household ever been on Other Input Support program?",
+          "element_class": "org.joget.apps.form.lib.Radio",
+          "column_name": "c_otherInputSupport",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes",
+                "grouping": ""
+              },
+              {
+                "value": "no",
+                "label": "No",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "totalLoans12Months",
+          "label": "Total amount of loan(s) received in the last 12 months?",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_totalLoans12Months",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "informalTransfers",
+          "label": "Total amount of informal transfers received (cash, remittances, food, seed gift, etc.)?",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_informalTransfers",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "networksSupport",
+          "label": "Networks Support",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_networksSupport",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "formalTransfers",
+          "label": "Total amount of formal transfers received (relief food, cash assistance, livestock, pensions, etc)?",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_formalTransfers",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "networkAssociations",
+          "label": "Associations (farmer groups, cooperatives, women groups, etc.)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_networkAssociations",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "networkRelatives",
+          "label": "Relatives/friends/Family members",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_networkRelatives",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerDeclaration": {
+      "form_id": "farmerDeclaration",
+      "form_name": "01.07 - Farmer Declaration",
+      "table_name": "farmer_declaration",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "parent_id",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_parent_id",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "declaration_key",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_declaration_key",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "#form.farmerRegistrationForm.id#"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "declarationHeader",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CustomHTML",
+          "column_name": "c_declarationHeader",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": "<div class='alert alert-warning'><h4>Declaration and Consent</h4><p>Please read the following declaration carefully before proceeding with your registration.</p></div>"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "declarationText",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CustomHTML",
+          "column_name": "c_declarationText",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": "<div style='background-color: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; margin-bottom: 20px;'><h5>Declaration:</h5><p>I hereby declare that:</p><ol><li>All information provided in this registration form is true, accurate, and complete to the best of my knowledge.</li><li>I am a resident of Lesotho and engaged in agricultural activities.</li><li>I understand that providing false information may result in disqualification from agricultural subsidy programs.</li><li>I authorize the Ministry of Agriculture and Food Security to verify the information provided.</li><li>I understand that my information will be used for agricultural subsidy management and related government programs.</li><li>I agree to update my information whenever there are significant changes to my farming activities or personal circumstances.</li></ol><h5>Data Protection and Privacy:</h5><p>Your personal information will be:</p><ul><li>Protected in accordance with Lesotho's data protection laws</li><li>Used only for agricultural subsidy management and related government services</li><li>Shared only with authorized government agencies and partners</li><li>Kept confidential and secure</li></ul></div>"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "declarationConsent",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CheckBox",
+          "column_name": "c_declarationConsent",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": "You must agree to all terms to proceed with registration"
+              }
+            },
+            "value": "",
+            "options": [
+              {
+                "value": "agree_declaration",
+                "label": "I have read and understood the declaration above",
+                "grouping": ""
+              },
+              {
+                "value": "agree_terms",
+                "label": "I agree to the terms and conditions of the agricultural subsidy programs",
+                "grouping": ""
+              },
+              {
+                "value": "consent_verification",
+                "label": "I consent to the verification of my information",
+                "grouping": ""
+              },
+              {
+                "value": "consent_data_use",
+                "label": "I consent to the use of my data for agricultural program management",
+                "grouping": ""
+              }
+            ]
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "declarationFullName",
+          "label": "Full Name (as per National ID)",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_declarationFullName",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": "Please enter your full name"
+              }
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "field13",
+          "label": "Date Picker",
+          "element_class": "org.joget.apps.form.lib.DatePicker",
+          "column_name": "c_field13",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "org.joget.apps.form.lib.DefaultValidator",
+              "properties": {
+                "mandatory": "true",
+                "type": "",
+                "message": ""
+              }
+            },
+            "value": "",
+            "date_format": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "field12",
+          "label": "Signature",
+          "element_class": "org.joget.plugin.enterprise.Signature",
+          "column_name": "c_field12",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "registrationInfo",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.CustomHTML",
+          "column_name": "c_registrationInfo",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": "<div class='alert alert-info'><h5>Registration Information</h5><p>This section will be completed by the Extension Officer</p></div>"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "registrationStation",
+          "label": "Registration Station",
+          "element_class": "org.joget.apps.form.lib.TextField",
+          "column_name": "c_registrationStation",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "beneficiaryCode",
+          "label": "Beneficiary Code",
+          "element_class": "org.joget.apps.form.lib.IdGeneratorField",
+          "column_name": "c_beneficiaryCode",
+          "properties": {
+            "required": false,
+            "readonly": true,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "registrationChannel",
+          "label": "Registration Channel",
+          "element_class": "org.joget.apps.form.lib.SelectBox",
+          "column_name": "c_registrationChannel",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        },
+        {
+          "field_id": "registrationStatus",
+          "label": "",
+          "element_class": "org.joget.apps.form.lib.HiddenField",
+          "column_name": "c_registrationStatus",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {
+              "className": "",
+              "properties": {}
+            },
+            "value": "pending_verification"
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    },
+    "farmerRegistrationForm": {
+      "form_id": "farmerRegistrationForm",
+      "form_name": "01 - Farmer Registration Form",
+      "table_name": "farms_registry",
+      "primary_key": "id",
+      "fields": [
+        {
+          "field_id": "farmerRegistrationWizard",
+          "label": "",
+          "element_class": "org.joget.plugin.enterprise.MultiPagedForm",
+          "column_name": "c_farmerRegistrationWizard",
+          "properties": {
+            "required": false,
+            "readonly": false,
+            "validator": {},
+            "value": ""
+          },
+          "is_grid": false,
+          "grid_fields": []
+        }
+      ],
+      "grid_forms": [],
+      "parent_field": null
+    }
+  },
+  "table_mappings": {
+    "farmer_basic_data": "farmerBasicInfo",
+    "farm_location": "farmerLocation",
+    "farmer_registry": "farmerHousehold",
+    "household_members": "householdMemberForm",
+    "crop_management": "cropManagementForm",
+    "livestock_details": "livestockDetailsForm",
+    "farmer_crop_livestck": "farmerCropsLivestock",
+    "farmer_income": "farmerIncomePrograms",
+    "farmer_declaration": "farmerDeclaration",
+    "farms_registry": "farmerRegistrationForm"
+  }
+}

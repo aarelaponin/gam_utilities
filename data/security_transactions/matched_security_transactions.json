@@ -1,0 +1,414 @@
+{
+  "security_transactions": [
+    {
+      "date": "2024-06-03",
+      "ticker": "ADBE",
+      "amount": 8690.15,
+      "description": "Securities sell (ADBE)",
+      "type": "sell",
+      "operations_count": 7
+    },
+    {
+      "date": "2024-06-03",
+      "ticker": "ADBE",
+      "amount": -12.16,
+      "description": "Securities commission fee (ADBE)",
+      "type": "buy",
+      "operations_count": 2
+    },
+    {
+      "date": "2024-06-06",
+      "ticker": "FLNC",
+      "amount": -3429.0,
+      "description": "Securities buy (FLNC)",
+      "type": "buy",
+      "operations_count": 2,
+      "count": 150.0,
+      "price": 22.86
+    },
+    {
+      "date": "2024-06-06",
+      "ticker": "FLNC",
+      "amount": -9.78,
+      "description": "Securities commission fee (FLNC)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-07",
+      "ticker": "LHV1T",
+      "amount": -8050.0,
+      "description": "Securities buy (LHV1T)",
+      "type": "buy",
+      "operations_count": 6,
+      "count": 2300.0,
+      "price": 3.5
+    },
+    {
+      "date": "2024-06-07",
+      "ticker": "HLMBK095034FA",
+      "amount": -2123.7,
+      "description": "Securities buy (HLMBK095034FA)",
+      "type": "buy",
+      "operations_count": 2,
+      "count": 2.0,
+      "price": 1061.85
+    },
+    {
+      "date": "2024-06-07",
+      "ticker": "HLMBK095034FA",
+      "amount": -10.24,
+      "description": "Securities commission fee (HLMBK095034FA)",
+      "type": "buy",
+      "operations_count": 2
+    },
+    {
+      "date": "2024-06-14",
+      "ticker": "MSFT",
+      "amount": 18.75,
+      "description": "Dividends (MSFT)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-14",
+      "ticker": "MSFT",
+      "amount": -2.81,
+      "description": "Income tax withheld (MSFT) (14.06.2024)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-18",
+      "ticker": "ADBE",
+      "amount": -10167.8,
+      "description": "Securities buy (ADBE)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 20.0,
+      "price": 508.39
+    },
+    {
+      "date": "2024-06-18",
+      "ticker": "ADBE",
+      "amount": -14.23,
+      "description": "Securities commission fee (ADBE)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-20",
+      "ticker": "NEM",
+      "amount": -7257.25,
+      "description": "Securities buy (NEM)",
+      "type": "buy",
+      "operations_count": 3,
+      "count": 175.0,
+      "price": 41.47
+    },
+    {
+      "date": "2024-06-20",
+      "ticker": "NEM",
+      "amount": -10.15,
+      "description": "Securities commission fee (NEM)",
+      "type": "buy",
+      "operations_count": 2
+    },
+    {
+      "date": "2024-06-21",
+      "ticker": "SBLK",
+      "amount": 750.0,
+      "description": "Dividends (SBLK)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-25",
+      "ticker": "NVDA",
+      "amount": 12250.0,
+      "description": "Securities sell (NVDA)",
+      "type": "sell",
+      "operations_count": 1,
+      "count": -100.0,
+      "price": 122.5
+    },
+    {
+      "date": "2024-06-25",
+      "ticker": "NVDA",
+      "amount": -17.15,
+      "description": "Securities commission fee (NVDA)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-27",
+      "ticker": "META",
+      "amount": 10.0,
+      "description": "Dividends (META)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-27",
+      "ticker": "META",
+      "amount": -1.5,
+      "description": "Income tax withheld (META) (27.06.2024)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-27",
+      "ticker": "MU",
+      "amount": -14200.0,
+      "description": "Securities buy (MU)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 100.0,
+      "price": 142.0
+    },
+    {
+      "date": "2024-06-27",
+      "ticker": "MU",
+      "amount": -19.88,
+      "description": "Securities commission fee (MU)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-28",
+      "ticker": "NEM",
+      "amount": 81.25,
+      "description": "Dividends (NEM)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-06-28",
+      "ticker": "NEM",
+      "amount": -12.19,
+      "description": "Income tax withheld (NEM) (28.06.2024)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-01",
+      "ticker": "NVDA",
+      "amount": 2.0,
+      "description": "Dividends (NVDA)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-01",
+      "ticker": "NVDA",
+      "amount": -0.3,
+      "description": "Income tax withheld (NVDA) (01.07.2024)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-11",
+      "ticker": "ILMN",
+      "amount": -11318.0,
+      "description": "Securities buy (ILMN)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 100.0,
+      "price": 113.18
+    },
+    {
+      "date": "2024-07-11",
+      "ticker": "ILMN",
+      "amount": -15.85,
+      "description": "Securities commission fee (ILMN)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "BIGB080033A",
+      "amount": -20635.56,
+      "description": "Securities buy (BIGB080033A)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 20.0,
+      "price": 1031.778
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "BIGB080033A",
+      "amount": -47.27,
+      "description": "Securities commission fee (BIGB080033A)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "HYLN",
+      "amount": 2510.0,
+      "description": "Securities sell (HYLN)",
+      "type": "sell",
+      "operations_count": 5,
+      "count": -1000.0,
+      "price": 2.51
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "HYLN",
+      "amount": -9.84,
+      "description": "Securities commission fee (HYLN)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "CRWD",
+      "amount": 12550.56,
+      "description": "Securities sell (CRWD)",
+      "type": "sell",
+      "operations_count": 2,
+      "count": -35.0,
+      "price": 358.5874286
+    },
+    {
+      "date": "2024-07-18",
+      "ticker": "CRWD",
+      "amount": -17.56,
+      "description": "Securities commission fee (CRWD)",
+      "type": "buy",
+      "operations_count": 2
+    },
+    {
+      "date": "2024-07-19",
+      "ticker": "INBB055031A",
+      "amount": -1872.42,
+      "description": "Securities buy (INBB055031A)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 2.0,
+      "price": 936.21
+    },
+    {
+      "date": "2024-07-19",
+      "ticker": "INBB055031A",
+      "amount": -9.74,
+      "description": "Securities commission fee (INBB055031A)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-24",
+      "ticker": "MU",
+      "amount": 11.5,
+      "description": "Dividends (MU)",
+      "type": "sell",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-24",
+      "ticker": "MU",
+      "amount": -1.73,
+      "description": "Income tax withheld (MU) (24.07.2024)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "ADBE",
+      "amount": 21425.04,
+      "description": "Securities sell (ADBE)",
+      "type": "sell",
+      "operations_count": 1,
+      "count": -40.0,
+      "price": 535.626
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "ADBE",
+      "amount": -30.0,
+      "description": "Securities commission fee (ADBE)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "META",
+      "amount": 9397.8,
+      "description": "Securities sell (META)",
+      "type": "sell",
+      "operations_count": 1,
+      "count": -20.0,
+      "price": 469.89
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "META",
+      "amount": -13.16,
+      "description": "Securities commission fee (META)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "MU",
+      "amount": 11198.91,
+      "description": "Securities sell (MU)",
+      "type": "sell",
+      "operations_count": 9,
+      "count": -100.0,
+      "price": 111.9891
+    },
+    {
+      "date": "2024-07-25",
+      "ticker": "MU",
+      "amount": -15.67,
+      "description": "Securities commission fee (MU)",
+      "type": "buy",
+      "operations_count": 7
+    },
+    {
+      "date": "2024-07-29",
+      "ticker": "FLNC",
+      "amount": -4122.5,
+      "description": "Securities buy (FLNC)",
+      "type": "buy",
+      "operations_count": 2,
+      "count": 250.0,
+      "price": 16.49
+    },
+    {
+      "date": "2024-07-29",
+      "ticker": "FLNC",
+      "amount": -9.77,
+      "description": "Securities commission fee (FLNC)",
+      "type": "buy",
+      "operations_count": 1
+    },
+    {
+      "date": "2024-07-30",
+      "ticker": "CRWD",
+      "amount": -9169.65,
+      "description": "Securities buy (CRWD)",
+      "type": "buy",
+      "operations_count": 1,
+      "count": 35.0,
+      "price": 261.99
+    },
+    {
+      "date": "2024-07-30",
+      "ticker": "CRWD",
+      "amount": -12.84,
+      "description": "Securities commission fee (CRWD)",
+      "type": "buy",
+      "operations_count": 1
+    }
+  ],
+  "metadata": {
+    "processed_date": "2025-04-28T03:33:21.861610",
+    "total_transactions": 46,
+    "unique_tickers": 15,
+    "total_operations": 85,
+    "matched_transactions": 17,
+    "unmatched_transactions": 1
+  }
+}

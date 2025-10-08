@@ -1,0 +1,5 @@
+mapping_id,mappingName,counterpartyId,sourceType,matchingField,matchOperator,matchValue,caseSensitive,internalType,priority,status,effectiveDate,dateCreated,createdBy
+TXMP-000036,LHV Equity Buy Orders,8f68d98a-58c7-4b15-ba72-502ff42dee8f,secu,type,equals,ost,false,EQ_BUY,1,Active,2025-01-17,2025-01-17,admin
+TXMP-000037,LHV Equity Sell Orders,8f68d98a-58c7-4b15-ba72-502ff42dee8f,secu,type,equals,müük,false,EQ_SELL,1,Active,2025-01-17,2025-01-17,admin
+TXMP-000038,LHV Stock Split In,8f68d98a-58c7-4b15-ba72-502ff42dee8f,secu,type,equals,split+,false,SPLIT_IN,2,Active,2025-01-17,2025-01-17,admin
+TXMP-000039,LHV Stock Split Out,8f68d98a-58c7-4b15-ba72-502ff42dee8f,secu,type,equals,split-,false,SPLIT_OUT,2,Active,2025-01-17,2025-01-17,admin

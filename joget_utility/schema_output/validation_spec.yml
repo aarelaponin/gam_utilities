@@ -1,0 +1,768 @@
+validation:
+  description: Database validation specification based on actual schema
+  tables:
+    crop_management:
+      columns:
+      - fieldId: farmer_id
+        name: c_farmer_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: cropType
+        name: c_cropType
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: areaCultivated
+        name: c_areaCultivated
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: numeric
+      - fieldId: areaUnit
+        name: c_areaUnit
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: bagsHarvested
+        name: c_bagsHarvested
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: numeric
+      - fieldId: fertilizerApplied
+        name: c_fertilizerApplied
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: pesticidesApplied
+        name: c_pesticidesApplied
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      primaryKey: id
+      tableName: crop_management
+    farm_location:
+      columns:
+      - fieldId: district
+        name: c_district
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: village
+        name: c_village
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: communityCouncil
+        name: c_communityCouncil
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: agroEcologicalZone
+        name: c_agroEcologicalZone
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: residency_type
+        name: c_residency_type
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: yearsInArea
+        name: c_yearsInArea
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: gpsLatitude
+        name: c_gpsLatitude
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: gpsLongitude
+        name: c_gpsLongitude
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: ownedRentedLand
+        name: c_ownedRentedLand
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: totalAvailableLand
+        name: c_totalAvailableLand
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: cultivatedLand
+        name: c_cultivatedLand
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: conservationAgricultureLand
+        name: c_conservationAgricultureLand
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: access_to_services
+        name: c_access_to_services
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distanceWaterSource
+        name: c_distanceWaterSource
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distancePrimarySchool
+        name: c_distancePrimarySchool
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distancePublicHospital
+        name: c_distancePublicHospital
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distanceLivestockMarket
+        name: c_distanceLivestockMarket
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distanceAgriculturalMarket
+        name: c_distanceAgriculturalMarket
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: distancePublicTransport
+        name: c_distancePublicTransport
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      primaryKey: id
+      tableName: farm_location
+    farmer_basic_data:
+      columns:
+      - fieldId: national_id
+        name: c_national_id
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DuplicateValueValidator
+          properties:
+            errorDuplicateMsg: ''
+            errorFormatMsg: ''
+            fieldId: national_id
+            formDefId: farmerBasicInfo
+            mandatory: 'true'
+            regex: ''
+      - fieldId: first_name
+        name: c_first_name
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: last_name
+        name: c_last_name
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: gender
+        name: c_gender
+        required: false
+        type: Radio
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: date_of_birth
+        name: c_date_of_birth
+        required: false
+        type: DatePicker
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: marital_status
+        name: c_marital_status
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: preferred_language
+        name: c_preferred_language
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: mobile_number
+        name: c_mobile_number
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: email_address
+        name: c_email_address
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: ''
+            message: Provide correct email address
+            type: email
+      - fieldId: extension_officer_name
+        name: c_extension_officer_name
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: member_of_cooperative
+        name: c_member_of_cooperative
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: cooperative_name
+        name: c_cooperative_name
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      primaryKey: id
+      tableName: farmer_basic_data
+    farmer_crop_livestck:
+      columns:
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: crops_livestock_key
+        name: c_crops_livestock_key
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: cropInstruction
+        name: c_cropInstruction
+        required: false
+        type: CustomHTML
+      - fieldId: hasLivestock
+        name: c_hasLivestock
+        required: false
+        type: Radio
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      primaryKey: id
+      tableName: farmer_crop_livestck
+    farmer_declaration:
+      columns:
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: declaration_key
+        name: c_declaration_key
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: declarationHeader
+        name: c_declarationHeader
+        required: false
+        type: CustomHTML
+      - fieldId: declarationText
+        name: c_declarationText
+        required: false
+        type: CustomHTML
+      - fieldId: declarationConsent
+        name: c_declarationConsent
+        required: false
+        type: CheckBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: You must agree to all terms to proceed with registration
+            type: ''
+      - fieldId: declarationFullName
+        name: c_declarationFullName
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: Please enter your full name
+            type: ''
+      - fieldId: field13
+        name: c_field13
+        required: false
+        type: DatePicker
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: field12
+        name: c_field12
+        required: false
+        type: Signature
+      - fieldId: registrationInfo
+        name: c_registrationInfo
+        required: false
+        type: CustomHTML
+      - fieldId: registrationStation
+        name: c_registrationStation
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: beneficiaryCode
+        name: c_beneficiaryCode
+        required: false
+        type: IdGeneratorField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: registrationChannel
+        name: c_registrationChannel
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: registrationStatus
+        name: c_registrationStatus
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      primaryKey: id
+      tableName: farmer_declaration
+    farmer_income:
+      columns:
+      - fieldId: income_programs_key
+        name: c_income_programs_key
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: mainSourceIncome
+        name: c_mainSourceIncome
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: income_sources
+        name: c_income_sources
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: gainfulEmployment
+        name: c_gainfulEmployment
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: governmentEmployed
+        name: c_governmentEmployed
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: averageAnnualIncome
+        name: c_averageAnnualIncome
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: numeric
+      - fieldId: monthlyExpenditure
+        name: c_monthlyExpenditure
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: numeric
+      - fieldId: relativeSupport
+        name: c_relativeSupport
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: supportFrequency
+        name: c_supportFrequency
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: supportType
+        name: c_supportType
+        required: false
+        type: CheckBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: supportProgram
+        name: c_supportProgram
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: creditDefault
+        name: c_creditDefault
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: everOnISP
+        name: c_everOnISP
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: otherInputSupport
+        name: c_otherInputSupport
+        required: false
+        type: Radio
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: totalLoans12Months
+        name: c_totalLoans12Months
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: informalTransfers
+        name: c_informalTransfers
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: networksSupport
+        name: c_networksSupport
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: formalTransfers
+        name: c_formalTransfers
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: networkAssociations
+        name: c_networkAssociations
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: networkRelatives
+        name: c_networkRelatives
+        required: false
+        type: TextField
+        validator:
+          className: ''
+          properties: {}
+      primaryKey: id
+      tableName: farmer_income
+    farmer_registry:
+      columns:
+      - fieldId: household_key
+        name: c_household_key
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: parent_id
+        name: c_parent_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: householdInstruction
+        name: c_householdInstruction
+        required: false
+        type: CustomHTML
+      primaryKey: id
+      tableName: farmer_registry
+    farms_registry:
+      columns:
+      - fieldId: farmerRegistrationWizard
+        name: c_farmerRegistrationWizard
+        required: false
+        type: MultiPagedForm
+      primaryKey: id
+      tableName: farms_registry
+    household_members:
+      columns:
+      - fieldId: farmer_id
+        name: c_farmer_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: memberName
+        name: c_memberName
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: sex
+        name: c_sex
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: date_of_birth
+        name: c_date_of_birth
+        required: false
+        type: DatePicker
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: relationship
+        name: c_relationship
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: orphanhoodStatus
+        name: c_orphanhoodStatus
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: participatesInAgriculture
+        name: c_participatesInAgriculture
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: disability
+        name: c_disability
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: chronicallyIll
+        name: c_chronicallyIll
+        required: false
+        type: SelectBox
+        validator:
+          className: ''
+          properties: {}
+      primaryKey: id
+      tableName: household_members
+    livestock_details:
+      columns:
+      - fieldId: farmer_id
+        name: c_farmer_id
+        required: false
+        type: HiddenField
+        validator:
+          className: ''
+          properties: {}
+      - fieldId: livestockType
+        name: c_livestockType
+        required: false
+        type: SelectBox
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: 'true'
+            message: ''
+            type: ''
+      - fieldId: numberOfMale
+        name: c_numberOfMale
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: ''
+            message: ''
+            type: numeric
+      - fieldId: numberOfFemale
+        name: c_numberOfFemale
+        required: false
+        type: TextField
+        validator:
+          className: org.joget.apps.form.lib.DefaultValidator
+          properties:
+            mandatory: ''
+            message: ''
+            type: numeric
+      primaryKey: id
+      tableName: livestock_details

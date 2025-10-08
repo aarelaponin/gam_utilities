@@ -1,0 +1,22 @@
+# Validation Configuration
+validation:
+  name: "Joget Form Validation"
+  version: "1.0"
+
+# Database configuration from .env file
+database:
+  host: "${DB_HOST}"
+  port: "${DB_PORT}"
+  database: "${DB_NAME}"
+  user: "${DB_USER}"
+  password: "${DB_PASSWORD}"
+
+# Services configuration path is passed via CLI
+# Test data path is passed via CLI
+
+# Validation options
+options:
+  check_types: true
+  check_required: true
+  check_transformations: true
+  max_errors_per_form: 10

@@ -1,0 +1,26 @@
+name,swift_code_bic,country,city,bank_address,dateCreated,createdBy
+LHV Pank,LHVBEE22,EE,Tallinn,"Tartu mnt 2, 10145 Tallinn, Estonia",2024-01-01,admin
+Swedbank Estonia,HABAEE2X,EE,Tallinn,"Liivalaia 8, 15040 Tallinn, Estonia",2024-01-01,admin
+SEB Pank,EEUHEE2X,EE,Tallinn,"Tornimäe 2, 15010 Tallinn, Estonia",2024-01-01,admin
+Coop Pank,EKRDEE22,EE,Tallinn,"Narva mnt 4, 15014 Tallinn, Estonia",2024-01-01,admin
+Luminor Bank,NDEAEE2X,EE,Tallinn,"Liivalaia 45, 10145 Tallinn, Estonia",2024-01-01,admin
+Interactive Brokers LLC,IBKRUS33,US,Greenwich,"One Pickwick Plaza, Greenwich, CT 06830, USA",2024-01-01,admin
+Interactive Brokers (UK),IBKRGB2L,UK,London,"Level 20 Heron Tower, 110 Bishopsgate, London EC2N 4AY, UK",2024-01-01,admin
+Interactive Brokers Ireland,IBKRIE2D,IE,Dublin,"70 Sir John Rogerson's Quay, Dublin 2, Ireland",2024-01-01,admin
+Saxo Bank A/S,SAXODKKK,DK,Copenhagen,"Philip Heymans Allé 15, 2900 Hellerup, Denmark",2024-01-01,admin
+Saxo Bank (Switzerland),SAXOCHZZ,CH,Zurich,"Beethovenstrasse 33, 8002 Zurich, Switzerland",2024-01-01,admin
+Goldman Sachs International,GSCGGB2L,UK,London,"Plumtree Court, 25 Shoe Lane, London EC4A 4AU, UK",2024-01-01,admin
+Morgan Stanley & Co International,MSLNGB2X,UK,London,"25 Cabot Square, Canary Wharf, London E14 4QA, UK",2024-01-01,admin
+HSBC Bank plc,HBUKGB4B,UK,London,"8 Canada Square, London E14 5HQ, UK",2024-01-01,admin
+HSBC Hong Kong,HSBCHKHH,HK,Hong Kong,"1 Queen's Road Central, Hong Kong",2024-01-01,admin
+Citibank N.A.,CITIUS33,US,New York,"388 Greenwich Street, New York, NY 10013, USA",2024-01-01,admin
+ING Bank N.V.,INGBNL2A,NL,Amsterdam,"Bijlmerplein 888, 1102 MG Amsterdam, Netherlands",2024-01-01,admin
+UBS AG,UBSWCHZH,CH,Zurich,"Bahnhofstrasse 45, 8001 Zurich, Switzerland",2024-01-01,admin
+DBS Bank Ltd,DBSSSGSG,SG,Singapore,"12 Marina Boulevard, Marina Bay Financial Centre, Singapore 018982",2024-01-01,admin
+JPMorgan Chase Bank,CHASUS33,US,New York,"383 Madison Avenue, New York, NY 10179, USA",2024-01-01,admin
+Bank of America,BOFAUS3N,US,New York,"One Bryant Park, New York, NY 10036, USA",2024-01-01,admin
+Deutsche Bank AG,DEUTDEFF,DE,Frankfurt,"Taunusanlage 12, 60325 Frankfurt am Main, Germany",2024-01-01,admin
+BNP Paribas,BNPAFRPP,FR,Paris,"16 Boulevard des Italiens, 75009 Paris, France",2024-01-01,admin
+Credit Suisse AG,CRESCHZZ,CH,Zurich,"Paradeplatz 8, 8001 Zurich, Switzerland",2024-01-01,admin
+Barclays Bank PLC,BARCGB22,UK,London,"1 Churchill Place, London E14 5HP, UK",2024-01-01,admin
+Standard Chartered Bank,SCBLSGSG,SG,Singapore,"8 Marina Boulevard, Marina Bay Financial Centre, Singapore 018981",2024-01-01,admin

@@ -1,0 +1,58 @@
+accountCode,accountName,accountType,accountCategory,normalBalance,currencyRequired,allowChildren,isReconcilable
+1001,Bank Clearing Account,Asset,Cash,Debit,N,Y,Y
+1101,Customer Cash - USD,Asset,Cash,Debit,Y,Y,Y
+1102,Customer Cash - EUR,Asset,Cash,Debit,Y,Y,Y
+1103,Customer Cash - GBP,Asset,Cash,Debit,Y,Y,Y
+1110,Bank Interest Receivable,Asset,Cash,Debit,N,N,Y
+1201,Customer Securities - Equity,Asset,Securities,Debit,N,Y,Y
+1202,Customer Securities - Fixed Income,Asset,Securities,Debit,N,Y,Y
+1203,Customer Securities - Funds,Asset,Securities,Debit,N,Y,Y
+1204,Customer Securities - Derivatives,Asset,Securities,Debit,N,Y,N
+1210,Dividend Receivable,Asset,Securities,Debit,N,N,Y
+1211,Bond Interest Receivable,Asset,Securities,Debit,N,N,Y
+1301,Unsettled Purchases,Asset,Securities,Debit,N,Y,Y
+1302,Unsettled Sales,Asset,Securities,Debit,N,Y,Y
+1310,Failed Trades Receivable,Asset,Securities,Debit,N,N,Y
+1401,Margin Account,Asset,Securities,Debit,N,Y,Y
+1501,Collateral Posted,Asset,Securities,Debit,N,Y,Y
+2101,Customer Cash Overdraft,Liability,Cash,Credit,Y,Y,N
+2201,Securities Sold Short,Liability,Securities,Credit,N,Y,Y
+2301,Unsettled Purchase Obligations,Liability,Securities,Credit,N,Y,Y
+2302,Unsettled Sale Obligations,Liability,Securities,Credit,N,Y,Y
+2401,Accrued Expenses,Liability,Expense,Credit,N,N,N
+2402,Tax Payable,Liability,Expense,Credit,N,N,Y
+2501,Collateral Received,Liability,Securities,Credit,N,Y,Y
+2601,Customer Deposits Payable,Liability,Cash,Credit,Y,Y,Y
+3101,Dividend Income - Equity,Income,Income,Credit,N,Y,N
+3102,Interest Income - Bonds,Income,Income,Credit,N,Y,N
+3103,Interest Income - Cash,Income,Income,Credit,N,Y,N
+3104,Distribution Income - Funds,Income,Income,Credit,N,Y,N
+3201,Realized Gains - Equity,Income,Income,Credit,N,Y,N
+3202,Realized Gains - Fixed Income,Income,Income,Credit,N,Y,N
+3203,Realized Gains - Other,Income,Income,Credit,N,Y,N
+3210,Unrealized Gains,Income,Income,Credit,N,N,N
+3301,Management Fee Income,Income,Income,Credit,N,N,N
+3302,Transaction Fee Income,Income,Income,Credit,N,N,N
+3303,Custody Fee Income,Income,Income,Credit,N,N,N
+3401,Foreign Exchange Gains,Income,Income,Credit,N,N,N
+3402,Securities Lending Income,Income,Income,Credit,N,N,N
+3501,Other Investment Income,Income,Income,Credit,N,Y,N
+4001,Trading Commissions,Expense,Expense,Debit,N,Y,N
+4002,Broker Fees,Expense,Expense,Debit,N,Y,N
+4003,Custody Fees,Expense,Expense,Debit,N,Y,N
+4004,Transaction Taxes,Expense,Expense,Debit,N,Y,N
+4201,Realized Losses - Equity,Expense,Expense,Debit,N,Y,N
+4202,Realized Losses - Fixed Income,Expense,Expense,Debit,N,Y,N
+4203,Realized Losses - Other,Expense,Expense,Debit,N,Y,N
+4210,Unrealized Losses,Expense,Expense,Debit,N,N,N
+4301,Foreign Exchange Losses,Expense,Expense,Debit,N,N,N
+4302,Bank Charges,Expense,Expense,Debit,N,Y,N
+4303,Interest Expense,Expense,Expense,Debit,N,N,N
+4401,Withholding Tax - Dividends,Expense,Expense,Debit,N,Y,N
+4402,Withholding Tax - Interest,Expense,Expense,Debit,N,Y,N
+4501,Securities Borrowing Fees,Expense,Expense,Debit,N,Y,N
+4601,Other Investment Expenses,Expense,Expense,Debit,N,Y,N
+5001,Share Capital,Equity,Equity,Credit,N,N,N
+5101,Retained Earnings,Equity,Equity,Credit,N,N,N
+5201,Current Year Profit/Loss,Equity,Equity,Credit,N,N,N
+5301,Other Comprehensive Income,Equity,Equity,Credit,N,N,N

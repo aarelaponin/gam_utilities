@@ -1,0 +1,16 @@
+functionId,functionCode,functionName,description,accountType,accountCategory,displayOrder,isActive,currencySpecific,assetSpecific,counterpartyRequired,settlementType,reconciliationRequired,primaryYieldType,secondaryYieldType,assetCategory,assetClass
+FUNC-00001,CASH_USD,USD Cash Account,Customer cash holdings in USD at various banks,Asset,Cash,10,true,Y,N,Y,T+0,Y,YIELD_2,,,
+FUNC-00002,CASH_EUR,EUR Cash Account,Customer cash holdings in EUR at various banks,Asset,Cash,11,true,Y,N,Y,T+0,Y,YIELD_2,,,
+FUNC-00003,CASH_GBP,GBP Cash Account,Customer cash holdings in GBP at various banks,Asset,Cash,12,true,Y,N,Y,T+0,Y,YIELD_2,,,
+FUNC-00004,EQUITY_LONG,Long Equity Position,Customer long positions in equity securities held at custodians,Asset,Securities,20,true,N,Y,Y,T+2,Y,YIELD_1,YIELD_3,EQ,EQ_1
+FUNC-00005,BOND_POSITION,Bond Holdings,Customer positions in fixed income securities,Asset,Securities,25,true,N,Y,Y,T+2,Y,YIELD_4,YIELD_7,FI,FI_1
+FUNC-00006,DIV_INCOME,Dividend Income,Income from equity dividend distributions,Income,Income,30,true,N,N,N,None,N,YIELD_1,,,
+FUNC-00007,INT_INCOME,Interest Income,Interest earned on cash deposits and bonds,Income,Income,31,true,N,N,N,None,N,YIELD_2,,,
+FUNC-00008,COUPON_INCOME,Bond Coupon Income,Periodic coupon payments from bond holdings,Income,Income,32,true,N,N,N,None,N,YIELD_4,,,
+FUNC-00009,COMMISSION_EXP,Trading Commissions,Brokerage commissions and trading fees,Expense,Operating,40,true,N,N,N,None,N,,,,
+FUNC-00010,CUSTODY_FEE,Custody Fees,Safekeeping and custody service charges,Expense,Operating,41,true,N,N,Y,None,N,,,,
+FUNC-00011,UNSETTLED_BUY,Pending Buy Settlement,Liability for securities purchased but not yet settled,Liability,Payable,50,true,N,N,Y,T+2,Y,,,,
+FUNC-00012,UNSETTLED_SELL,Pending Sell Settlement,Receivable for securities sold but not yet settled,Asset,Receivable,51,true,N,N,Y,T+2,Y,,,,
+FUNC-00013,UNREALIZED_GAIN,Unrealized Gains,Mark-to-market gains on securities positions,Income,Valuation,60,true,N,Y,N,None,N,YIELD_3,,,
+FUNC-00014,UNREALIZED_LOSS,Unrealized Losses,Mark-to-market losses on securities positions,Expense,Valuation,61,true,N,Y,N,None,N,,,,
+FUNC-00015,CLEARING_ACCOUNT,Bank Clearing Account,Clearing account for bank transactions,Asset,Clearing,70,true,N,N,Y,T+0,Y,,,,

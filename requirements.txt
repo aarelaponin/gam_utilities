@@ -1,0 +1,5 @@
+eodhd~=1.0.32
+pandas~=2.2.3
+yfinance~=0.2.57
+python-dotenv~=1.0.0
+mysql-connector-python~=8.3.0

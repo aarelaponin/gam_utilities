@@ -1,0 +1,787 @@
+{
+  "customers": {
+    "c001": {
+      "id": "c001",
+      "name": "John Smith",
+      "contact_info": "john.smith@example.com",
+      "cash_balance": 42675.83
+    },
+    "c002": {
+      "id": "c002",
+      "name": "Emma Johnson",
+      "contact_info": "emma.johnson@example.com",
+      "cash_balance": 128945.25
+    },
+    "c003": {
+      "id": "c003",
+      "name": "Michael Chen",
+      "contact_info": "michael.chen@example.com",
+      "cash_balance": 76250.40
+    },
+    "c004": {
+      "id": "c004",
+      "name": "Sara Williams",
+      "contact_info": "sara.williams@example.com",
+      "cash_balance": 205321.75
+    },
+    "c005": {
+      "id": "c005",
+      "name": "High Net Worth Client",
+      "contact_info": "hnw@example.com",
+      "cash_balance": 1250780.50
+    }
+  },
+  "securities": {
+    "s001": {
+      "id": "s001",
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "current_price": 187.25
+    },
+    "s002": {
+      "id": "s002",
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "current_price": 343.50
+    },
+    "s003": {
+      "id": "s003",
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "current_price": 175.75
+    },
+    "s004": {
+      "id": "s004",
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "current_price": 161.25
+    },
+    "s005": {
+      "id": "s005",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "current_price": 925.50
+    },
+    "s006": {
+      "id": "s006",
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "current_price": 215.75
+    },
+    "s007": {
+      "id": "s007",
+      "symbol": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "current_price": 182.30
+    },
+    "s008": {
+      "id": "s008",
+      "symbol": "V",
+      "name": "Visa Inc.",
+      "current_price": 271.20
+    },
+    "s009": {
+      "id": "s009",
+      "symbol": "JNJ",
+      "name": "Johnson & Johnson",
+      "current_price": 152.85
+    },
+    "s010": {
+      "id": "s010",
+      "symbol": "PG",
+      "name": "Procter & Gamble Co.",
+      "current_price": 164.50
+    },
+    "s011": {
+      "id": "s011",
+      "symbol": "AGG",
+      "name": "iShares Core U.S. Aggregate Bond ETF",
+      "current_price": 98.75
+    },
+    "s012": {
+      "id": "s012",
+      "symbol": "VTI",
+      "name": "Vanguard Total Stock Market ETF",
+      "current_price": 245.60
+    }
+  },
+  "positions": {
+    "p001": {
+      "id": "p001",
+      "customer_id": "c001",
+      "security_id": "s001",
+      "quantity": 50.0,
+      "cost_basis": 8250.0
+    },
+    "p002": {
+      "id": "p002",
+      "customer_id": "c001",
+      "security_id": "s002",
+      "quantity": 25.0,
+      "cost_basis": 8125.0
+    },
+    "p003": {
+      "id": "p003",
+      "customer_id": "c001",
+      "security_id": "s011",
+      "quantity": 100.0,
+      "cost_basis": 9950.0
+    },
+    "p004": {
+      "id": "p004",
+      "customer_id": "c002",
+      "security_id": "s003",
+      "quantity": 120.0,
+      "cost_basis": 20400.0
+    },
+    "p005": {
+      "id": "p005",
+      "customer_id": "c002",
+      "security_id": "s004",
+      "quantity": 75.0,
+      "cost_basis": 11625.0
+    },
+    "p006": {
+      "id": "p006",
+      "customer_id": "c002",
+      "security_id": "s005",
+      "quantity": 30.0,
+      "cost_basis": 26250.0
+    },
+    "p007": {
+      "id": "p007",
+      "customer_id": "c002",
+      "security_id": "s012",
+      "quantity": 50.0,
+      "cost_basis": 12000.0
+    },
+    "p008": {
+      "id": "p008",
+      "customer_id": "c003",
+      "security_id": "s006",
+      "quantity": 65.0,
+      "cost_basis": 13325.0
+    },
+    "p009": {
+      "id": "p009",
+      "customer_id": "c003",
+      "security_id": "s007",
+      "quantity": 85.0,
+      "cost_basis": 14875.0
+    },
+    "p010": {
+      "id": "p010",
+      "customer_id": "c003",
+      "security_id": "s008",
+      "quantity": 40.0,
+      "cost_basis": 10400.0
+    },
+    "p011": {
+      "id": "p011",
+      "customer_id": "c004",
+      "security_id": "s001",
+      "quantity": 120.0,
+      "cost_basis": 21000.0
+    },
+    "p012": {
+      "id": "p012",
+      "customer_id": "c004",
+      "security_id": "s002",
+      "quantity": 90.0,
+      "cost_basis": 30600.0
+    },
+    "p013": {
+      "id": "p013",
+      "customer_id": "c004",
+      "security_id": "s005",
+      "quantity": 50.0,
+      "cost_basis": 45750.0
+    },
+    "p014": {
+      "id": "p014",
+      "customer_id": "c004",
+      "security_id": "s009",
+      "quantity": 70.0,
+      "cost_basis": 10640.0
+    },
+    "p015": {
+      "id": "p015",
+      "customer_id": "c004",
+      "security_id": "s010",
+      "quantity": 60.0,
+      "cost_basis": 9540.0
+    },
+    "p016": {
+      "id": "p016",
+      "customer_id": "c005",
+      "security_id": "s001",
+      "quantity": 500.0,
+      "cost_basis": 89500.0
+    },
+    "p017": {
+      "id": "p017",
+      "customer_id": "c005",
+      "security_id": "s002",
+      "quantity": 300.0,
+      "cost_basis": 102000.0
+    },
+    "p018": {
+      "id": "p018",
+      "customer_id": "c005",
+      "security_id": "s003",
+      "quantity": 450.0,
+      "cost_basis": 79200.0
+    },
+    "p019": {
+      "id": "p019",
+      "customer_id": "c005",
+      "security_id": "s004",
+      "quantity": 400.0,
+      "cost_basis": 63600.0
+    },
+    "p020": {
+      "id": "p020",
+      "customer_id": "c005",
+      "security_id": "s005",
+      "quantity": 200.0,
+      "cost_basis": 179000.0
+    },
+    "p021": {
+      "id": "p021",
+      "customer_id": "c005",
+      "security_id": "s006",
+      "quantity": 350.0,
+      "cost_basis": 73500.0
+    },
+    "p022": {
+      "id": "p022",
+      "customer_id": "c005",
+      "security_id": "s007",
+      "quantity": 250.0,
+      "cost_basis": 44000.0
+    },
+    "p023": {
+      "id": "p023",
+      "customer_id": "c005",
+      "security_id": "s008",
+      "quantity": 200.0,
+      "cost_basis": 54000.0
+    },
+    "p024": {
+      "id": "p024",
+      "customer_id": "c005",
+      "security_id": "s011",
+      "quantity": 1000.0,
+      "cost_basis": 98500.0
+    },
+    "p025": {
+      "id": "p025",
+      "customer_id": "c005",
+      "security_id": "s012",
+      "quantity": 800.0,
+      "cost_basis": 196000.0
+    }
+  },
+  "transactions": [
+    {
+      "id": "t001",
+      "type": "DEPOSIT",
+      "customer_id": "c001",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 100000.0,
+      "timestamp": "2023-01-15T09:15:23.123456"
+    },
+    {
+      "id": "t002",
+      "type": "BUY",
+      "customer_id": "c001",
+      "security_id": "s001",
+      "quantity": 50.0,
+      "price": 165.0,
+      "amount": 8250.0,
+      "timestamp": "2023-01-16T10:30:45.654321"
+    },
+    {
+      "id": "t003",
+      "type": "BUY",
+      "customer_id": "c001",
+      "security_id": "s002",
+      "quantity": 25.0,
+      "price": 325.0,
+      "amount": 8125.0,
+      "timestamp": "2023-01-16T10:35:12.987654"
+    },
+    {
+      "id": "t004",
+      "type": "BUY",
+      "customer_id": "c001",
+      "security_id": "s011",
+      "quantity": 100.0,
+      "price": 99.5,
+      "amount": 9950.0,
+      "timestamp": "2023-01-16T11:05:33.246810"
+    },
+    {
+      "id": "t005",
+      "type": "WITHDRAW",
+      "customer_id": "c001",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 31000.0,
+      "timestamp": "2023-02-05T14:22:17.135790"
+    },
+    {
+      "id": "t006",
+      "type": "DEPOSIT",
+      "customer_id": "c002",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 200000.0,
+      "timestamp": "2023-01-20T11:25:33.987654"
+    },
+    {
+      "id": "t007",
+      "type": "BUY",
+      "customer_id": "c002",
+      "security_id": "s003",
+      "quantity": 120.0,
+      "price": 170.0,
+      "amount": 20400.0,
+      "timestamp": "2023-01-21T09:45:21.246810"
+    },
+    {
+      "id": "t008",
+      "type": "BUY",
+      "customer_id": "c002",
+      "security_id": "s004",
+      "quantity": 75.0,
+      "price": 155.0,
+      "amount": 11625.0,
+      "timestamp": "2023-01-21T09:50:18.369258"
+    },
+    {
+      "id": "t009",
+      "type": "BUY",
+      "customer_id": "c002",
+      "security_id": "s005",
+      "quantity": 30.0,
+      "price": 875.0,
+      "amount": 26250.0,
+      "timestamp": "2023-01-21T10:15:27.753951"
+    },
+    {
+      "id": "t010",
+      "type": "BUY",
+      "customer_id": "c002",
+      "security_id": "s012",
+      "quantity": 50.0,
+      "price": 240.0,
+      "amount": 12000.0,
+      "timestamp": "2023-01-21T10:30:42.159753"
+    },
+    {
+      "id": "t011",
+      "type": "WITHDRAW",
+      "customer_id": "c002",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 780.0,
+      "timestamp": "2023-03-10T15:45:33.246810"
+    },
+    {
+      "id": "t012",
+      "type": "DEPOSIT",
+      "customer_id": "c003",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 115000.0,
+      "timestamp": "2023-02-05T16:30:22.753951"
+    },
+    {
+      "id": "t013",
+      "type": "BUY",
+      "customer_id": "c003",
+      "security_id": "s006",
+      "quantity": 65.0,
+      "price": 205.0,
+      "amount": 13325.0,
+      "timestamp": "2023-02-06T09:20:15.369258"
+    },
+    {
+      "id": "t014",
+      "type": "BUY",
+      "customer_id": "c003",
+      "security_id": "s007",
+      "quantity": 85.0,
+      "price": 175.0,
+      "amount": 14875.0,
+      "timestamp": "2023-02-06T09:25:33.159753"
+    },
+    {
+      "id": "t015",
+      "type": "BUY",
+      "customer_id": "c003",
+      "security_id": "s008",
+      "quantity": 40.0,
+      "price": 260.0,
+      "amount": 10400.0,
+      "timestamp": "2023-02-06T09:35:17.753951"
+    },
+    {
+      "id": "t016",
+      "type": "DEPOSIT",
+      "customer_id": "c004",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 350000.0,
+      "timestamp": "2023-01-10T08:45:33.159753"
+    },
+    {
+      "id": "t017",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s001",
+      "quantity": 120.0,
+      "price": 175.0,
+      "amount": 21000.0,
+      "timestamp": "2023-01-11T10:15:42.369258"
+    },
+    {
+      "id": "t018",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s002",
+      "quantity": 90.0,
+      "price": 340.0,
+      "amount": 30600.0,
+      "timestamp": "2023-01-11T10:25:19.753951"
+    },
+    {
+      "id": "t019",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s005",
+      "quantity": 50.0,
+      "price": 915.0,
+      "amount": 45750.0,
+      "timestamp": "2023-01-11T10:40:27.246810"
+    },
+    {
+      "id": "t020",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s009",
+      "quantity": 70.0,
+      "price": 152.0,
+      "amount": 10640.0,
+      "timestamp": "2023-01-11T11:05:33.987654"
+    },
+    {
+      "id": "t021",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s010",
+      "quantity": 60.0,
+      "price": 159.0,
+      "amount": 9540.0,
+      "timestamp": "2023-01-11T11:15:21.135790"
+    },
+    {
+      "id": "t022",
+      "type": "WITHDRAW",
+      "customer_id": "c004",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 27150.0,
+      "timestamp": "2023-02-28T14:35:27.159753"
+    },
+    {
+      "id": "t023",
+      "type": "DEPOSIT",
+      "customer_id": "c005",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 2000000.0,
+      "timestamp": "2023-01-05T09:15:42.135790"
+    },
+    {
+      "id": "t024",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s001",
+      "quantity": 500.0,
+      "price": 179.0,
+      "amount": 89500.0,
+      "timestamp": "2023-01-06T10:05:33.246810"
+    },
+    {
+      "id": "t025",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s002",
+      "quantity": 300.0,
+      "price": 340.0,
+      "amount": 102000.0,
+      "timestamp": "2023-01-06T10:15:27.753951"
+    },
+    {
+      "id": "t026",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s003",
+      "quantity": 450.0,
+      "price": 176.0,
+      "amount": 79200.0,
+      "timestamp": "2023-01-06T10:30:42.369258"
+    },
+    {
+      "id": "t027",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s004",
+      "quantity": 400.0,
+      "price": 159.0,
+      "amount": 63600.0,
+      "timestamp": "2023-01-06T10:45:18.987654"
+    },
+    {
+      "id": "t028",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s005",
+      "quantity": 200.0,
+      "price": 895.0,
+      "amount": 179000.0,
+      "timestamp": "2023-01-06T11:05:21.159753"
+    },
+    {
+      "id": "t029",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s006",
+      "quantity": 350.0,
+      "price": 210.0,
+      "amount": 73500.0,
+      "timestamp": "2023-01-07T09:25:33.246810"
+    },
+    {
+      "id": "t030",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s007",
+      "quantity": 250.0,
+      "price": 176.0,
+      "amount": 44000.0,
+      "timestamp": "2023-01-07T09:40:27.753951"
+    },
+    {
+      "id": "t031",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s008",
+      "quantity": 200.0,
+      "price": 270.0,
+      "amount": 54000.0,
+      "timestamp": "2023-01-07T09:55:42.369258"
+    },
+    {
+      "id": "t032",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s011",
+      "quantity": 1000.0,
+      "price": 98.5,
+      "amount": 98500.0,
+      "timestamp": "2023-01-07T10:15:18.987654"
+    },
+    {
+      "id": "t033",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s012",
+      "quantity": 800.0,
+      "price": 245.0,
+      "amount": 196000.0,
+      "timestamp": "2023-01-07T10:35:21.159753"
+    },
+    {
+      "id": "t034",
+      "type": "SELL",
+      "customer_id": "c001",
+      "security_id": "s001",
+      "quantity": 10.0,
+      "price": 180.5,
+      "amount": 1805.0,
+      "timestamp": "2023-03-15T11:25:33.246810"
+    },
+    {
+      "id": "t035",
+      "type": "SELL",
+      "customer_id": "c002",
+      "security_id": "s005",
+      "quantity": 5.0,
+      "price": 900.0,
+      "amount": 4500.0,
+      "timestamp": "2023-04-05T14:35:27.753951"
+    },
+    {
+      "id": "t036",
+      "type": "SELL",
+      "customer_id": "c003",
+      "security_id": "s006",
+      "quantity": 15.0,
+      "price": 220.0,
+      "amount": 3300.0,
+      "timestamp": "2023-04-20T10:15:42.369258"
+    },
+    {
+      "id": "t037",
+      "type": "SELL",
+      "customer_id": "c004",
+      "security_id": "s005",
+      "quantity": 10.0,
+      "price": 930.0,
+      "amount": 9300.0,
+      "timestamp": "2023-05-10T09:25:33.987654"
+    },
+    {
+      "id": "t038",
+      "type": "SELL",
+      "customer_id": "c005",
+      "security_id": "s002",
+      "quantity": 50.0,
+      "price": 345.0,
+      "amount": 17250.0,
+      "timestamp": "2023-06-12T15:45:18.159753"
+    },
+    {
+      "id": "t039",
+      "type": "DEPOSIT",
+      "customer_id": "c001",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 15000.0,
+      "timestamp": "2023-07-05T10:05:21.246810"
+    },
+    {
+      "id": "t040",
+      "type": "DEPOSIT",
+      "customer_id": "c002",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 25000.0,
+      "timestamp": "2023-08-17T14:35:27.753951"
+    },
+    {
+      "id": "t041",
+      "type": "BUY",
+      "customer_id": "c001",
+      "security_id": "s001",
+      "quantity": 10.0,
+      "price": 185.0,
+      "amount": 1850.0,
+      "timestamp": "2023-07-06T10:15:42.369258"
+    },
+    {
+      "id": "t042",
+      "type": "BUY",
+      "customer_id": "c002",
+      "security_id": "s005",
+      "quantity": 5.0,
+      "price": 915.0,
+      "amount": 4575.0,
+      "timestamp": "2023-08-18T09:25:33.987654"
+    },
+    {
+      "id": "t043",
+      "type": "WITHDRAW",
+      "customer_id": "c005",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 100000.0,
+      "timestamp": "2023-09-20T15:45:18.159753"
+    },
+    {
+      "id": "t044",
+      "type": "DEPOSIT",
+      "customer_id": "c003",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 20000.0,
+      "timestamp": "2023-10-05T10:05:21.246810"
+    },
+    {
+      "id": "t045",
+      "type": "BUY",
+      "customer_id": "c003",
+      "security_id": "s006",
+      "quantity": 15.0,
+      "price": 215.0,
+      "amount": 3225.0,
+      "timestamp": "2023-10-06T10:15:42.369258"
+    },
+    {
+      "id": "t046",
+      "type": "SELL",
+      "customer_id": "c004",
+      "security_id": "s009",
+      "quantity": 20.0,
+      "price": 150.0,
+      "amount": 3000.0,
+      "timestamp": "2023-11-10T09:25:33.987654"
+    },
+    {
+      "id": "t047",
+      "type": "BUY",
+      "customer_id": "c004",
+      "security_id": "s005",
+      "quantity": 3.0,
+      "price": 920.0,
+      "amount": 2760.0,
+      "timestamp": "2023-11-15T15:45:18.159753"
+    },
+    {
+      "id": "t048",
+      "type": "DEPOSIT",
+      "customer_id": "c005",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 50000.0,
+      "timestamp": "2024-01-15T10:05:21.246810"
+    },
+    {
+      "id": "t049",
+      "type": "BUY",
+      "customer_id": "c005",
+      "security_id": "s005",
+      "quantity": 50.0,
+      "price": 925.0,
+      "amount": 46250.0,
+      "timestamp": "2024-01-16T10:15:42.369258"
+    },
+    {
+      "id": "t050",
+      "type": "WITHDRAW",
+      "customer_id": "c001",
+      "security_id": null,
+      "quantity": null,
+      "price": null,
+      "amount": 5000.0,
+      "timestamp": "2024-02-20T15:45:18.159753"
+    }
+  ]
+}

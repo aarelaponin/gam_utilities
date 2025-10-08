@@ -1,0 +1,73 @@
+# Metadata Batch Processing Configuration
+# Define multiple metadata endpoints to process in batch
+# All these endpoints use standard code/name fields
+
+# All these endpoints use standard code/name fields
+metadata_endpoints:
+  - api_id: API-aa7cb1c2-791f-4134-a27e-83264138e744
+    endpoint: maritalStatus
+    file: md01maritalStatus.csv
+  - api_id: API-290196de-e15c-4a1b-9e08-b98ba0a856e9
+    endpoint: language
+    file: md02language.csv
+  - api_id: API-e651b28b-8fd7-4e38-b865-5654c9c98788
+    endpoint: district
+    file: md03district.csv
+  - api_id: API-658c10e5-69a8-4c68-8ce8-1cf0aa899c1b
+    endpoint: agroEcologicalZones
+    file: md04agroEcologicalZone.csv
+  - api_id: API-66a59fe9-0a26-4f22-ba8e-cbaa0b1660a9
+    endpoint: residencyType
+    file: md05residencyType.csv
+  - api_id: API-4eb81c85-dc1a-4632-9b5e-a5f4e1697004
+    endpoint: farmLabourSource
+    file: md06farmLabourSource.csv
+  - api_id: API-d1f57283-1b9c-4be4-8b5e-423b05bb4076
+    endpoint: livelihoodSource
+    file: md07livelihoodSource.csv
+  - api_id: API-dc31790d-795c-4f67-89f0-2f77758f6366
+    endpoint: educationLevel
+    file: md08educationLevel.csv
+  - api_id: API-c556daee-5511-4236-adf9-c88e79642608
+    endpoint: infoSource
+    file: md09infoSource.csv
+  - api_id: API-18149a56-6e6e-447c-9883-84b9c9412cba
+    endpoint: conservationPractice
+    file: md10conservationPractice.csv
+  - api_id: API-c8cf8819-91f3-444a-9469-7bc68ff766a8
+    endpoint: hazard
+    file: md11hazard.csv
+  - api_id: API-8e1e55a2-ace9-4c6e-a507-a4be2ae4bcce
+    endpoint: relationship
+    file: md12relationship.csv
+  - api_id: API-34052df8-bb89-4e93-b428-6757ba9a2396
+    endpoint: orphanhoodStatus
+    file: md13orphanhoodStatus.csv
+  - api_id: API-3ff2f48e-a36b-4ee6-8ff9-881efa9d2425
+    endpoint: disabilityStatus
+    file: md14disabilityStatus.csv
+  - api_id: API-cb1efd5d-d706-47a8-a9a3-75566a007a0a
+    endpoint: areaUnit
+    file: md15areaUnits.csv
+  - api_id: API-a743960a-e210-42d0-87f8-a6606168a7d6
+    endpoint: livestockType
+    file: md16livestockType.csv
+  - api_id: API-e7c2ca87-04ee-41b1-a79d-bfae2de9c301
+    endpoint: incomeSource
+    file: md17incomeSource.csv
+  - api_id: API-7c69d110-0b4d-4c18-87a5-508126615e90
+    endpoint: registrationChannel
+    file: md18registrationChannel.csv
+  - api_id: API-0469ad25-ecbf-4c3b-9893-b89a1a234734
+    endpoint: crops
+    file: md19crops.csv
+  - api_id: API-7ac6c458-f40d-4147-948c-1aaa2ff1768a
+    endpoint: supportProgram
+    file: md20supportProgram.csv
+
+
+# Processing options
+options:
+  stop_on_error: false  # Continue processing even if one endpoint fails
+  validate_first: true  # Validate all files before processing
+  dry_run: false        # Set to true to test without posting data

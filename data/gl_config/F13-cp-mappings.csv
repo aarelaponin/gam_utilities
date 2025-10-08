@@ -1,0 +1,15 @@
+counterpartyId,sourceType,mappingName,matchingField,matchOperator,matchValue,caseSensitive,internalType,priority,status,effectiveDate
+LHV,Bank Statement,LHV Bank Debit,d_c,equals,D,false,WITHDRAWAL,1,Active,2024-01-01
+LHV,Bank Statement,LHV Bank Credit,d_c,equals,C,false,DEPOSIT,1,Active,2024-01-01
+LHV,Securities Statement,LHV Equity Buy,type,equals,ost,false,EQUITY_PURCHASE,1,Active,2024-01-01
+LHV,Securities Statement,LHV Equity Sell,type,equals,müük,false,EQUITY_SALE,1,Active,2024-01-01
+LHV,Securities Statement,LHV Dividend,type,equals,dividend,false,DIVIDEND_CASH,1,Active,2024-01-01
+LHV,Securities Statement,LHV Stock Split Increase,type,equals,split+,false,STOCK_SPLIT,2,Active,2024-01-01
+LHV,Securities Statement,LHV Stock Split Decrease,type,equals,split-,false,STOCK_SPLIT,2,Active,2024-01-01
+LHV,Bank Statement,LHV Bank Fee,description,contains,fee,false,BANK_CHARGE,3,Active,2024-01-01
+LHV,Bank Statement,LHV Commission,description,contains,commission,false,TRANSACTION_FEE,3,Active,2024-01-01
+LHV,Bank Statement,LHV Interest Income,description,contains,interest,false,INTEREST_CASH,3,Active,2024-01-01
+LHV,Bank Statement,LHV FX Buy,description,contains,currency exchange,false,FX_PURCHASE,3,Active,2024-01-01
+LHV,Securities Statement,LHV Bond Coupon,description,contains,coupon,false,INTEREST_BOND,3,Active,2024-01-01
+LHV,Securities Statement,LHV Rights Issue,type,equals,rights,false,RIGHTS_ISSUE,2,Active,2024-01-01
+LHV,Securities Statement,LHV Fund Distribution,description,contains,distribution,false,DISTRIBUTION,3,Active,2024-01-01

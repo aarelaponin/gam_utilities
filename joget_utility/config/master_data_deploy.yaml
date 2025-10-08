@@ -1,0 +1,111 @@
+# Master Data Deployment Configuration
+# Configuration for deploying master data forms and populating them in a Joget instance
+#
+# IMPORTANT: Update the following with your Joget instance credentials:
+# - deployment.form_creator_api_id
+# - deployment.form_creator_api_key
+# - target_application.app_id
+# Database credentials are loaded from .env.3 file (not committed to git)
+
+# Target Joget instance configuration
+deployment:
+  # Base URL for Joget API (without /form path)
+  base_url: http://localhost:8888/jw/api
+
+  # Form Creator API credentials
+  # These are for the formCreator endpoint that creates new forms/tables
+  form_creator_api_id: API-d248866d-355c-43a5-a973-87fd7de1bc0a
+  form_creator_api_key: 88d2fb10d08f48d3952dab1023b642fd
+
+# Database configuration for querying Joget API IDs
+# Used to find form-specific API IDs from app_builder table
+# Credentials are loaded from the .env file (not committed to Git)
+database:
+  env_file: .env.3
+
+# Target application where master data forms will be created
+target_application:
+  # Application ID (e.g., farmers_registry, crm_app, etc.)
+  app_id: subsidyApplication
+
+  # Application version (usually "1" for initial version)
+  app_version: "1"
+
+# Form creation options
+form_options:
+  # Whether to create API endpoints for each form
+  # Set to "yes" to enable API-based data insertion after form creation
+  create_api_endpoint: "yes"
+
+  # Prefix for generated API names
+  # API name will be: {api_name_prefix}{form_id}
+  # Example: "api_" + "maritalStatus" = "api_maritalStatus"
+  api_name_prefix: "api_"
+
+  # Whether to use the form_id from JSON definition or generate new one
+  use_original_form_id: true
+
+# Data paths configuration
+paths:
+  # Directory containing form definitions (*.json files)
+  forms_dir: ./data/metadata_forms
+
+  # Directory containing data files (*.csv files)
+  data_dir: ./data/metadata
+
+  # Pattern for form files (supports glob patterns)
+  # Use "md*.json" to match all master data forms
+  form_pattern: "md*.json"
+
+# Processing options
+options:
+  # Validate form definitions before creating
+  validate_forms: true
+
+  # Validate data files before populating
+  validate_data: true
+
+  # Dry run mode - simulate without making actual API calls
+  dry_run: false
+
+  # Stop processing on first error
+  stop_on_error: false
+
+  # Populate data after creating forms
+  # Set to false to only create forms without data
+  populate_data: true
+
+  # Skip form creation if form already exists (for data-only updates)
+  skip_existing_forms: false
+
+  # Batch size for data insertion (number of records per batch)
+  batch_size: 100
+
+  # Delay between API calls (seconds) to avoid overwhelming the server
+  api_call_delay: 0.5
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: INFO
+
+  # Log file path (relative to joget_utility directory)
+  file: ./logs/master_data_deploy.log
+
+  # Whether to log detailed API requests and responses
+  log_api_details: false
+
+# Optional: Specific forms to deploy
+# If not specified, all forms matching form_pattern will be deployed
+# Uncomment and customize to deploy only specific forms:
+# specific_forms:
+#   - md01maritalStatus.json
+#   - md02language.json
+#   - md03district.json
+
+# Optional: Form deployment order
+# Specify if certain forms need to be created before others (e.g., due to dependencies)
+# deployment_order:
+#   - md01maritalStatus.json
+#   - md02language.json
+#   # ... other forms will follow in alphabetical order

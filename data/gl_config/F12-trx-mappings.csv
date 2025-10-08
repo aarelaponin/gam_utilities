@@ -1,0 +1,58 @@
+sourceSystem,sourceName,externalCode,internalType,description,glDebitPattern,glCreditPattern,feePattern,customerImpact,positionImpact,settlementDays,status,effectiveDate
+Bank,Standard Bank,CASH_DEP,DEPOSIT,Cash Deposit,1001.{cpId},1101.{custId}.{currency}.{cpId},,Credit,None,0,Active,2024-01-01
+Bank,Standard Bank,CASH_WDR,WITHDRAWAL,Cash Withdrawal,1101.{custId}.{currency}.{cpId},1001.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,CASH_TFR_IN,TRANSFER_IN,Cash Transfer In,1001.{cpId},1101.{custId}.{currency}.{cpId},,Credit,None,0,Active,2024-01-01
+Bank,Standard Bank,CASH_TFR_OUT,TRANSFER_OUT,Cash Transfer Out,1101.{custId}.{currency}.{cpId},1001.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,FX_BUY,FX_PURCHASE,Foreign Exchange Buy,1101.{custId}.{buyCurrency}.{cpId},1101.{custId}.{sellCurrency}.{cpId},,Credit,None,0,Active,2024-01-01
+Bank,Standard Bank,FX_SELL,FX_SALE,Foreign Exchange Sell,1101.{custId}.{sellCurrency}.{cpId},1101.{custId}.{buyCurrency}.{cpId},,Debit,None,0,Active,2024-01-01
+Securities,Standard Securities,EQ_BUY,EQUITY_PURCHASE,Equity Buy,1201.{custId}.{assetId}.{cpId},2301.{custId}.{cpId},4001.{custId},None,Increase,2,Active,2024-01-01
+Securities,Standard Securities,EQ_SELL,EQUITY_SALE,Equity Sell,2302.{custId}.{cpId},1201.{custId}.{assetId}.{cpId},4001.{custId},None,Decrease,2,Active,2024-01-01
+Securities,Standard Securities,EQ_TFR_IN,EQUITY_TRANSFER_IN,Equity Transfer In,1201.{custId}.{assetId}.{cpId},2601.{custId},,None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,EQ_TFR_OUT,EQUITY_TRANSFER_OUT,Equity Transfer Out,2601.{custId},1201.{custId}.{assetId}.{cpId},,None,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,EQ_SHORT,EQUITY_SHORT_SALE,Short Sale,1101.{custId}.{currency}.{cpId},2201.{custId}.{assetId},4501.{custId},Credit,Increase,2,Active,2024-01-01
+Securities,Standard Securities,EQ_COVER,EQUITY_SHORT_COVER,Short Cover,2201.{custId}.{assetId},1101.{custId}.{currency}.{cpId},4001.{custId},Debit,Decrease,2,Active,2024-01-01
+Securities,Standard Securities,BD_BUY,BOND_PURCHASE,Bond Purchase,1202.{custId}.{assetId}.{cpId},2301.{custId}.{cpId},4001.{custId},None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,BD_SELL,BOND_SALE,Bond Sale,2302.{custId}.{cpId},1202.{custId}.{assetId}.{cpId},4001.{custId},None,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,BD_MATURE,BOND_MATURITY,Bond Maturity,1101.{custId}.{currency}.{cpId},1202.{custId}.{assetId}.{cpId},,Credit,Decrease,0,Active,2024-01-01
+Securities,Standard Securities,BD_CALL,BOND_CALLED,Bond Called,1101.{custId}.{currency}.{cpId},1202.{custId}.{assetId}.{cpId},,Credit,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,BD_PUT,BOND_PUT,Bond Put Exercise,1101.{custId}.{currency}.{cpId},1202.{custId}.{assetId}.{cpId},,Credit,Decrease,1,Active,2024-01-01
+Corporate,Standard Corporate,DIV_CASH,DIVIDEND_CASH,Cash Dividend,1210,3101.{custId},4401.{custId},Credit,None,0,Active,2024-01-01
+Corporate,Standard Corporate,DIV_STOCK,DIVIDEND_STOCK,Stock Dividend,1201.{custId}.{assetId}.{cpId},3101.{custId},,None,Increase,0,Active,2024-01-01
+Corporate,Standard Corporate,INT_BOND,INTEREST_BOND,Bond Coupon,1211,3102.{custId},4402.{custId},Credit,None,0,Active,2024-01-01
+Corporate,Standard Corporate,INT_CASH,INTEREST_CASH,Cash Interest,1110,3103.{custId},4402.{custId},Credit,None,0,Active,2024-01-01
+Corporate,Standard Corporate,DIST_FUND,DISTRIBUTION,Fund Distribution,1210,3104.{custId},4401.{custId},Credit,None,0,Active,2024-01-01
+Securities,Standard Securities,STL_BUY,SETTLE_PURCHASE,Settle Buy Trade,2301.{custId}.{cpId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Securities,Standard Securities,STL_SELL,SETTLE_SALE,Settle Sell Trade,1101.{custId}.{currency}.{cpId},2302.{custId}.{cpId},,Credit,None,0,Active,2024-01-01
+Securities,Standard Securities,STL_FAIL_BUY,SETTLE_FAIL_BUY,Failed Buy Settlement,1310,2301.{custId}.{cpId},,None,None,0,Active,2024-01-01
+Securities,Standard Securities,STL_FAIL_SELL,SETTLE_FAIL_SELL,Failed Sell Settlement,2302.{custId}.{cpId},1310,,None,None,0,Active,2024-01-01
+Corporate,Standard Corporate,CA_SPLIT,STOCK_SPLIT,Stock Split,1201.{custId}.{newAssetId}.{cpId},1201.{custId}.{oldAssetId}.{cpId},,None,None,0,Active,2024-01-01
+Corporate,Standard Corporate,CA_MERGER,MERGER,Merger/Acquisition,1201.{custId}.{newAssetId}.{cpId},1201.{custId}.{oldAssetId}.{cpId},,None,None,1,Active,2024-01-01
+Corporate,Standard Corporate,CA_SPINOFF,SPINOFF,Spinoff,1201.{custId}.{newAssetId}.{cpId},3501.{custId},,None,Increase,1,Active,2024-01-01
+Corporate,Standard Corporate,CA_TENDER,TENDER_OFFER,Tender Offer,1101.{custId}.{currency}.{cpId},1201.{custId}.{assetId}.{cpId},,Credit,Decrease,2,Active,2024-01-01
+Corporate,Standard Corporate,CA_RIGHTS,RIGHTS_ISSUE,Rights Issue,1201.{custId}.{assetId}.{cpId},1101.{custId}.{currency}.{cpId},,Debit,Increase,2,Active,2024-01-01
+Securities,Standard Securities,OPT_BUY,OPTION_PURCHASE,Option Buy,1204.{custId}.{assetId}.{cpId},1101.{custId}.{currency}.{cpId},4001.{custId},Debit,Increase,1,Active,2024-01-01
+Securities,Standard Securities,OPT_SELL,OPTION_SALE,Option Sale,1101.{custId}.{currency}.{cpId},1204.{custId}.{assetId}.{cpId},4001.{custId},Credit,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,OPT_EXERCISE,OPTION_EXERCISE,Option Exercise,1201.{custId}.{assetId}.{cpId},1204.{custId}.{assetId}.{cpId},,None,None,2,Active,2024-01-01
+Securities,Standard Securities,OPT_EXPIRE,OPTION_EXPIRY,Option Expiry,4203.{custId},1204.{custId}.{assetId}.{cpId},,None,Decrease,0,Active,2024-01-01
+Securities,Standard Securities,FUT_BUY,FUTURE_BUY,Futures Buy,1204.{custId}.{assetId}.{cpId},1401.{custId},4001.{custId},None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,FUT_SELL,FUTURE_SELL,Futures Sell,1401.{custId},1204.{custId}.{assetId}.{cpId},4001.{custId},None,Decrease,1,Active,2024-01-01
+Bank,Standard Bank,FEE_MGMT,MANAGEMENT_FEE,Management Fee,4001.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,FEE_CUST,CUSTODY_FEE,Custody Fee,4003.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,FEE_TRANS,TRANSACTION_FEE,Transaction Fee,4002.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,FEE_BANK,BANK_CHARGE,Bank Charges,4302.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,TAX_TRANS,TRANSACTION_TAX,Transaction Tax,4004.{custId},2402,,Debit,None,0,Active,2024-01-01
+Bank,Standard Bank,INT_OD,OVERDRAFT_INTEREST,Overdraft Interest,4303,1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Securities,Standard Securities,FUND_SUB,FUND_SUBSCRIPTION,Fund Subscription,1203.{custId}.{assetId}.{cpId},2301.{custId}.{cpId},4001.{custId},None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,FUND_RED,FUND_REDEMPTION,Fund Redemption,2302.{custId}.{cpId},1203.{custId}.{assetId}.{cpId},4001.{custId},None,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,ETF_BUY,ETF_PURCHASE,ETF Purchase,1203.{custId}.{assetId}.{cpId},2301.{custId}.{cpId},4001.{custId},None,Increase,2,Active,2024-01-01
+Securities,Standard Securities,ETF_SELL,ETF_SALE,ETF Sale,2302.{custId}.{cpId},1203.{custId}.{assetId}.{cpId},4001.{custId},None,Decrease,2,Active,2024-01-01
+Securities,Standard Securities,ETF_CREATE,ETF_CREATION,ETF Creation Unit,1203.{custId}.{assetId}.{cpId},1201.{custId}.{basketAssets}.{cpId},,None,Increase,2,Active,2024-01-01
+Securities,Standard Securities,SEC_LEND,SECURITIES_LEND,Securities Lending,1501.{custId}.{assetId},1201.{custId}.{assetId}.{cpId},,None,Decrease,1,Active,2024-01-01
+Securities,Standard Securities,SEC_BORROW,SECURITIES_BORROW,Securities Borrowing,1201.{custId}.{assetId}.{cpId},2501.{custId}.{assetId},4501.{custId},None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,SEC_LEND_RTN,LEND_RETURN,Lending Return,1201.{custId}.{assetId}.{cpId},1501.{custId}.{assetId},,None,Increase,1,Active,2024-01-01
+Securities,Standard Securities,SEC_LEND_FEE,LENDING_INCOME,Lending Fee Income,1101.{custId}.{currency}.{cpId},3402.{custId},,Credit,None,0,Active,2024-01-01
+Securities,Standard Securities,MARG_POST,MARGIN_POST,Post Margin,1401.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Securities,Standard Securities,MARG_CALL,MARGIN_CALL,Margin Call,1401.{custId},1101.{custId}.{currency}.{cpId},,Debit,None,0,Active,2024-01-01
+Securities,Standard Securities,MARG_RELEASE,MARGIN_RELEASE,Margin Release,1101.{custId}.{currency}.{cpId},1401.{custId},,Credit,None,0,Active,2024-01-01
+Securities,Standard Securities,COLL_POST,COLLATERAL_POST,Post Collateral,1501.{custId}.{assetId},1201.{custId}.{assetId}.{cpId},,None,Decrease,0,Active,2024-01-01
+Securities,Standard Securities,COLL_RELEASE,COLLATERAL_RELEASE,Release Collateral,1201.{custId}.{assetId}.{cpId},1501.{custId}.{assetId},,None,Increase,0,Active,2024-01-01

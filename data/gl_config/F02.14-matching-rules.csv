@@ -1,0 +1,36 @@
+mapping_id,mappingName,counterpartyId,sourceType,matchingField,matchOperator,matchValue,caseSensitive,internalType,priority,status,effectiveDate,dateCreated,createdBy
+TXMP-000001,LHV Interest Income,LHV,bank,description,contains,intress,false,INT_INCOME,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000002,LHV Loan Interest,LHV,bank,description,contains,laenuleping,false,INT_EXPENSE,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000003,Securities Buy - LHV,LHV,bank,description,startsWith,Securities buy,true,SEC_BUY,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000004,Securities Sell - LHV,LHV,bank,description,startsWith,Securities sell,true,SEC_SELL,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000005,Securities Commission,LHV,bank,description,contains,Securities commission fee,true,COMM_FEE,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000006,Dividend Income,LHV,bank,description,startsWith,Dividends,true,DIV_INCOME,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000007,Account Interest Credit,LHV,bank,description,contains,Account interest,false,INT_INCOME,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000008,Management Fee,SYSTEM,bank,description,contains,halduslepingule,false,MGMT_FEE,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000009,Loan Payment Received,SYSTEM,bank,description,contains,laenu tagasimakse,false,LOAN_PAYMENT,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000010,Investment Return,SYSTEM,bank,description,contains,investment,false,INV_INCOME,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000011,Asset Return,SYSTEM,bank,description,contains,Return of assets,false,ASSET_RETURN,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000012,Interest Payment,SYSTEM,bank,description,contains,Interest payment,false,INT_EXPENSE,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000013,Generic Credit,SYSTEM,bank,d_c,equals,C,true,CASH_IN,5,Active,2024-01-01,2024-01-01,admin
+TXMP-000014,Generic Debit,SYSTEM,bank,d_c,equals,D,true,CASH_OUT,5,Active,2024-01-01,2024-01-01,admin
+TXMP-000015,Equity Buy Order,IBKR,secu,type,equals,ost,false,EQ_BUY,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000016,Equity Sell Order,IBKR,secu,type,equals,müük,false,EQ_SELL,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000017,Bond Purchase,IBKR,secu,description,contains,võlakiri,false,BOND_BUY,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000018,Dividend Distribution,IBKR,secu,type,equals,dividend,false,DIV_INCOME,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000019,Stock Split In,IBKR,secu,type,equals,split+,false,SPLIT_IN,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000020,Stock Split Out,IBKR,secu,type,equals,split-,false,SPLIT_OUT,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000021,Securities Deposit,SAXO,secu,type,equals,deposit,false,SEC_DEPOSIT,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000022,Securities Withdrawal,SAXO,secu,type,equals,withdrawal,false,SEC_WITHDRAW,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000023,Corporate Bond Interest,SYSTEM,secu,description,contains,allutatud võlakiri,false,BOND_INT,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000024,Tech Stock Buy,SYSTEM,secu,ticker,equals,MSFT,false,TECH_BUY,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000025,Tech Stock Buy Adobe,SYSTEM,secu,ticker,equals,ADBE,false,TECH_BUY,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000026,Tech Stock Buy Micron,SYSTEM,secu,ticker,equals,MU,false,TECH_BUY,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000027,Commodity Stock Buy,SYSTEM,secu,ticker,equals,NEM,false,COMM_BUY,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000028,Security Stock Buy,SYSTEM,secu,ticker,equals,CRWD,false,TECH_BUY,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000029,Local Bond Purchase,SYSTEM,secu,ticker,startsWith,BIGB,false,LOCAL_BOND,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000030,Bank Bond Purchase,SYSTEM,secu,ticker,startsWith,HLMBK,false,BANK_BOND,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000031,Swedbank Interest,SWED,bank,other_side_name,contains,GENESIS,false,INT_INCOME,1,Active,2024-01-01,2024-01-01,admin
+TXMP-000032,SEB Securities Transaction,SEB,bank,description,contains,Securities,false,SEC_TRANS,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000033,COOP Bank Transfer,COOP,bank,other_side_bic,startsWith,EKRDEE,false,BANK_TRANS,3,Active,2024-01-01,2024-01-01,admin
+TXMP-000034,Luminor Investment,LUMINOR,bank,description,contains,investment,false,INV_TRANS,2,Active,2024-01-01,2024-01-01,admin
+TXMP-000035,Customer Loan Interest,SYSTEM,bank,reference,startsWith,ID-000001,false,CUST_INT,4,Active,2024-01-01,2024-01-01,admin
