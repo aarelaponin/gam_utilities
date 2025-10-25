@@ -8,12 +8,15 @@ import json
 import logging
 import time
 import os
+import pandas as pd
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 import glob
 from dotenv import load_dotenv
 
 from .csv_processor import CSVProcessor
+from .data_augmentor import DataAugmentor
+from .relationship_detector import RelationshipInfo
 
 
 class MasterDataDeployer:
@@ -37,9 +40,44 @@ class MasterDataDeployer:
         self.paths = config.get('paths', {})
         self.options = config.get('options', {})
 
+        # Initialize data augmentor for Pattern 2 support
+        self.augmentor = DataAugmentor(logger=self.logger)
+
+        # Load relationships metadata if available
+        self.relationships = {}
+        self.relationships_by_child = {}
+        self._load_relationships()
+
         # State tracking
         self.created_forms = []
         self.errors = []
+
+    def _load_relationships(self):
+        """Load relationships.json if available"""
+        relationships_file = Path(self.config.get('metadata', {}).get('relationships_file', './data/relationships.json'))
+
+        if relationships_file.exists():
+            try:
+                with open(relationships_file, 'r') as f:
+                    data = json.load(f)
+
+                # Build lookup by child form
+                for rel_dict in data.get('relationships', []):
+                    # Handle optional fields for backward compatibility
+                    if 'parent_code_value' not in rel_dict:
+                        rel_dict['parent_code_value'] = None
+                    if 'fk_value_to_inject' not in rel_dict:
+                        rel_dict['fk_value_to_inject'] = None
+
+                    rel = RelationshipInfo(**rel_dict)
+                    self.relationships_by_child[rel.child_form] = rel
+
+                self.logger.info(f"Loaded {len(self.relationships_by_child)} relationships from {relationships_file}")
+
+            except Exception as e:
+                self.logger.warning(f"Could not load relationships: {e}")
+        else:
+            self.logger.debug(f"Relationships file not found: {relationships_file}")
 
     def discover_forms(self) -> List[Path]:
         """
@@ -170,7 +208,8 @@ class MasterDataDeployer:
             'table_name': form_metadata['table_name'],
             'form_definition_json': form_metadata['definition_json'],
             'create_api_endpoint': self.form_options.get('create_api_endpoint', 'yes'),
-            'api_name': api_name
+            'api_name': api_name,
+            'create_crud': self.form_options.get('create_crud', 'yes')
         }
 
         return payload
@@ -308,7 +347,8 @@ class MasterDataDeployer:
             'data_file': str(data_file),
             'success': False,
             'records_posted': 0,
-            'error': None
+            'error': None,
+            'pattern2_augmented': False
         }
 
         try:
@@ -320,12 +360,46 @@ class MasterDataDeployer:
                     return result
                 result['total_records'] = record_count
 
+            # Check if this is a Pattern 2 form requiring data augmentation
+            form_id = form_metadata['form_id']
+            relationship = self.relationships_by_child.get(form_id)
+
             # Load data
             processor = CSVProcessor()
             records = processor.read_file(data_file)
 
-            # Transform to code/name format
-            transformed_records = self._transform_to_metadata_format(records)
+            # PATTERN 2: Augment data with FK values if needed
+            if relationship and relationship.needs_fk_injection:
+                self.logger.info(f"  ⭐ Pattern 2 form detected: {form_id}")
+                self.logger.info(f"     Injecting FK: {relationship.child_foreign_key} = '{relationship.fk_value_to_inject}'")
+
+                # Validate parent exists
+                if relationship.parent_csv:
+                    parent_csv_path = data_file.parent / relationship.parent_csv
+                    if parent_csv_path.exists():
+                        if not self.augmentor.validate_parent_existence(
+                            parent_csv_path,
+                            relationship.fk_value_to_inject,
+                            relationship.parent_primary_key
+                        ):
+                            result['error'] = f"Parent code '{relationship.fk_value_to_inject}' not found in {relationship.parent_csv}"
+                            return result
+
+                # Augment data
+                df, augment_result = self.augmentor.augment_csv_data(data_file, relationship)
+
+                if not augment_result.success:
+                    result['error'] = f"Data augmentation failed: {augment_result.error}"
+                    return result
+
+                # Convert augmented DataFrame back to records
+                records = self.augmentor.convert_dataframe_to_records(df)
+                result['pattern2_augmented'] = True
+                result['injected_fk'] = relationship.child_foreign_key
+                result['injected_value'] = relationship.fk_value_to_inject
+
+            # Transform to proper format (handles all fields, not just code/name)
+            transformed_records = self._transform_to_full_format(records)
 
             if not transformed_records:
                 result['error'] = "No valid records to post"
@@ -366,9 +440,10 @@ class MasterDataDeployer:
             result['errors'] = post_results.get('errors', [])
 
             if result['success']:
-                self.logger.info(
-                    f"✓ Posted {result['records_posted']} records to {form_metadata['form_id']}"
-                )
+                msg = f"✓ Posted {result['records_posted']} records to {form_metadata['form_id']}"
+                if result.get('pattern2_augmented'):
+                    msg += f" (Pattern 2: FK '{result['injected_fk']}' injected)"
+                self.logger.info(msg)
             else:
                 self.logger.error(
                     f"✗ Failed to post data to {form_metadata['form_id']}"
@@ -380,15 +455,47 @@ class MasterDataDeployer:
 
         return result
 
-    def _transform_to_metadata_format(self, records: List[Dict[str, Any]]) -> List[Dict[str, str]]:
+    def _transform_to_full_format(self, records: List[Dict[str, Any]]) -> List[Dict[str, str]]:
         """
-        Transform records to standard code/name format
+        Transform records to full format (all fields preserved).
+
+        For Pattern 2 forms, this includes the injected FK fields.
+        For simple forms, converts all fields to strings.
 
         Args:
             records: Input records
 
         Returns:
-            Transformed records with code and name fields
+            Transformed records with all fields as strings
+        """
+        transformed = []
+
+        for record in records:
+            # Convert all values to strings and filter out None
+            transformed_record = {}
+            for key, value in record.items():
+                if value is not None:
+                    # Handle pandas NA values
+                    if pd.isna(value):
+                        continue
+                    transformed_record[key] = str(value)
+
+            if transformed_record:
+                transformed.append(transformed_record)
+
+        return transformed
+
+    def _transform_to_metadata_format(self, records: List[Dict[str, Any]]) -> List[Dict[str, str]]:
+        """
+        Transform records to standard code/name format (legacy method).
+
+        DEPRECATED: Use _transform_to_full_format for Pattern 2 support.
+
+        Args:
+            records: Input records
+
+        Returns:
+            Transformed records with code and name fields only
         """
         transformed = []
 

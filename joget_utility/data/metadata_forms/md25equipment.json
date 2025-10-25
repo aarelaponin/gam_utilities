@@ -1,0 +1,267 @@
+{
+    "elements": [
+        {
+            "elements": [
+                {
+                    "elements": [
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "requiredSanitize": "",
+                                "maxlength": "",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                },
+                                "label": "Code",
+                                "id": "code",
+                                "placeholder": "",
+                                "value": "",
+                                "readonlyLabel": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "requiredSanitize": "",
+                                "maxlength": "",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                },
+                                "label": "Name",
+                                "id": "name",
+                                "placeholder": "",
+                                "value": "",
+                                "readonlyLabel": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.SelectBox",
+                            "properties": {
+                                "label": "Equipment Category",
+                                "id": "equipment_category",
+                                "optionsBinder": {
+                                    "className": "org.joget.apps.form.lib.FormOptionsBinder",
+                                    "properties": {
+                                        "formDefId": "md25equipCategory",
+                                        "idColumn": "code",
+                                        "labelColumn": "name",
+                                        "addEmptyOption": "true",
+                                        "useAjax": "false"
+                                    }
+                                },
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Estimated Cost Lsl",
+                                "id": "estimated_cost_lsl",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Tool Category",
+                                "id": "tool_category",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Typical Quantity",
+                                "id": "typical_quantity",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Irrigation Type",
+                                "id": "irrigation_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Area Coverage Ha",
+                                "id": "area_coverage_ha",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Equipment Type",
+                                "id": "equipment_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Purpose",
+                                "id": "purpose",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Sprayer Type",
+                                "id": "sprayer_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Capacity Litres",
+                                "id": "capacity_litres",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Planting Type",
+                                "id": "planting_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Processing Type",
+                                "id": "processing_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Storage Type",
+                                "id": "storage_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Transport Type",
+                                "id": "transport_type",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Capacity",
+                                "id": "capacity",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Power Source",
+                                "id": "power_source",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Material",
+                                "id": "material",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Typical Lifespan Years",
+                                "id": "typical_lifespan_years",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Maintenance Level",
+                                "id": "maintenance_level",
+                                "placeholder": "",
+                                "value": ""
+                            }
+                        }
+                    ],
+                    "className": "org.joget.apps.form.model.Column",
+                    "properties": {
+                        "width": "100%"
+                    }
+                }
+            ],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "label": "Section",
+                "id": "section1"
+            }
+        }
+    ],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "noPermissionMessage": "",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "MD.25 - Equipment",
+        "description": "Equipment catalog with parent category reference. Polymorphic data - different fields apply to different categories.",
+        "postProcessorRunOn": "create",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "id": "md25equipment",
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "md25equipment"
+    }
+}

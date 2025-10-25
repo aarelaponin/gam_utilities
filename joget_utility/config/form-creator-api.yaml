@@ -1,0 +1,63 @@
+components:
+  schemas:
+    "formCreator-FormData":
+      type: object
+      properties:
+        create_api_endpoint:
+          description: "Create\x20API\x20Endpoint"
+          type: string
+        target_app_id:
+          description: "Target\x20Application\x20ID"
+          type: string
+        form_id:
+          description: "Form\x20ID"
+          type: string
+        create_crud:
+          description: "Create\x20CRUD"
+          type: string
+        table_name:
+          description: "Table\x20Name"
+          type: string
+        target_app_version:
+          description: Version
+          type: string
+        api_name:
+          description: "API\x20Name"
+          type: string
+        form_name:
+          description: "Form\x20Name"
+          type: string
+        form_definition_json:
+          description: "File\x20Upload"
+          type: string
+    "formCreator-FormDataWithFiles":
+      type: object
+      properties:
+        create_api_endpoint:
+          description: "Create\x20API\x20Endpoint"
+          type: string
+        target_app_id:
+          description: "Target\x20Application\x20ID"
+          type: string
+        form_id:
+          description: "Form\x20ID"
+          type: string
+        create_crud:
+          description: "Create\x20CRUD"
+          type: string
+        table_name:
+          description: "Table\x20Name"
+          type: string
+        target_app_version:
+          description: Version
+          type: string
+        api_name:
+          description: "API\x20Name"
+          type: string
+        form_name:
+          description: "Form\x20Name"
+          type: string
+        form_definition_json:
+          format: binary
+          description: "File\x20Upload"
+          type: string

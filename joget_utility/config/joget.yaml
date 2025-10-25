@@ -74,3 +74,53 @@ logging:
   level: INFO  # DEBUG, INFO, WARNING, ERROR
   file: ./logs/joget_utility.log
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Metadata management configuration
+# Pattern 2 Subcategory Mappings (for nested LOV relationships)
+# These define parent-child relationships where child CSV does NOT contain FK column
+# The FK must be injected during form generation and data population
+subcategory_mappings:
+  # Equipment Categories → Equipment Types
+  md25equipmentCategory:
+    TILLAGE: md25tillageEquipment
+    PLANTING: md25plantingEquipment
+    PEST_CONTROL: md25pestControlEquipment
+    IRRIGATION: md25irrigationEquipment
+    STORAGE: md25storageEquipment
+    PROCESSING: md25processingEquipment
+    TRANSPORT: md25transportEquipment
+    GENERAL_TOOLS: md25generalTools
+    LIVESTOCK_EQUIP: md25livestockEquipment
+
+  # Input Categories → Input Types
+  md27inputCategory:
+    SEEDS: md19crops
+    FERTILIZER: md27fertilizer
+    PESTICIDES: md27pesticide
+    LIVESTOCK_VET: md27livestockSupply
+    IRRIGATION: md27irrigation
+
+# Metadata processing options
+metadata:
+  # Automatically detect relationships between metadata forms
+  auto_detect_relationships: true
+
+  # Parse metadata-overview.docx for documented relationships
+  parse_metadata_overview: true
+  metadata_overview_path: ./docs/metadata-overview.docx
+
+  # Validate nested LOV structures
+  validate_nested_lovs: true
+
+  # Enable FK field injection for Pattern 2 forms
+  inject_fk_fields: true
+
+  # Paths
+  csv_path: ./data/metadata
+  forms_path: ./data/metadata_forms
+  relationships_file: ./data/relationships.json
+
+  # Form generation behavior
+  overwrite_existing_forms: false
+  backup_before_overwrite: true
+  backup_dir: ./data/metadata_forms/.backups

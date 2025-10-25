@@ -37,6 +37,10 @@ form_options:
   # Set to "yes" to enable API-based data insertion after form creation
   create_api_endpoint: "yes"
 
+  # Whether to create datalist (List) and userview (CRUD interface) for each form
+  # Set to "yes" to automatically create List view and CRUD management interface
+  create_crud: "yes"
+
   # Prefix for generated API names
   # API name will be: {api_name_prefix}{form_id}
   # Example: "api_" + "maritalStatus" = "api_maritalStatus"

@@ -129,6 +129,46 @@ endpoints:
       source_field: target_field
 ```
 
+## Form Generator
+
+The utility includes an automatic form generator that creates Joget form JSON definitions from CSV metadata files.
+
+### Generate Forms from CSV
+
+```bash
+# Generate all missing forms automatically
+cd joget_utility
+python3 test_batch_generate.py
+
+# Generate specific form
+python3 -m processors.form_generator \
+    data/metadata/md99status.csv \
+    data/metadata_forms/md99status.json
+```
+
+### Supported Form Types
+
+**Simple Forms**: CSV with `code` + `name` → Basic TextField form
+**Nested LOV**: CSV with parent reference column → Form with SelectBox
+**Multi-field**: CSV with additional columns → Dynamic form with all fields
+
+### Parent Reference Detection
+
+The generator automatically detects parent references from column names:
+- `*_category` (e.g., crop_category)
+- `*_type` (e.g., irrigation_type)
+- `*_group`
+- `parent_*`
+
+**Example**:
+```csv
+code,name,crop_category
+maize,Maize,cereals
+```
+Generates form with SelectBox referencing the crop_category parent form.
+
+See **docs/FORM_GENERATOR_GUIDE.md** for complete documentation.
+
 ## Master Data Deployment
 
 The utility now supports deploying master data forms to a new Joget instance. This feature creates forms/tables and populates them with data in a two-phase process.
@@ -188,16 +228,24 @@ python joget_utility.py --deploy-master-data --yes
 
 ### Deployment Process
 
+**Complete Workflow:**
+1. **Create CSV data file** (e.g., `md99status.csv`)
+2. **Generate form definition**: `python3 test_batch_generate.py`
+3. **Deploy to Joget**: `python3 joget_utility.py --deploy-master-data`
+
 **Phase 1: Form Creation**
-- Discovers all form definition files matching the pattern (default: `md*.json`)
-- Extracts form metadata (form_id, form_name, table_name)
-- Creates forms via the `/jw/api/form/formCreator` endpoint
-- Optionally creates API endpoints for each form
+- Auto-generates missing form JSONs from CSVs
+- Validates table names (max 20 chars, collision detection)
+- Creates forms via `/jw/api/form/formCreator` endpoint
+- Creates API endpoints (when `create_api_endpoint: "yes"`)
+- Creates datalist and userview (when `create_crud: "yes"`)
 
 **Phase 2: Data Population**
-- Matches each form to its corresponding data file (e.g., `md01foo.json` → `md01foo.csv`)
-- Loads and transforms data to code/name format
-- Posts data to the newly created form endpoints
+- Queries database for API IDs
+- Matches forms to CSV data files
+- Transforms and validates data
+- Posts data to form endpoints
+- Verifies record counts
 
 ### Configuration Options
 
@@ -282,3 +330,4 @@ Records failed: 0
 - **Form creation fails**: Verify the formCreator API credentials and endpoint
 - **Data population fails**: Ensure forms were created successfully first
 - **Naming mismatch**: Ensure form and data files use the same base name (e.g., `md01foo.json` and `md01foo.csv`)
+- **Form creation succeeds but Joget rejects form**: Check SelectBox structure - must use `optionsBinder` property, not `options` array. Regenerate form with `test_batch_generate.py --overwrite`

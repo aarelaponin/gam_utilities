@@ -391,7 +391,7 @@ class JogetClient:
             if not connection.is_connected():
                 raise JogetAPIError("Failed to connect to Joget database")
 
-            cursor = connection.cursor()
+            cursor = connection.cursor(buffered=True)
 
             # Query app_builder table for API ID
             query = """

@@ -1,0 +1,150 @@
+{
+  "generated_at": "2025-10-26T01:15:00Z",
+  "total_relationships": 3,
+  "pattern1_count": 3,
+  "pattern2_count": 0,
+  "relationships": [
+    {
+      "pattern_type": "traditional_fk",
+      "parent_form": "md19crops",
+      "parent_csv": "md19crops.csv",
+      "parent_primary_key": "id",
+      "child_form": "md19crops",
+      "child_csv": "md19crops.csv",
+      "child_foreign_key": "crop_category",
+      "relationship_type": "nested_lov",
+      "needs_fk_injection": false,
+      "notes": "Traditional FK pattern - FK column exists in child CSV"
+    },
+    {
+      "pattern_type": "traditional_fk",
+      "parent_form": "md25equipCategory",
+      "parent_csv": "md25equipCategory.csv",
+      "parent_primary_key": "code",
+      "child_form": "md25equipment",
+      "child_csv": "md25equipment.csv",
+      "child_foreign_key": "equipment_category",
+      "relationship_type": "nested_lov",
+      "needs_fk_injection": false,
+      "notes": "Unified equipment table with polymorphic data - different equipment types have different fields populated based on category"
+    },
+    {
+      "pattern_type": "traditional_fk",
+      "parent_form": "md27inputCategory",
+      "parent_csv": "md27inputCategory.csv",
+      "parent_primary_key": "code",
+      "child_form": "md27input",
+      "child_csv": "md27input.csv",
+      "child_foreign_key": "input_category",
+      "relationship_type": "nested_lov",
+      "needs_fk_injection": false,
+      "notes": "Unified input table with polymorphic data - different input types have different fields populated based on category"
+    },
+    {
+      "pattern_type": "traditional_fk",
+      "parent_form": "md03district",
+      "parent_csv": "md03district.csv",
+      "parent_primary_key": "id",
+      "child_form": "md37collectionPoint",
+      "child_csv": "md37collectionPoint.csv",
+      "child_foreign_key": "district_code",
+      "relationship_type": "nested_lov",
+      "needs_fk_injection": false,
+      "notes": "Traditional FK pattern - FK column exists in child CSV"
+    }
+  ],
+  "hierarchies": [
+    {
+      "name": "md19crops_hierarchy",
+      "pattern": "traditional_fk",
+      "levels": [
+        {
+          "level": 0,
+          "form": "md19crops"
+        },
+        {
+          "level": 1,
+          "form": "md19crops",
+          "parent": "md19crops"
+        }
+      ]
+    },
+    {
+      "name": "equipment_hierarchy",
+      "pattern": "traditional_fk",
+      "description": "Unified equipment structure with polymorphic data",
+      "levels": [
+        {
+          "level": 0,
+          "form": "md25equipCategory",
+          "description": "9 equipment categories"
+        },
+        {
+          "level": 1,
+          "form": "md25equipment",
+          "parent": "md25equipCategory",
+          "description": "85 equipment items with sparse columns - different categories use different fields"
+        }
+      ]
+    },
+    {
+      "name": "input_hierarchy",
+      "pattern": "traditional_fk",
+      "description": "Unified input structure with polymorphic data",
+      "levels": [
+        {
+          "level": 0,
+          "form": "md27inputCategory",
+          "description": "8 input categories (fertilizer, pesticide, irrigation, livestock)"
+        },
+        {
+          "level": 1,
+          "form": "md27input",
+          "parent": "md27inputCategory",
+          "description": "40 input items with sparse columns - different categories use different fields"
+        }
+      ]
+    },
+    {
+      "name": "geographic_hierarchy",
+      "pattern": "traditional_fk",
+      "levels": [
+        {
+          "level": 0,
+          "form": "md03district"
+        },
+        {
+          "level": 1,
+          "form": "md37collectionPoint",
+          "parent": "md03district"
+        }
+      ]
+    }
+  ],
+  "deprecated_relationships": {
+    "note": "The following forms were DEPRECATED and replaced with unified polymorphic tables",
+    "deprecated_date": "2025-10-26",
+    "reason": "Multi-table subcategories design error - should use single polymorphic table with cascading dropdown, not separate tables",
+    "old_md25_children": [
+      "md25generalTools",
+      "md25irrigationEquipment",
+      "md25livestockEquipment",
+      "md25pestControlEquipment",
+      "md25plantingEquipment",
+      "md25processingEquipment",
+      "md25storageEquipment",
+      "md25tillageEquipment",
+      "md25transportEquipment"
+    ],
+    "old_md27_children": [
+      "md27fertilizer",
+      "md27irrigation",
+      "md27livestockSupply",
+      "md27pesticide"
+    ],
+    "replaced_by": {
+      "md25*": "md25equipment (unified table with equipment_category FK)",
+      "md27*": "md27input (unified table with input_category FK)"
+    }
+  }
+}

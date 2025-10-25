@@ -14,6 +14,7 @@ from processors.csv_processor import CSVProcessor
 from processors.json_processor import JSONProcessor
 from processors.metadata import MetadataProcessor
 from processors.master_data_deployer import MasterDataDeployer
+from processors.form_generator import MetadataFormGenerator
 import utils
 
 
@@ -306,6 +307,284 @@ def process_master_data_deploy(args, config):
         sys.exit(1)
 
 
+def process_form_generation(args, config):
+    """Generate Joget form JSON definitions from CSV files"""
+
+    # Initialize generator
+    generator = MetadataFormGenerator(logger=utils.setup_logging(config.get('logging')))
+
+    # Paths configuration
+    metadata_dir = Path(args.metadata_dir or './data/metadata')
+    forms_dir = Path(args.forms_dir or './data/metadata_forms')
+
+    if not metadata_dir.exists():
+        print(f"Error: Metadata directory not found: {metadata_dir}")
+        sys.exit(1)
+
+    # Generate specific form or all forms
+    if args.csv_file:
+        # Generate single form
+        csv_path = Path(args.csv_file)
+        if not csv_path.exists():
+            print(f"Error: CSV file not found: {csv_path}")
+            sys.exit(1)
+
+        # Determine output path
+        if args.output:
+            output_path = Path(args.output)
+        else:
+            output_path = forms_dir / csv_path.with_suffix('.json').name
+
+        print(f"\nGenerating form from: {csv_path}")
+        print(f"Output: {output_path}")
+
+        try:
+            form_json = generator.generate_from_csv(csv_path)
+
+            if args.dry_run:
+                print("\n[DRY RUN] Would generate form:")
+                print(f"  Form ID: {form_json['properties']['id']}")
+                print(f"  Form Name: {form_json['properties']['name']}")
+                print(f"  Table Name: {form_json['properties']['tableName']}")
+            else:
+                generator.save_form_json(form_json, output_path)
+                print(f"✓ Form JSON generated successfully")
+        except Exception as e:
+            print(f"✗ Error generating form: {e}")
+            sys.exit(1)
+
+    else:
+        # Generate all forms from metadata directory
+        csv_files = sorted(metadata_dir.glob('*.csv'))
+
+        if not csv_files:
+            print(f"No CSV files found in: {metadata_dir}")
+            return
+
+        print(f"\nFound {len(csv_files)} CSV files")
+        print(f"Output directory: {forms_dir}")
+
+        # Check which forms already exist
+        existing_forms = {f.stem for f in forms_dir.glob('*.json')}
+
+        forms_to_generate = []
+        for csv_file in csv_files:
+            form_stem = csv_file.stem
+            if form_stem in existing_forms and not args.overwrite:
+                if args.verbose:
+                    print(f"  ⊘ Skipping {form_stem} (already exists)")
+            else:
+                forms_to_generate.append(csv_file)
+
+        if not forms_to_generate:
+            print("\n✓ All forms already exist (use --overwrite to regenerate)")
+            return
+
+        print(f"\nGenerating {len(forms_to_generate)} forms...")
+
+        if not args.yes and not utils.confirm_action(f"\nGenerate {len(forms_to_generate)} form definitions?"):
+            print("Operation cancelled")
+            return
+
+        # Generate forms
+        generated = 0
+        failed = 0
+
+        for idx, csv_file in enumerate(forms_to_generate, 1):
+            form_name = csv_file.stem
+            output_path = forms_dir / csv_file.with_suffix('.json').name
+
+            print(f"\n[{idx}/{len(forms_to_generate)}] {form_name}")
+
+            try:
+                form_json = generator.generate_from_csv(csv_file)
+
+                if args.dry_run:
+                    print(f"  [DRY RUN] Would generate: {form_json['properties']['id']}")
+                else:
+                    generator.save_form_json(form_json, output_path)
+                    print(f"  ✓ Generated")
+
+                generated += 1
+
+            except Exception as e:
+                print(f"  ✗ Failed: {e}")
+                failed += 1
+
+                if args.stop_on_error:
+                    print("\nStopping due to error")
+                    break
+
+        # Summary
+        print("\n" + "=" * 60)
+        print("Form Generation Summary")
+        print("=" * 60)
+        print(f"Generated: {generated}")
+        print(f"Failed: {failed}")
+        print(f"Output directory: {forms_dir}")
+
+
+def process_metadata_discovery(args, config):
+    """
+    Discover CSV files, detect relationships, and generate form definitions.
+
+    This is Phase 1 of the metadata management workflow:
+    1. Scan data/metadata/ for CSV files
+    2. Detect Pattern 1 and Pattern 2 relationships
+    3. Generate form JSON definitions with FK injection
+    4. Save relationships.json
+    """
+    from processors.relationship_detector import RelationshipDetector
+    from processors.form_generator import MetadataFormGenerator
+
+    # Setup paths
+    metadata_dir = Path(args.metadata_dir or config.get('metadata', {}).get('csv_path', './data/metadata'))
+    forms_dir = Path(args.forms_dir or config.get('metadata', {}).get('forms_path', './data/metadata_forms'))
+    relationships_file = Path(config.get('metadata', {}).get('relationships_file', './data/relationships.json'))
+
+    if not metadata_dir.exists():
+        print(f"Error: Metadata directory not found: {metadata_dir}")
+        sys.exit(1)
+
+    print("\n" + "=" * 80)
+    print("PHASE 1: METADATA DISCOVERY & FORM GENERATION")
+    print("=" * 80)
+    print()
+
+    # Initialize components
+    logger = utils.setup_logging(config.get('logging'))
+    detector = RelationshipDetector(config=config, logger=logger)
+    generator = MetadataFormGenerator(config=config, logger=logger)
+
+    # Step 1: Detect relationships
+    print("Step 1: Detecting relationships...")
+    print("-" * 80)
+    relationships, hierarchies = detector.detect_all_relationships(metadata_dir)
+
+    print(f"\n✓ Detected {len(relationships)} relationships:")
+    pattern1_count = len([r for r in relationships if r.pattern_type == 'traditional_fk'])
+    pattern2_count = len([r for r in relationships if r.pattern_type == 'subcategory_source'])
+    print(f"  • Pattern 1 (Traditional FK): {pattern1_count}")
+    print(f"  • Pattern 2 (Subcategory Source): {pattern2_count}")
+    print(f"\n✓ Built {len(hierarchies)} hierarchies")
+    print()
+
+    # Step 2: Save relationships metadata
+    print("Step 2: Saving relationships metadata...")
+    print("-" * 80)
+    detector.save_relationships_metadata(relationships, hierarchies, relationships_file)
+    print(f"✓ Saved to: {relationships_file}")
+    print()
+
+    # Step 3: Generate forms
+    print("Step 3: Generating form definitions...")
+    print("-" * 80)
+
+    csv_files = sorted(metadata_dir.glob('*.csv'))
+    print(f"Found {len(csv_files)} CSV files")
+
+    # Check which forms already exist
+    existing_forms = {f.stem for f in forms_dir.glob('*.json')}
+    forms_to_generate = []
+
+    for csv_file in csv_files:
+        form_stem = csv_file.stem
+        if form_stem in existing_forms and not args.overwrite:
+            if args.verbose:
+                print(f"  ⊘ Skipping {form_stem} (already exists)")
+        else:
+            forms_to_generate.append(csv_file)
+
+    if not forms_to_generate:
+        print("\n✓ All forms already exist (use --overwrite to regenerate)")
+        print()
+        return
+
+    print(f"\nGenerating {len(forms_to_generate)} forms...")
+
+    if not args.yes and not args.dry_run:
+        if not utils.confirm_action(f"\nGenerate {len(forms_to_generate)} form definitions?"):
+            print("Operation cancelled")
+            return
+
+    # Generate forms
+    generated = 0
+    failed = 0
+    pattern2_forms = []
+
+    for idx, csv_file in enumerate(forms_to_generate, 1):
+        form_name = csv_file.stem
+        output_path = forms_dir / csv_file.with_suffix('.json').name
+
+        print(f"\n[{idx}/{len(forms_to_generate)}] {form_name}")
+
+        try:
+            form_json = generator.generate_from_csv(csv_file)
+
+            # Check if Pattern 2
+            form_props = form_json.get('properties', {})
+            is_pattern2 = 'Pattern 2' in form_props.get('description', '')
+
+            if is_pattern2:
+                pattern2_forms.append(form_name)
+
+            if args.dry_run:
+                print(f"  [DRY RUN] Would generate: {form_json['properties']['id']}")
+                if is_pattern2:
+                    print(f"  ⭐ Pattern 2: FK field injected")
+            else:
+                generator.save_form_json(form_json, output_path)
+                print(f"  ✓ Generated")
+                if is_pattern2:
+                    print(f"  ⭐ Pattern 2: FK field injected")
+
+            generated += 1
+
+        except Exception as e:
+            print(f"  ✗ Failed: {e}")
+            if args.verbose:
+                import traceback
+                traceback.print_exc()
+            failed += 1
+
+            if args.stop_on_error:
+                print("\nStopping due to error")
+                break
+
+    # Summary
+    print("\n" + "=" * 80)
+    print("DISCOVERY & GENERATION SUMMARY")
+    print("=" * 80)
+    print(f"CSV Files Scanned:        {len(csv_files)}")
+    print(f"Forms Generated:          {generated}")
+    print(f"Forms Failed:             {failed}")
+    print(f"Pattern 2 Forms:          {len(pattern2_forms)}")
+    print(f"Relationships Detected:   {len(relationships)}")
+    print(f"Hierarchies Built:        {len(hierarchies)}")
+    print()
+    print(f"Output Locations:")
+    print(f"  • Forms:         {forms_dir}")
+    print(f"  • Relationships: {relationships_file}")
+    print()
+
+    if pattern2_forms:
+        print("Pattern 2 Forms (FK injected):")
+        for form_name in pattern2_forms:
+            print(f"  • {form_name}")
+        print()
+
+    if not args.dry_run:
+        print("✅ Phase 1 Complete!")
+        print()
+        print("Next Steps:")
+        print("  1. Review generated forms in data/metadata_forms/")
+        print("  2. Review relationships in data/relationships.json")
+        print("  3. Run: python joget_utility.py --metadata compare")
+        print("     (to compare with deployed forms in Joget)")
+    else:
+        print("[DRY RUN] No files were written")
+
+
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
@@ -331,6 +610,15 @@ Examples:
   # Deploy forms only (no data)
   %(prog)s --deploy-master-data --forms-only
 
+  # Generate form JSONs from all CSV files
+  %(prog)s --generate-forms-from-csv
+
+  # Generate single form from specific CSV
+  %(prog)s --generate-form data/metadata/md99status.csv
+
+  # Generate with custom output path
+  %(prog)s --generate-form data/metadata/md99status.csv --output forms/md99status.json
+
   # Validate data without posting
   %(prog)s --endpoint account --input accounts.csv --validate
 
@@ -349,6 +637,10 @@ Examples:
     parser.add_argument('--metadata-batch', '-m',
                        help='Process metadata batch from YAML file')
 
+    parser.add_argument('--metadata', choices=['discover', 'compare', 'deploy', 'all'],
+                       help='Metadata management commands: discover (generate forms + relationships), '
+                            'compare (diff local vs Joget), deploy (full deployment), all (run all phases)')
+
     parser.add_argument('--deploy-master-data', '--deploy-md', action='store_true',
                        help='Deploy master data forms and populate with data')
 
@@ -360,6 +652,25 @@ Examples:
 
     parser.add_argument('--data-only', action='store_true',
                        help='Only populate data (assumes forms already exist)')
+
+    # Form generation options
+    parser.add_argument('--generate-forms-from-csv', '--gen-forms', action='store_true',
+                       help='Generate form JSONs from all CSV files in metadata directory')
+
+    parser.add_argument('--generate-form', '--gen', dest='csv_file',
+                       help='Generate form JSON from specific CSV file')
+
+    parser.add_argument('--output', '-o',
+                       help='Output path for generated form JSON (used with --generate-form)')
+
+    parser.add_argument('--metadata-dir',
+                       help='Metadata directory containing CSV files (default: ./data/metadata)')
+
+    parser.add_argument('--forms-dir',
+                       help='Forms directory for output JSONs (default: ./data/metadata_forms)')
+
+    parser.add_argument('--overwrite', action='store_true',
+                       help='Overwrite existing form JSON files')
 
     # Processing options
     parser.add_argument('--dry-run', '-d', action='store_true',
@@ -430,7 +741,26 @@ Examples:
         return
 
     # Process based on mode
-    if args.deploy_master_data:
+    if args.metadata:
+        # New metadata management workflow
+        if args.metadata == 'discover':
+            process_metadata_discovery(args, config)
+        elif args.metadata == 'compare':
+            # TODO: Implement comparison
+            print("Metadata comparison not yet implemented")
+            print("Coming soon: Compare local forms with Joget instance")
+        elif args.metadata == 'deploy':
+            # TODO: Use enhanced deployment
+            print("Enhanced metadata deployment not yet implemented")
+            print("Use --deploy-master-data for now")
+        elif args.metadata == 'all':
+            # Run all phases
+            print("Running all metadata phases...")
+            process_metadata_discovery(args, config)
+            # TODO: Add compare and deploy
+    elif args.generate_forms_from_csv or args.csv_file:
+        process_form_generation(args, config)
+    elif args.deploy_master_data:
         process_master_data_deploy(args, config)
     elif args.metadata_batch:
         process_metadata_batch(args, config)

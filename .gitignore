@@ -30,6 +30,25 @@ check_*.py
 # Reports
 validation_reports/
 
+# Backups
+joget_utility/data/metadata_forms/.backups/
+joget_utility/data/forms_backup/
+*.backup
+*.bak
+
+# Deployment outputs and temporary scripts
+joget_utility/deployment_output.txt
+joget_utility/deploy_batch_*.py
+joget_utility/deploy_md*.py
+joget_utility/deploy_single_form.py
+
+# Temporary test outputs
+joget_utility/test_output_*.json
+*_output.json
+
+# Temporary documentation working directories
+doc_forms/
+
 # OS
 .DS_Store
 Thumbs.db

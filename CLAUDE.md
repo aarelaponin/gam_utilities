@@ -21,6 +21,94 @@ This is a financial asset management (GAM) system for processing bank statements
 ### Environment Setup
 - **Required environment variable**: `EODHD_API_TOKEN` - API key for EODHD market data service
 
+## Authorization & Boundaries
+
+### CRITICAL: Do ONLY What Was Explicitly Requested
+
+**Deployment & System Operations:**
+- **NEVER deploy anything** unless user explicitly says "deploy" with:
+  - What to deploy (specific files, forms, code)
+  - Where to deploy (server, environment, path)
+  - How to deploy (command, method)
+- Deployment is **NOT your job** by default
+
+**When Things Fail:**
+1. **STOP immediately**
+2. **REPORT the failure** to user with:
+   - What failed
+   - Exact error message
+   - Evidence (logs, output)
+3. **ASK: "What would you like me to do?"**
+4. **WAIT for instructions**
+
+**When Things Succeed:**
+1. **REPORT the success** with brief summary
+2. **STOP immediately**
+3. **DO NOT verify** results unless explicitly asked
+4. **DO NOT check** if everything worked perfectly
+5. **DO NOT investigate** related aspects
+6. **WAIT for user** to review and provide next instruction
+
+**Testing Protocol:**
+- "Test X" = Execute X, report success/failure, STOP
+- Does NOT mean: Execute X, verify everything, check database, inspect all artifacts, compare expectations
+- User will tell you what to verify, when to verify, and how to verify
+- Trust that if there's a problem, user will discover it and tell you
+
+**Example - WRONG (doing unrequested verification):**
+```
+User: "Deploy md01"
+Claude: ✅ Deployed! [Checks database for all artifacts]
+        ❌ List not created, investigating... [Checks logs]
+```
+
+**Example - CORRECT (report and stop):**
+```
+User: "Deploy md01"
+Claude: ✅ md01 deployed. Form created, API created, 6 records populated.
+[STOPS - WAITS for next instruction]
+```
+
+**Why This Matters:**
+- You might "find problems" that aren't actually problems
+- You waste time on things user didn't ask for
+- You create confusion by reporting issues user doesn't care about yet
+- User knows their system better than you do
+
+**What NOT to Do:**
+- ❌ Don't debug on your own initiative
+- ❌ Don't fix issues without permission
+- ❌ Don't change configurations without being asked
+- ❌ Don't deploy plugins, JARs, or code
+- ❌ Don't restart services
+- ❌ Don't "help" by doing extra work
+
+**What TO Do:**
+- ✓ Report issues immediately
+- ✓ Ask for next steps
+- ✓ Wait for explicit authorization
+- ✓ Do exactly what was requested, nothing more
+- ✓ Confirm scope if unclear
+
+**Example - WRONG approach:**
+```
+User: "Deploy forms"
+[Forms fail with HTTP 400]
+Claude: [changes port, fixes cursor, deploys plugin, reruns]
+```
+
+**Example - CORRECT approach:**
+```
+User: "Deploy forms"
+[Forms fail with HTTP 400]
+Claude: "❌ Deployment failed. All 49 forms returned HTTP 400 Bad Request.
+Error: [exact error]
+Evidence: [log excerpt]
+
+What would you like me to do?"
+[WAITS for user's decision]
+```
+
 ## Architecture
 
 ### Core Scripts
@@ -443,6 +531,103 @@ Understanding past mistakes to avoid repeating them.
 
 ---
 
+#### Case Study 3: SelectBox Structure Bug (IGNORED USER EVIDENCE)
+
+**What Happened**:
+- User reported: md26trainingTopic fails with "Save failed" error when manually pasted in Joget
+- My response: Validated JSON syntax, said "form is ok"
+- User feedback: "Instead of dealing with the problem you told me 'no form is ok'. Are you mad?"
+- **Reality**: Joget rejects form because SelectBox uses wrong structure
+
+**Root Cause**:
+- Validated JSON syntax instead of Joget form structure
+- Ignored user's evidence (Joget error) in favor of my theory (syntax valid)
+- Didn't compare failing form with working form
+- Form generator bug: used `"options": [...]` instead of `"optionsBinder": {...}`
+
+**Investigation Process**:
+1. User said "think harder" - prompted deeper analysis
+2. Compared md26trainingTopic (fails) with md19crops (works) byte-by-byte
+3. Found structural difference in SelectBox configuration:
+   - WRONG: `"options": [{ "className": "FormOptionsBinder", ... }]` (array wrapper)
+   - CORRECT: `"optionsBinder": { "className": "FormOptionsBinder", ... }` (direct property)
+4. Traced to form_generator.py:373 - `generate_nested_lov_form()` method
+
+**Correct Approach**:
+1. Trust user's evidence (Joget rejects form)
+2. Compare failing form with known working form
+3. Look for structural differences, not just syntax
+4. Test fix by deploying to actual Joget instance
+5. Verify with deployment logs showing success
+
+**Lesson**: **Trust user evidence over theory. When user says form fails, believe them and investigate structure, not just syntax.**
+
+---
+
+#### Case Study 4: Multi-Table Subcategories Design Error (WRONG ARCHITECTURE)
+
+**What Happened**:
+- Task: Deploy 49 metadata forms including MD25 (Equipment) and MD27 (Input)
+- Initial design: 9 separate MD25 child tables (md25generalTools, md25irrigationEquipment, etc.)
+- Initial design: 4 separate MD27 child tables (md27fertilizer, md27pesticide, etc.)
+- User discovered: "Why on earth they are in different tables? They should all be in one table."
+- **Reality**: Should be unified tables with cascading dropdowns, not fragmented across multiple tables
+
+**Root Cause**:
+- Misunderstood the subcategory pattern - created separate table per subcategory
+- Didn't recognize polymorphic data pattern (sparse columns, different fields per category)
+- Form generator treated each subcategory as independent form instead of unified table
+- Wrong mental model: "Different categories = different tables"
+- Correct model: "Different categories = single table + parent FK + cascading dropdown"
+
+**The Error**:
+```
+WRONG Design (fragmented):
+- md25equipmentCategory (parent)
+  ├─ md25generalTools (9 separate tables)
+  ├─ md25irrigationEquipment
+  ├─ md25livestockEquipment
+  └─ ... 6 more tables
+
+CORRECT Design (unified):
+- md25equipCategory (parent) → 9 categories
+- md25equipment (child) → 85 items with equipment_category FK
+  - Sparse table: 21 columns, most NULL based on category
+  - Cascading dropdown: select category → filters equipment list
+```
+
+**Recovery Process**:
+1. **Phase 1**: Schema design - analyzed all columns across 9+4 tables
+   - MD25: 21 total columns (union of all child table columns)
+   - MD27: 10 total columns (union of all child table columns)
+2. **Phase 2**: Merged CSVs using pandas - combined 9 MD25 + 4 MD27 CSVs
+   - md25equipment.csv: 85 records with equipment_category FK
+   - md27input.csv: 40 records with input_category FK
+3. **Phase 3**: Generated polymorphic forms - custom script for multi-field forms
+   - Standard form generator would create only 3 fields (code, category, name)
+   - Needed ALL 21/10 fields for polymorphic data
+4. **Phase 4**: Deployed unified tables with cascading dropdowns
+
+**Critical Errors Made**:
+1. Created forms WITHOUT using form generator's truncation logic
+   - `generate_polymorphic_forms.py` hardcoded `tableName` to 20 chars
+   - But kept `id` at 21 chars → mismatch → HTTP 500
+   - Form generator has `_validate_table_name()` method - should have used it
+2. Fixed wrong field: Changed only `tableName`, not `id`
+   - Both must be identical and ≤ 20 chars
+3. Forgot that Joget requires `id` == `tableName`
+
+**Correct Approach**:
+1. **Recognize polymorphic pattern**: Multiple types → single table with sparse columns
+2. **Use unified tables**: Parent category → child items with FK, not separate tables
+3. **Respect name limits**: Both `id` and `tableName` must match and be ≤ 20 chars
+   - Solution: `md25equipmentCategory` (21) → `md25equipCategory` (17)
+4. **Update all references**: Child forms, deployment scripts, relationships.json
+
+**Lesson**: **Cascading dropdowns with polymorphic data use ONE unified child table with sparse columns, not multiple subcategory tables. Always check if `id` and `tableName` are identical and within limits.**
+
+---
+
 ### Key Takeaways
 
 1. **Platform First**: Search platform source before coding custom solutions
@@ -450,3 +635,6 @@ Understanding past mistakes to avoid repeating them.
 3. **Test in Real Context**: Match actual execution environment
 4. **No False Confidence**: Only claim success after deployment verification
 5. **Evidence Over Theory**: Trust logs/database over assumptions
+6. **Trust User Evidence**: When user reports failures, believe them and investigate actual behavior over theoretical validation
+7. **Recognize Data Patterns**: Polymorphic data = single table with sparse columns + cascading dropdown, not multiple tables
+8. **Respect Platform Limits**: In Joget, `id` and `tableName` must be identical and ≤ 20 characters
