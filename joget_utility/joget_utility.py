@@ -221,6 +221,131 @@ def process_metadata_batch(args, config):
         sys.exit(1)
 
 
+def process_create_form(args, config):
+    """Create a single form from a form definition file"""
+    import json
+
+    form_file = Path(args.create_form)
+    if not form_file.exists():
+        print(f"Error: Form definition file not found: {form_file}")
+        sys.exit(1)
+
+    # Load form definition
+    try:
+        with open(form_file, 'r') as f:
+            data = json.load(f)
+
+        # Handle different file formats
+        # Format 1: Direct form definition (from form generator)
+        if 'className' in data and data.get('className') == 'org.joget.apps.form.model.Form':
+            form_definition = data
+        # Format 2: Wrapped in CRUD export format (from Joget export)
+        elif 'message' in data:
+            message_str = data.get('message', '{}')
+            components = json.loads(message_str).get('components', {})
+            form_data = components.get('form', {})
+            form_definition = form_data.get('definition', {})
+        # Format 3: Already extracted form
+        elif 'definition' in data:
+            form_definition = data['definition']
+        else:
+            print("Error: Unrecognized form definition format")
+            sys.exit(1)
+
+        # Extract form properties
+        form_props = form_definition.get('properties', {})
+        form_id = args.form_id or form_props.get('id')
+        form_name = args.form_name or form_props.get('name', form_id)
+        table_name = args.table_name or form_props.get('tableName', form_id.lower())
+
+        if not form_id:
+            print("Error: Could not determine form ID. Use --form-id to specify.")
+            sys.exit(1)
+
+        print(f"Preparing to create form: {form_id}")
+        print(f"  Name: {form_name}")
+        print(f"  Table: {table_name}")
+        print(f"  Target app: {args.app_id}")
+
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in form definition file: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error reading form definition: {e}")
+        sys.exit(1)
+
+    # Load deployment config to get API credentials
+    deploy_config_path = args.deploy_config or './config/master_data_deploy.yaml'
+    try:
+        deploy_config = utils.load_config(deploy_config_path)
+    except FileNotFoundError:
+        print(f"Error: Deployment configuration not found: {deploy_config_path}")
+        print("Need FormCreator API credentials. Create config/master_data_deploy.yaml")
+        sys.exit(1)
+
+    deployment_config = deploy_config.get('deployment', {})
+
+    # Allow base_url override via --port
+    if args.port:
+        base_url = f"http://localhost:{args.port}/jw/api"
+    else:
+        base_url = deployment_config.get('base_url')
+
+    # Initialize client
+    client = JogetClient(
+        base_url=base_url,
+        api_key=deployment_config.get('form_creator_api_key'),
+        debug=args.debug
+    )
+
+    # Prepare payload for FormCreator
+    payload = {
+        'target_app_id': args.app_id,
+        'target_app_version': args.app_version or '1',
+        'form_id': form_id,
+        'form_name': form_name,
+        'table_name': table_name,
+        'form_definition_json': json.dumps(form_definition),
+        'create_api_endpoint': 'yes' if args.create_api else 'no',
+        'api_name': f'api_{form_id}',
+        'create_crud': 'yes' if args.create_crud else 'no'
+    }
+
+    if args.dry_run:
+        print("\n[DRY RUN MODE - No actual changes will be made]")
+        print(f"\nWould create form with payload:")
+        print(f"  Target app: {payload['target_app_id']}")
+        print(f"  Form ID: {payload['form_id']}")
+        print(f"  Table: {payload['table_name']}")
+        print(f"  Create API: {payload['create_api_endpoint']}")
+        print(f"  Create CRUD: {payload['create_crud']}")
+        return
+
+    # Confirm
+    if not args.yes:
+        if not utils.confirm_action(f"\nCreate form '{form_id}' in app '{args.app_id}' on {base_url}?"):
+            print("Operation cancelled")
+            return
+
+    # Create form
+    print("\nSending form to FormCreator...")
+    try:
+        response = client.create_form(
+            payload=payload,
+            api_id=deployment_config.get('form_creator_api_id')
+        )
+
+        print("\n✓ Form created successfully!")
+        print(f"Response ID: {response.get('id', 'N/A')}")
+
+        if response.get('errors'):
+            print(f"Warnings/Errors: {response['errors']}")
+
+    except JogetAPIError as e:
+        print(f"\n✗ Error creating form: {e}")
+        sys.exit(1)
+
+
 def process_master_data_deploy(args, config):
     """Deploy master data forms and populate them with data"""
     # Load deployment configuration
@@ -610,6 +735,15 @@ Examples:
   # Deploy forms only (no data)
   %(prog)s --deploy-master-data --forms-only
 
+  # Create single form (ad-hoc testing)
+  %(prog)s --create-form doc_forms/subsidyApproval.json --app-id subsidyApplication --port 8888
+
+  # Create form with overrides (dry run first)
+  %(prog)s --create-form test.json --app-id myApp --port 8080 --form-id custom_id --dry-run
+
+  # Create form without API/CRUD
+  %(prog)s --create-form test.json --app-id myApp --no-create-api --no-create-crud
+
   # Generate form JSONs from all CSV files
   %(prog)s --generate-forms-from-csv
 
@@ -652,6 +786,41 @@ Examples:
 
     parser.add_argument('--data-only', action='store_true',
                        help='Only populate data (assumes forms already exist)')
+
+    # Single form creation options
+    parser.add_argument('--create-form',
+                       help='Create a single form from JSON definition file')
+
+    parser.add_argument('--app-id',
+                       help='Target application ID (required with --create-form)')
+
+    parser.add_argument('--app-version',
+                       help='Target application version (default: 1)')
+
+    parser.add_argument('--port',
+                       type=int,
+                       help='Joget server port (e.g., 8888, 8080)')
+
+    parser.add_argument('--form-id',
+                       help='Override form ID from definition file')
+
+    parser.add_argument('--form-name',
+                       help='Override form name from definition file')
+
+    parser.add_argument('--table-name',
+                       help='Override table name from definition file')
+
+    parser.add_argument('--create-api', action='store_true', default=True,
+                       help='Create API endpoint for the form (default: True)')
+
+    parser.add_argument('--no-create-api', dest='create_api', action='store_false',
+                       help='Do not create API endpoint')
+
+    parser.add_argument('--create-crud', action='store_true', default=True,
+                       help='Create CRUD interface for the form (default: True)')
+
+    parser.add_argument('--no-create-crud', dest='create_crud', action='store_false',
+                       help='Do not create CRUD interface')
 
     # Form generation options
     parser.add_argument('--generate-forms-from-csv', '--gen-forms', action='store_true',
@@ -758,6 +927,12 @@ Examples:
             print("Running all metadata phases...")
             process_metadata_discovery(args, config)
             # TODO: Add compare and deploy
+    elif args.create_form:
+        # Validate required arguments
+        if not args.app_id:
+            print("Error: --app-id is required when using --create-form")
+            sys.exit(1)
+        process_create_form(args, config)
     elif args.generate_forms_from_csv or args.csv_file:
         process_form_generation(args, config)
     elif args.deploy_master_data:
