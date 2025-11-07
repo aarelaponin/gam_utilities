@@ -1,0 +1,368 @@
+# Migration Center Application
+# Canonical format specification
+# This demonstrates all features of the canonical format
+
+version: "1.0"
+
+metadata:
+  app_id: migrationCenter
+  app_name: Migration Center
+  description: Command center for tracking application migrations across environments (dev → test → prod)
+  version: "1.0"
+  author: Development Team
+
+forms:
+  # Form 1: Deployment Jobs (Parent)
+  - id: deployment_jobs
+    name: Deployment Jobs
+    table: app_fd_deployment_jobs
+    description: Track each export/import operation as a job
+
+    fields:
+      - id: job_id
+        type: text
+        label: Job ID
+        size: 100
+        required: true
+        default: uuid
+        primary_key: true
+        readonly: true
+
+      - id: job_type
+        type: select
+        label: Job Type
+        required: true
+        options:
+          - value: export
+            label: Export
+          - value: import
+            label: Import
+
+      - id: source_app
+        type: text
+        label: Source App
+        size: 100
+        required: true
+        description: Application ID being exported
+
+      - id: target_app
+        type: text
+        label: Target App
+        size: 100
+        required: false
+        description: Application ID receiving import (null for export jobs)
+
+      - id: source_environment
+        type: select
+        label: Source Environment
+        required: true
+        options: [dev, test, prod]
+
+      - id: target_environment
+        type: select
+        label: Target Environment
+        required: false
+        options: [dev, test, prod]
+
+      - id: status
+        type: select
+        label: Status
+        required: true
+        default: pending
+        options: [pending, running, completed, failed]
+
+      - id: started_by
+        type: text
+        label: Started By
+        size: 100
+        required: true
+        default: currentUser
+
+      - id: started_at
+        type: datetime
+        label: Started At
+        required: true
+        default: currentDateTime
+
+      - id: completed_at
+        type: datetime
+        label: Completed At
+        required: false
+
+      - id: duration_seconds
+        type: number
+        label: Duration (seconds)
+        required: false
+
+      - id: export_file
+        type: file
+        label: Export File
+        required: false
+        description: Uploaded ZIP file (for import jobs)
+
+      - id: components_count
+        type: number
+        label: Components Count
+        required: false
+        description: Total components processed
+
+      - id: warnings_count
+        type: number
+        label: Warnings Count
+        required: false
+        default: "0"
+
+      - id: errors_count
+        type: number
+        label: Errors Count
+        required: false
+        default: "0"
+
+      - id: report
+        type: textarea
+        label: Report
+        required: false
+        description: JSON report with details
+
+    indexes:
+      - fields: [source_app, status, started_at]
+
+  # Form 2: Deployment History (Child)
+  - id: deployment_history
+    name: Deployment History
+    table: app_fd_deployment_history
+    description: Audit trail of individual component deployments
+
+    fields:
+      - id: history_id
+        type: text
+        label: History ID
+        size: 100
+        required: true
+        default: uuid
+        primary_key: true
+        readonly: true
+
+      - id: job_id
+        type: foreign_key
+        label: Job ID
+        size: 100
+        required: true
+        references:
+          form: deployment_jobs
+          field: job_id
+          label_field: job_id
+        description: Link to parent deployment_jobs
+
+      - id: component_type
+        type: select
+        label: Component Type
+        required: true
+        options: [form, datalist, userview, api, process]
+
+      - id: component_id
+        type: text
+        label: Component ID
+        size: 100
+        required: true
+
+      - id: component_name
+        type: text
+        label: Component Name
+        size: 255
+        required: false
+
+      - id: checksum_before
+        type: text
+        label: Checksum Before
+        size: 64
+        required: false
+        description: SHA-256 hash before import (if existed)
+
+      - id: checksum_after
+        type: text
+        label: Checksum After
+        size: 64
+        required: true
+        description: SHA-256 hash after import
+
+      - id: action
+        type: select
+        label: Action
+        required: true
+        options:
+          - created
+          - updated
+          - skipped
+          - failed
+        description: What happened to this component
+
+      - id: error_message
+        type: textarea
+        label: Error Message
+        required: false
+        description: Error details if action=failed
+
+      - id: timestamp
+        type: datetime
+        label: Timestamp
+        required: true
+        default: currentDateTime
+
+    indexes:
+      - fields: [job_id]
+      - fields: [component_type, component_id]
+      - fields: [action]
+
+  # Form 3: Prerequisite Validation (Child)
+  - id: prerequisite_validation
+    name: Prerequisite Validation
+    table: app_fd_prerequisite_validation
+    description: Track validation results for prerequisites
+
+    fields:
+      - id: validation_id
+        type: text
+        label: Validation ID
+        size: 100
+        required: true
+        default: uuid
+        primary_key: true
+
+      - id: job_id
+        type: foreign_key
+        label: Job ID
+        size: 100
+        required: true
+        references:
+          form: deployment_jobs
+          field: job_id
+          label_field: job_id
+
+      - id: item_type
+        type: select
+        label: Item Type
+        required: true
+        options: [metadata_form, plugin, joget_version]
+
+      - id: item_name
+        type: text
+        label: Item Name
+        size: 255
+        required: true
+
+      - id: item_checksum
+        type: text
+        label: Item Checksum
+        size: 64
+        required: false
+        description: Expected checksum (for plugins)
+
+      - id: status
+        type: select
+        label: Status
+        required: true
+        options: [found, missing, mismatch]
+
+      - id: severity
+        type: select
+        label: Severity
+        required: true
+        default: warning
+        options: [warning, error]
+
+      - id: message
+        type: textarea
+        label: Message
+        required: false
+        description: Human-readable warning/error message
+
+      - id: validated_at
+        type: datetime
+        label: Validated At
+        required: true
+        default: currentDateTime
+
+    indexes:
+      - fields: [job_id]
+      - fields: [item_type, status]
+      - fields: [severity]
+
+  # Form 4: Component Registry (Standalone)
+  - id: component_registry
+    name: Component Registry
+    table: app_fd_component_registry
+    description: Registry of what components are deployed in which environment
+
+    fields:
+      - id: registry_id
+        type: text
+        label: Registry ID
+        size: 100
+        required: true
+        default: uuid
+        primary_key: true
+
+      - id: app_id
+        type: text
+        label: App ID
+        size: 100
+        required: true
+
+      - id: environment
+        type: select
+        label: Environment
+        required: true
+        options: [dev, test, prod]
+
+      - id: component_type
+        type: select
+        label: Component Type
+        required: true
+        options: [form, datalist, userview, api, process]
+
+      - id: component_id
+        type: text
+        label: Component ID
+        size: 100
+        required: true
+
+      - id: component_name
+        type: text
+        label: Component Name
+        size: 255
+        required: false
+
+      - id: checksum
+        type: text
+        label: Checksum
+        size: 64
+        required: true
+        description: SHA-256 hash of current version
+
+      - id: deployed_at
+        type: datetime
+        label: Deployed At
+        required: true
+        default: currentDateTime
+
+      - id: deployed_by
+        type: text
+        label: Deployed By
+        size: 100
+        required: true
+        default: currentUser
+
+      - id: job_id
+        type: text
+        label: Job ID
+        size: 100
+        required: false
+        description: Reference to deployment_jobs (optional)
+
+    indexes:
+      - fields: [app_id, environment, component_type, component_id]
+        unique: true
+      - fields: [app_id]
+      - fields: [environment]
+      - fields: [component_type]

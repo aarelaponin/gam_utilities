@@ -1,0 +1,591 @@
+version: '1.0'
+metadata:
+  app_id: migrationCenter
+  app_name: Migration Center
+  description: Command center for tracking application migrations across environments
+    (dev → test → prod)
+  version: '1.0'
+forms:
+- id: deployment_jobs
+  name: Deployment Jobs
+  table: app_fd_deployment_jobs
+  fields:
+  - id: job_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Job ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: uuid
+    description: Unique identifier for this job
+    primary_key: true
+  - id: job_type
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Job Type
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: export
+      label: export
+    - value: import
+      label: import
+    description: 'Type: export or import'
+    primary_key: false
+  - id: source_app
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Source App
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Application ID being exported
+    primary_key: false
+  - id: target_app
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Target App
+    size: 100
+    required: false
+    readonly: false
+    unique: false
+    description: Application ID receiving import (null for export jobs)
+    primary_key: false
+  - id: source_environment
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Source Environment
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: dev
+      label: dev
+    - value: test
+      label: test
+    - value: prod
+      label: prod
+    description: 'Environment: dev, test, prod'
+    primary_key: false
+  - id: target_environment
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Target Environment
+    required: false
+    readonly: false
+    unique: false
+    options:
+    - value: dev
+      label: dev
+    - value: test
+      label: test
+    - value: prod
+      label: prod
+    description: Target environment (for imports)
+    primary_key: false
+  - id: status
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Status
+    required: true
+    readonly: false
+    unique: false
+    default: pending
+    options:
+    - value: pending
+      label: pending
+    - value: running
+      label: running
+    - value: completed
+      label: completed
+    - value: failed
+      label: failed
+    description: 'Job status: pending, running, completed, failed'
+    primary_key: false
+  - id: started_by
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Started By
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: currentUser
+    description: Username who initiated
+    primary_key: false
+  - id: started_at
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - date
+    label: Started At
+    required: true
+    readonly: false
+    unique: false
+    default: currentDateTime
+    description: When job started
+    primary_key: false
+  - id: completed_at
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - date
+    label: Completed At
+    required: false
+    readonly: false
+    unique: false
+    description: When job finished
+    primary_key: false
+  - id: duration_seconds
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - number
+    label: Duration (seconds)
+    required: false
+    readonly: false
+    unique: false
+    description: How long job took
+    primary_key: false
+  - id: export_file
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - file
+    label: Export File
+    required: false
+    readonly: false
+    unique: false
+    description: Uploaded ZIP file (for import jobs)
+    primary_key: false
+  - id: components_count
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - number
+    label: Components Count
+    required: false
+    readonly: false
+    unique: false
+    description: Total components processed
+    primary_key: false
+  - id: warnings_count
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - number
+    label: Warnings Count
+    required: false
+    readonly: false
+    unique: false
+    default: '0'
+    description: Number of warnings
+    primary_key: false
+  - id: errors_count
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - number
+    label: Errors Count
+    required: false
+    readonly: false
+    unique: false
+    default: '0'
+    description: Number of errors
+    primary_key: false
+  - id: report
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Report
+    required: false
+    readonly: false
+    unique: false
+    description: JSON report with details
+    primary_key: false
+  indexes:
+  - fields:
+    - source_app
+    - status
+    - started_at
+    unique: false
+  allow_create: true
+  allow_update: true
+  allow_delete: true
+- id: deployment_history
+  name: Deployment History
+  table: app_fd_deployment_history
+  fields:
+  - id: history_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: History ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: uuid
+    description: Unique identifier
+    primary_key: true
+  - id: job_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Job ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Link to parent deployment_jobs
+    primary_key: false
+  - id: component_type
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Component Type
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: form
+      label: form
+    - value: datalist
+      label: datalist
+    - value: userview
+      label: userview
+    - value: api
+      label: api
+    - value: process
+      label: process
+    description: 'Type: form, datalist, userview, api, process'
+    primary_key: false
+  - id: component_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Component ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Component identifier (e.g., formId)
+    primary_key: false
+  - id: component_name
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Component Name
+    size: 255
+    required: false
+    readonly: false
+    unique: false
+    description: Human-readable name
+    primary_key: false
+  - id: checksum_before
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Checksum Before
+    size: 64
+    required: false
+    readonly: false
+    unique: false
+    description: SHA-256 hash before import (if existed)
+    primary_key: false
+  - id: checksum_after
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Checksum After
+    size: 64
+    required: true
+    readonly: false
+    unique: false
+    description: SHA-256 hash after import
+    primary_key: false
+  - id: action
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Action
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: created
+      label: created
+    - value: updated
+      label: updated
+    - value: skipped
+      label: skipped
+    - value: failed
+      label: failed
+    description: 'What happened: created, updated, skipped, failed'
+    primary_key: false
+  - id: error_message
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Error Message
+    required: false
+    readonly: false
+    unique: false
+    description: Error details if action=failed
+    primary_key: false
+  - id: timestamp
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - date
+    label: Timestamp
+    required: true
+    readonly: false
+    unique: false
+    default: currentDateTime
+    description: When this component was processed
+    primary_key: false
+  indexes:
+  - fields:
+    - component_type
+    - component_id
+    - action
+    unique: false
+  allow_create: true
+  allow_update: true
+  allow_delete: true
+- id: prerequisite_validation
+  name: Prerequisite Validation
+  table: app_fd_prerequisite_validation
+  fields:
+  - id: validation_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Validation ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: uuid
+    description: Unique identifier
+    primary_key: true
+  - id: job_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Job ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Link to parent deployment_jobs
+    primary_key: false
+  - id: item_type
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Item Type
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: metadata_form
+      label: metadata_form
+    - value: plugin
+      label: plugin
+    - value: joget_version
+      label: joget_version
+    description: 'Type: metadata_form, plugin, joget_version'
+    primary_key: false
+  - id: item_name
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Item Name
+    size: 255
+    required: true
+    readonly: false
+    unique: false
+    description: Name of required item
+    primary_key: false
+  - id: item_checksum
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Item Checksum
+    size: 64
+    required: false
+    readonly: false
+    unique: false
+    description: Expected checksum (for plugins)
+    primary_key: false
+  - id: status
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Status
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: found
+      label: found
+    - value: missing
+      label: missing
+    - value: mismatch
+      label: mismatch
+    description: 'Result: found, missing, mismatch'
+    primary_key: false
+  - id: severity
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Severity
+    required: true
+    readonly: false
+    unique: false
+    default: warning
+    options:
+    - value: warning
+      label: warning
+    - value: error
+      label: error
+    description: 'Impact: warning, error'
+    primary_key: false
+  - id: message
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Message
+    required: false
+    readonly: false
+    unique: false
+    description: Human-readable warning/error message
+    primary_key: false
+  - id: validated_at
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - date
+    label: Validated At
+    required: true
+    readonly: false
+    unique: false
+    default: currentDateTime
+    description: When validation performed
+    primary_key: false
+  indexes:
+  - fields:
+    - item_type
+    - status
+    - severity
+    unique: false
+  allow_create: true
+  allow_update: true
+  allow_delete: true
+- id: component_registry
+  name: Component Registry
+  table: app_fd_component_registry
+  fields:
+  - id: registry_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Registry ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: uuid
+    description: Unique identifier
+    primary_key: true
+  - id: app_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: App ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Application identifier
+    primary_key: false
+  - id: environment
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Environment
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: dev
+      label: dev
+    - value: test
+      label: test
+    - value: prod
+      label: prod
+    description: 'Where deployed: dev, test, prod'
+    primary_key: false
+  - id: component_type
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - select
+    label: Component Type
+    required: true
+    readonly: false
+    unique: false
+    options:
+    - value: form
+      label: form
+    - value: datalist
+      label: datalist
+    - value: userview
+      label: userview
+    - value: api
+      label: api
+    - value: process
+      label: process
+    description: 'Type: form, datalist, userview, api, process'
+    primary_key: false
+  - id: component_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Component ID
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    description: Component identifier
+    primary_key: false
+  - id: component_name
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Component Name
+    size: 255
+    required: false
+    readonly: false
+    unique: false
+    description: Human-readable name
+    primary_key: false
+  - id: checksum
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Checksum
+    size: 64
+    required: true
+    readonly: false
+    unique: false
+    description: SHA-256 hash of current version
+    primary_key: false
+  - id: deployed_at
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - date
+    label: Deployed At
+    required: true
+    readonly: false
+    unique: false
+    default: currentDateTime
+    description: When last deployed/updated
+    primary_key: false
+  - id: deployed_by
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Deployed By
+    size: 100
+    required: true
+    readonly: false
+    unique: false
+    default: currentUser
+    description: Who deployed it
+    primary_key: false
+  - id: job_id
+    type: !!python/object/apply:joget_toolkit.specs.schema.FieldType
+    - text
+    label: Job ID
+    size: 100
+    required: false
+    readonly: false
+    unique: false
+    description: Reference to deployment_jobs (optional)
+    primary_key: false
+  indexes:
+  - fields:
+    - app_id
+    - environment
+    - component_type
+    - component_id
+    unique: true
+  - fields:
+    - app_id
+    - environment
+    - component_type
+    unique: false
+  allow_create: true
+  allow_update: true
+  allow_delete: true

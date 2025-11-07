@@ -1,0 +1,245 @@
+{
+    "elements": [
+        {
+            "elements": [
+                {
+                    "elements": [
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "History ID",
+                                "id": "history_id",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "100",
+                                "size": "50",
+                                "readonly": "true",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DuplicateValueValidator",
+                                    "properties": {
+                                        "formDefId": "deployment_history",
+                                        "fieldId": "history_id",
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Job ID",
+                                "id": "job_id",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "100",
+                                "size": "50",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.SelectBox",
+                            "properties": {
+                                "label": "Component Type",
+                                "id": "component_type",
+                                "placeholder": "",
+                                "value": "",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                },
+                                "options": [
+                                    {
+                                        "value": "form",
+                                        "label": "form"
+                                    },
+                                    {
+                                        "value": "datalist",
+                                        "label": "datalist"
+                                    },
+                                    {
+                                        "value": "userview",
+                                        "label": "userview"
+                                    },
+                                    {
+                                        "value": "api",
+                                        "label": "api"
+                                    },
+                                    {
+                                        "value": "process",
+                                        "label": "process"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Component ID",
+                                "id": "component_id",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "100",
+                                "size": "50",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Component Name",
+                                "id": "component_name",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "255",
+                                "size": "50",
+                                "validator": {
+                                    "className": "",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Checksum Before",
+                                "id": "checksum_before",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "64",
+                                "size": "50",
+                                "validator": {
+                                    "className": "",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Checksum After",
+                                "id": "checksum_after",
+                                "placeholder": "",
+                                "value": "",
+                                "maxlength": "64",
+                                "size": "50",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.SelectBox",
+                            "properties": {
+                                "label": "Action",
+                                "id": "action",
+                                "placeholder": "",
+                                "value": "",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                },
+                                "options": [
+                                    {
+                                        "value": "created",
+                                        "label": "created"
+                                    },
+                                    {
+                                        "value": "updated",
+                                        "label": "updated"
+                                    },
+                                    {
+                                        "value": "skipped",
+                                        "label": "skipped"
+                                    },
+                                    {
+                                        "value": "failed",
+                                        "label": "failed"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.TextField",
+                            "properties": {
+                                "label": "Error Message",
+                                "id": "error_message",
+                                "placeholder": "",
+                                "value": "",
+                                "validator": {
+                                    "className": "",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        {
+                            "className": "org.joget.apps.form.lib.DatePicker",
+                            "properties": {
+                                "label": "Timestamp",
+                                "id": "timestamp",
+                                "placeholder": "",
+                                "value": "{currentDateTime}",
+                                "validator": {
+                                    "className": "org.joget.apps.form.lib.DefaultValidator",
+                                    "properties": {
+                                        "mandatory": "true"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "className": "org.joget.apps.form.model.Column",
+                    "properties": {
+                        "width": "100%"
+                    }
+                }
+            ],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "label": "Section",
+                "id": "section1"
+            }
+        }
+    ],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "noPermissionMessage": "",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Deployment History",
+        "description": "",
+        "postProcessorRunOn": "create",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "id": "deployment_history",
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "app_fd_deployment_history"
+    }
+}

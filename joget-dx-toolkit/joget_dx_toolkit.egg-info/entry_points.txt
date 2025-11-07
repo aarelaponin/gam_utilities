@@ -1,0 +1,3 @@
+[console_scripts]
+jdx = joget_toolkit.cli.main:cli
+joget-dx = joget_toolkit.cli.main:cli
